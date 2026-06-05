@@ -224,6 +224,10 @@ ul { list-style: none; }
   padding: 4px;
 }
 
+body.nav-open {
+  overflow: hidden;
+}
+
 .hamburger span {
   display: block;
   width: 24px; height: 2px;

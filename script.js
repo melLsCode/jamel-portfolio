@@ -15,12 +15,19 @@ if (hamburger && navLinks) {
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('open');
     navLinks.classList.toggle('open');
+    document.body.classList.toggle('nav-open');
   });
 
   navLinks.addEventListener('click', e => {
     if (e.target.tagName === 'A') {
+      e.preventDefault();
+      const href = e.target.getAttribute('href');
       hamburger.classList.remove('open');
       navLinks.classList.remove('open');
+      document.body.classList.remove('nav-open');
+      setTimeout(() => {
+        window.location.href = href;
+      }, 150);
     }
   });
 }
