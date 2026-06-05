@@ -2407,14 +2407,18 @@ ul { list-style: none; }
     flex-direction: column;
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(5,5,16,0.98);
+    width: 100vw;
+    height: 100vh;
+    background: rgb(5,5,16);
+    background: rgba(5,5,16,1);
     justify-content: center;
     align-items: center;
     gap: 32px;
-    z-index: 999;
+    z-index: 9999;
+    overflow: hidden;
   }
   .nav-links.open a { font-size: 1.4rem; }
-  .hamburger { display: flex; z-index: 1001; }
+  .hamburger { display: flex; z-index: 10000; }
   .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .hamburger.open span:nth-child(2) { opacity: 0; }
   .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
