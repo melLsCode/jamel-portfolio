@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jamel | Social Media Manager & Web Developer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand">J<span class="accent">.</span>dev</div>
+    <ul class="nav-links">
+      <li><a href="index.html#hero">Home</a></li>
+      <li><a href="content.html">Content</a></li>
+      <li><a href="dev-projects.html">Dev Projects</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <button class="nav-cta" onclick="window.location.href='contact.html';">Hire Me</button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="contact-glow"></div>
+    <div class="section-header">
+      <span class="section-tag">Get In Touch</span>
+      <h2>Let&#39;s <span class="gradient-text">Work Together</span></h2>
+      <p>Have a project in mind? Send a message and I&#39;ll get back within 24 hours.</p>
+    </div>
+    <div class="contact-inner">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon-wrap"><i class="fas fa-envelope"></i></div>
+          <div>
+            <span class="contact-label">Email</span>
+            <a href="mailto:jamelduarte93@gmail.com" class="contact-value">jamelduarte93@gmail.com</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon-wrap"><i class="fab fa-youtube"></i></div>
+          <div>
+            <span class="contact-label">YouTube</span>
+            <span class="contact-value">@YourChannel</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon-wrap"><i class="fab fa-instagram"></i></div>
+          <div>
+            <span class="contact-label">Instagram</span>
+            <span class="contact-value">@YourHandle</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon-wrap"><i class="fab fa-github"></i></div>
+          <div>
+            <span class="contact-label">GitHub</span>
+            <span class="contact-value">@YourGithub</span>
+          </div>
+        </div>
+        <div class="social-row">
+          <a href="#" class="social-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-btn" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" class="social-btn" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="Project inquiry" />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">
+          Send Message <i class="fas fa-paper-plane"></i>
+        </button>
+        <div class="form-feedback" id="formFeedback"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="nav-brand">J<span class="accent">.</span>dev</span>
+      <p>Crafted with code &amp; strategy &copy; <span id="year"></span> Jamel</p>
+      <div class="footer-links">
+        <a href="index.html#hero">Home</a>
+        <a href="content.html">Content</a>
+        <a href="dev-projects.html">Dev Projects</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

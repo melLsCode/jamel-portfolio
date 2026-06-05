@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jamel | Social Media Manager & Web Developer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand">J<span class="accent">.</span>dev</div>
+    <ul class="nav-links">
+      <li><a href="index.html#hero">Home</a></li>
+      <li><a href="content.html">Content</a></li>
+      <li><a href="dev-projects.html">Dev Projects</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-cta" onclick="window.location.href='contact.html';">Hire Me</button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Services Section -->
+  <section class="services" id="services">
+    <div class="section-header">
+      <span class="section-tag">What I Do</span>
+      <h2>Services <span class="gradient-text">I Offer</span></h2>
+      <p>End-to-end solutions from content strategy to custom web and mobile development.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon-wrap">
+          <i class="fas fa-share-nodes"></i>
+        </div>
+        <h3>Social Media Management</h3>
+        <p>Full-service account management across YouTube, Instagram, TikTok, and Twitter/X. Strategy, scheduling, community management, and monthly reporting.</p>
+        <ul class="service-list">
+          <li><i class="fas fa-check"></i> Content calendars</li>
+          <li><i class="fas fa-check"></i> Audience research</li>
+          <li><i class="fas fa-check"></i> Performance reporting</li>
+        </ul>
+      </div>
+      <div class="service-card featured">
+        <div class="service-badge">Most Popular</div>
+        <div class="service-icon-wrap">
+          <i class="fab fa-youtube"></i>
+        </div>
+        <h3>YouTube Automation</h3>
+        <p>Build a YouTube channel that runs on autopilot. AI-assisted scripts, voiceover production, thumbnail design, SEO optimization, and scheduled uploads.</p>
+        <ul class="service-list">
+          <li><i class="fas fa-check"></i> Niche research &amp; setup</li>
+          <li><i class="fas fa-check"></i> End-to-end automation</li>
+          <li><i class="fas fa-check"></i> Monetization strategy</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon-wrap">
+          <i class="fas fa-film"></i>
+        </div>
+        <h3>Content Creation</h3>
+        <p>Short-form and long-form video creation and editing optimized for retention. Reels, Shorts, and full YouTube videos with captions, effects, and sound design.</p>
+        <ul class="service-list">
+          <li><i class="fas fa-check"></i> Hook-driven structure</li>
+          <li><i class="fas fa-check"></i> Captions &amp; graphics</li>
+          <li><i class="fas fa-check"></i> Platform optimization</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon-wrap">
+          <i class="fas fa-laptop-code"></i>
+        </div>
+        <h3>Web &amp; Mobile Development</h3>
+        <p>Custom websites, dashboards, and mobile apps built with HTML/CSS/JS, PHP, React Native, Flutter, and Three.js. Fast, clean, and conversion-focused.</p>
+        <ul class="service-list">
+          <li><i class="fas fa-check"></i> Portfolio &amp; web systems</li>
+          <li><i class="fas fa-check"></i> Creator dashboards</li>
+          <li><i class="fas fa-check"></i> Mobile apps (Flutter/RN)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="nav-brand">J<span class="accent">.</span>dev</span>
+      <p>Crafted with code &amp; strategy &copy; <span id="year"></span> Jamel</p>
+      <div class="footer-links">
+        <a href="index.html#hero">Home</a>
+        <a href="content.html">Content</a>
+        <a href="dev-projects.html">Dev Projects</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

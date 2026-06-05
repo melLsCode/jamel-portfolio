@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jamel | Social Media Manager & Web Developer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand">J<span class="accent">.</span>dev</div>
+    <ul class="nav-links">
+      <li><a href="index.html#hero">Home</a></li>
+      <li><a href="content.html">Content</a></li>
+      <li><a href="dev-projects.html" class="active">Dev Projects</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-cta" onclick="window.location.href='contact.html';">Hire Me</button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Dev Projects Section -->
+  <section class="dev-work" id="dev-projects">
+    <div class="section-header">
+      <span class="section-tag section-tag-purple">Development</span>
+      <h2>Dev Projects &amp; <span class="gradient-text-purple">Apps Built</span></h2>
+      <p>Web systems, mobile apps, and AI-integrated tools built with modern tech stacks.</p>
+    </div>
+
+    <div class="slider-wrapper" id="devSliderWrapper">
+      <div class="slider-track" id="devTrack">
+
+        <!-- Dev Slide 0 — EstateWise AI -->
+        <div class="slide slide-dev">
+          <div class="slide-content slide-content-left">
+            <div class="dev-slide-header">
+              <span class="dev-feature-tag ai"><i class="fas fa-robot"></i> AI Integration</span>
+            </div>
+            <h3 class="slide-title">EstateWise AI — Smart Real Estate Investment Platform</h3>
+            <span class="reasonup-label" style="margin-bottom:10px;display:inline-flex;"><i class="fas fa-mobile-alt"></i> Mobile App</span>
+            <p class="slide-desc">AI-powered real estate mobile application that helps users discover, analyze, and invest in properties using intelligent recommendations. Built with React Native (Capacitor), Firebase Authentication, and OpenAI GPT-3.5 integration for live AI chat assistance, investment scoring, and personalized property recommendations.</p>
+            <div class="tech-stack">
+              <span class="tech-pill react">React Native</span>
+              <span class="tech-pill firebase">Firebase</span>
+              <span class="tech-pill ai">OpenAI API</span>
+              <span class="tech-pill dart">Capacitor</span>
+            </div>
+            <ul class="dev-feature-list">
+              <li><i class="fas fa-check-circle"></i> AI-powered property investment scoring</li>
+              <li><i class="fas fa-check-circle"></i> Live GPT-3.5 real estate chatbot</li>
+              <li><i class="fas fa-check-circle"></i> Google Sign-in via Firebase Authentication</li>
+              <li><i class="fas fa-check-circle"></i> Contact Agent with Call, SMS &amp; Email</li>
+              <li><i class="fas fa-check-circle"></i> Stripe-style premium subscription UI</li>
+              <li><i class="fas fa-check-circle"></i> Real-time property recommendations</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://drive.google.com/file/d/1lD7sonUY-Mj9i5wfCjLKZ8J5JHUvChAm/view?usp=sharing" target="_blank" class="btn btn-primary btn-sm"><i class="fas fa-download"></i> Install App</a>
+              <a href="#" class="btn btn-secondary btn-sm"><i class="fab fa-github"></i> View Code</a>
+            </div>
+          </div>
+          <div class="slide-image slide-image-right phone-mockup-wrap">
+            <div class="phone-mockup">
+              <video autoplay loop muted playsinline preload="auto" style="width:100%;height:100%;object-fit:cover;display:block;">
+                <source src="videos/estatewise-demo.mp4" type="video/mp4" />
+                <img src="images/estatewise-preview.png" alt="EstateWise AI App" />
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dev Slide 1 — ReasonUp Mobile App -->
+        <div class="slide slide-dev">
+          <div class="slide-content slide-content-left">
+            <div class="dev-slide-header">
+              <span class="dev-feature-tag ai"><i class="fas fa-robot"></i> AI Integration</span>
+            </div>
+            <h3 class="slide-title">ReasonUp — Argumentation and Critical Thinking for Students</h3>
+            <span class="reasonup-label" style="margin-bottom:10px;display:inline-flex;"><i class="fas fa-mobile-alt"></i> Mobile App</span>
+            <p class="slide-desc">AI-powered mobile application designed to enhance students' argumentation and critical thinking skills through rubric-based AI evaluation, real-time feedback, and gamified learning. Built with Flutter, Firebase, and OpenAI/Gemini API integration for intelligent response analysis and performance monitoring.</p>
+            <div class="tech-stack">
+              <span class="tech-pill flutter">Flutter</span>
+              <span class="tech-pill firebase">Firebase</span>
+              <span class="tech-pill ai">OpenAI API</span>
+              <span class="tech-pill ai">Gemini API</span>
+            </div>
+            <ul class="dev-feature-list">
+              <li><i class="fas fa-check-circle"></i> AI-based rubric evaluation</li>
+              <li><i class="fas fa-check-circle"></i> Real-time feedback and suggestions</li>
+              <li><i class="fas fa-check-circle"></i> Anti-cheat timer and answer protection</li>
+              <li><i class="fas fa-check-circle"></i> Leaderboard and progress tracking</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://drive.google.com/file/d/1Me-kjHiP5dgrvhUpR3r-NR_GsOtyzsbK/view?usp=sharing" target="_blank" class="btn btn-primary btn-sm"><i class="fas fa-download"></i> Install App</a>
+              <a href="#" class="btn btn-secondary btn-sm"><i class="fab fa-github"></i> View Code</a>
+            </div>
+          </div>
+          <div class="slide-image slide-image-right phone-mockup-wrap">
+            <div class="phone-mockup">
+              <video autoplay loop muted playsinline preload="auto" style="width:100%;height:100%;object-fit:cover;display:block;">
+                <source src="videos/reasonup-demo.mp4" type="video/mp4" />
+                <img src="images/reasonup-homepage.png" alt="ReasonUp App" />
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dev Slide 2 — ReasonUp Admin Panel -->
+        <div class="slide slide-dev">
+          <div class="slide-content slide-content-left">
+            <div class="dev-slide-header">
+              <span class="dev-feature-tag web"><i class="fas fa-desktop"></i> Flutter Web</span>
+            </div>
+            <h3 class="slide-title">ReasonUp — Admin Panel</h3>
+            <span class="reasonup-label" style="margin-bottom:10px;display:inline-flex;"><i class="fas fa-desktop"></i> Web Dashboard</span>
+            <p class="slide-desc">Web-based administrative dashboard developed using Flutter Web for monitoring student performance, managing leaderboard rankings, analyzing rubric scores, and sending NDG invitations and feedback notifications. Integrated with Firebase and AI-powered analytics for real-time academic monitoring.</p>
+            <div class="tech-stack">
+              <span class="tech-pill flutter">Flutter Web</span>
+              <span class="tech-pill firebase">Firebase</span>
+              <span class="tech-pill dart">Dart</span>
+              <span class="tech-pill ai">Gemini API</span>
+            </div>
+            <ul class="dev-feature-list">
+              <li><i class="fas fa-check-circle"></i> Student performance analytics</li>
+              <li><i class="fas fa-check-circle"></i> Leaderboard and ranking management</li>
+              <li><i class="fas fa-check-circle"></i> NDG invitation and notification system</li>
+              <li><i class="fas fa-check-circle"></i> Real-time Firebase monitoring dashboard</li>
+            </ul>
+            <div class="project-links">
+              <a href="#" class="btn btn-primary btn-sm"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="#" class="btn btn-secondary btn-sm"><i class="fab fa-github"></i> View Code</a>
+            </div>
+          </div>
+          <div class="slide-image-right" style="display:flex;align-items:center;justify-content:center;">
+            <div class="desktop-mockup">
+              <img src="images/reasonup-admin.png" alt="ReasonUp Admin Panel" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Dev Slide — Food Delivery App -->
+        <div class="slide slide-dev">
+          <div class="slide-content slide-content-left">
+            <div class="dev-slide-header">
+              <span class="dev-feature-tag mobile"><i class="fas fa-mobile-alt"></i> Flutter Web</span>
+            </div>
+            <h3 class="slide-title">Victorianos — Food Delivery App</h3>
+            <span class="reasonup-label" style="margin-bottom:10px;display:inline-flex;"><i class="fas fa-utensils"></i> UI Demo</span>
+            <p class="slide-desc">Food delivery mobile UI built with Flutter. Features a clean onboarding screen, login with mock credentials, and a fully designed home dashboard with restaurant listings and food categories. Built for UI demo and portfolio purposes.</p>
+            <div class="tech-stack">
+              <span class="tech-pill flutter">Flutter</span>
+              <span class="tech-pill dart">Dart</span>
+              <span class="tech-pill firebase">Firebase</span>
+            </div>
+            <ul class="dev-feature-list">
+              <li><i class="fas fa-check-circle"></i> Onboarding &amp; login screen UI</li>
+              <li><i class="fas fa-check-circle"></i> Food category &amp; restaurant listings</li>
+              <li><i class="fas fa-check-circle"></i> Mock login available for testing</li>
+              <li style="list-style:none;margin-top:6px;padding:10px 12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;font-size:0.82rem;line-height:1.8;">
+                <span style="color:#94a3b8;"><i class="fas fa-envelope" style="width:16px;"></i> Email:</span> <span style="color:#e2e8f0;font-weight:600;">test@example.com</span><br/>
+                <span style="color:#94a3b8;"><i class="fas fa-lock" style="width:16px;"></i> Password:</span> <span style="color:#e2e8f0;font-weight:600;">123456</span>
+              </li>
+            </ul>
+            <div class="project-links">
+              <a href="https://mellscode.github.io/flutter-food-delivery-ui/" target="_blank" class="btn btn-primary btn-sm"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="#" class="btn btn-secondary btn-sm"><i class="fab fa-github"></i> View Code</a>
+            </div>
+          </div>
+          <div class="slide-image slide-image-right phone-mockup-wrap">
+            <div class="phone-mockup">
+              <video autoplay loop muted playsinline preload="auto" style="width:100%;height:100%;object-fit:cover;display:block;">
+                <source src="videos/victorianos-demo1.mp4" type="video/mp4" />
+                <img src="images/onboarding.png" alt="Victorianos Food Delivery" />
+              </video>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Dev Slide 3 -->
+        <div class="slide slide-dev">
+          <div class="slide-content slide-content-left">
+            <div class="dev-slide-header">
+              <span class="dev-feature-tag mobile"><i class="fas fa-globe"></i> Cross-Platform</span>
+            </div>
+            <h3 class="slide-title">VoxFil — AI Voice Generator</h3>
+            <p class="slide-desc">AI-powered text-to-speech web app that converts scripts into natural-sounding voice audio. Supports multiple voice options including Edge TTS (free, no API key) and OpenAI TTS (high quality). Built with Next.js and React.</p>
+            <div class="tech-stack">
+              <span class="tech-pill react">Next.js</span>
+              <span class="tech-pill react">React</span>
+              <span class="tech-pill dart">TypeScript</span>
+              <span class="tech-pill flutter">Tailwind CSS</span>
+              <span class="tech-pill ai">OpenAI API</span>
+            </div>
+            <ul class="dev-feature-list">
+              <li><i class="fas fa-check-circle"></i> Browser-based TTS with 20K character limit</li>
+              <li><i class="fas fa-check-circle"></i> Free Edge TTS download (4K chars, no API key)</li>
+              <li><i class="fas fa-check-circle"></i> OpenAI TTS integration (6 voices)</li>
+              <li><i class="fas fa-check-circle"></i> Adjustable speed &amp; tone controls</li>
+              <li><i class="fas fa-check-circle"></i> Audio download in MP3 format</li>
+            </ul>
+            <div class="project-links">
+              <a href="#" class="btn btn-primary btn-sm"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+              <a href="#" class="btn btn-secondary btn-sm"><i class="fab fa-github"></i> View Code</a>
+            </div>
+          </div>
+          <div class="slide-image slide-image-right">
+            <img src="images/voice-studio.png" alt="Voice-to-Text Studio" />
+            <div class="slide-badge" style="background:linear-gradient(135deg,#06b6d4,#3b82f6);">Next.js + AI</div>
+          </div>
+        </div>
+
+      </div><!-- /devTrack -->
+
+      <div class="slider-controls">
+        <button class="slider-btn slider-btn-purple" id="devPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+        <div class="slider-dots" id="devDots"></div>
+        <button class="slider-btn slider-btn-purple" id="devNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      <div class="slider-progress slider-progress-purple">
+        <div class="slider-progress-bar" id="devProgress"></div>
+      </div>
+    </div>
+
+    <!-- Technical Skills Section -->
+    <div class="dev-tech-section">
+      <h3 class="dev-tech-title"><i class="fas fa-code"></i> Technical Skills</h3>
+      <div class="tech-slider" aria-label="Technical skills slider">
+        <div class="tech-track">
+          <div class="tech-chip level-expert">
+            <i class="fab fa-html5"></i>
+            <span>HTML5</span>
+            <small>Expert</small>
+          </div>
+          <div class="tech-chip level-expert">
+            <i class="fab fa-css3-alt"></i>
+            <span>CSS3</span>
+            <small>Expert</small>
+          </div>
+          <div class="tech-chip level-expert">
+            <i class="fab fa-js-square"></i>
+            <span>JavaScript</span>
+            <small>Expert</small>
+          </div>
+          <div class="tech-chip level-advanced">
+            <i class="fab fa-php"></i>
+            <span>PHP</span>
+            <small>Advanced</small>
+          </div>
+          <div class="tech-chip level-advanced">
+            <i class="fab fa-react"></i>
+            <span>React Native</span>
+            <small>Advanced</small>
+          </div>
+          <div class="tech-chip level-advanced">
+            <i class="fas fa-mobile-alt"></i>
+            <span>Flutter</span>
+            <small>Advanced</small>
+          </div>
+          <div class="tech-chip level-intermediate">
+            <i class="fas fa-cube"></i>
+            <span>Three.js</span>
+            <small>Intermediate</small>
+          </div>
+          <div class="tech-chip level-advanced">
+            <i class="fab fa-git-alt"></i>
+            <span>Git</span>
+            <small>Advanced</small>
+          </div>
+          <!-- Duplicates for infinite loop -->
+          <div class="tech-chip level-expert" aria-hidden="true">
+            <i class="fab fa-html5"></i>
+            <span>HTML5</span>
+            <small>Expert</small>
+          </div>
+          <div class="tech-chip level-expert" aria-hidden="true">
+            <i class="fab fa-css3-alt"></i>
+            <span>CSS3</span>
+            <small>Expert</small>
+          </div>
+          <div class="tech-chip level-expert" aria-hidden="true">
+            <i class="fab fa-js-square"></i>
+            <span>JavaScript</span>
+            <small>Expert</small>
+          </div>
+          <div class="tech-chip level-advanced" aria-hidden="true">
+            <i class="fab fa-php"></i>
+            <span>PHP</span>
+            <small>Advanced</small>
+          </div>
+          <div class="tech-chip level-advanced" aria-hidden="true">
+            <i class="fab fa-react"></i>
+            <span>React Native</span>
+            <small>Advanced</small>
+          </div>
+          <div class="tech-chip level-advanced" aria-hidden="true">
+            <i class="fas fa-mobile-alt"></i>
+            <span>Flutter</span>
+            <small>Advanced</small>
+          </div>
+          <div class="tech-chip level-intermediate" aria-hidden="true">
+            <i class="fas fa-cube"></i>
+            <span>Three.js</span>
+            <small>Intermediate</small>
+          </div>
+          <div class="tech-chip level-advanced" aria-hidden="true">
+            <i class="fab fa-git-alt"></i>
+            <span>Git</span>
+            <small>Advanced</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="nav-brand">J<span class="accent">.</span>dev</span>
+      <p>Crafted with code &amp; strategy &copy; <span id="year"></span> Jamel</p>
+      <div class="footer-links">
+        <a href="index.html#hero">Home</a>
+        <a href="content.html">Content</a>
+        <a href="dev-projects.html">Dev Projects</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

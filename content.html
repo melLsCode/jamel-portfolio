@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jamel | Flutter Developer & AI Digital Strategist</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand">J<span class="accent">.</span>dev</div>
+    <ul class="nav-links">
+      <li><a href="index.html#hero">Home</a></li>
+      <li><a href="content.html" class="active">Content</a></li>
+      <li><a href="dev-projects.html">Dev Projects</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-cta" onclick="window.location.href='contact.html';">Hire Me</button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Content Projects Section -->
+  <section class="content-work" id="content-projects">
+    <div class="section-header">
+      <span class="section-tag">Creative &amp; Digital Systems</span>
+      <h2>Content Creation &amp; <span class="gradient-text">AI Solutions</span></h2>
+      <p>Modern content systems, AI automation, and data-driven growth strategies for digital brands and creators.</p>
+    </div>
+
+    <div class="slider-wrapper" id="contentSliderWrapper">
+      <div class="slider-track" id="contentTrack">
+
+        <!-- Slide 1: YouTube Channel Card - 4Chan Post -->
+        <div class="slide channel-card-yt">
+          <div class="channel-preview">
+            <img src="images/image.jpeg" alt="4Chan Post YouTube Channel" />
+            <div class="platform-badge youtube">
+              <i class="fab fa-youtube"></i> Channel Analytics
+            </div>
+          </div>
+          <div class="channel-info">
+            <div class="channel-header">
+              <h3>4Chan Post</h3>
+              <span class="channel-niche">Storytelling & Narration</span>
+            </div>
+            
+            <p class="channel-desc">Long-form narration channel featuring internet stories and viral content. Previously monetized channel that grew to 9K+ subscribers before YouTube's 2026 policy changes.</p>
+            
+            <div class="strategy-tags">
+              <span class="tag"><i class="fas fa-microphone"></i> Voice Narration</span>
+              <span class="tag"><i class="fas fa-image"></i> Anime Thumbnails</span>
+              <span class="tag"><i class="fas fa-fire"></i> Viral Content</span>
+              <span class="tag"><i class="fas fa-clock"></i> Consistent Uploads</span>
+            </div>
+            
+            <div class="growth-stats">
+              <div class="growth-item">
+                <span class="growth-num">9.15K</span>
+                <span class="growth-label">Subscribers</span>
+              </div>
+              <div class="growth-item">
+                <span class="growth-num">177</span>
+                <span class="growth-label">Videos</span>
+              </div>
+              <div class="growth-item">
+                <span class="growth-num">105K</span>
+                <span class="growth-label">Peak Views</span>
+              </div>
+            </div>
+            
+            <a href="https://youtube.com/@4ChanPost" target="_blank" class="btn-view-channel"><i class="fab fa-youtube"></i> View Channel</a>
+          </div>
+        </div>
+
+        <!-- Slide 2: YouTube Channel Card - 4Chan Romance -->
+        <div class="slide channel-card-yt">
+          <div class="channel-preview">
+            <img src="images/image4.png" alt="4Chan Romance Channel Analytics" />
+            <div class="platform-badge youtube">
+              <i class="fab fa-youtube"></i> Channel Analytics
+            </div>
+          </div>
+          <div class="channel-info">
+            <div class="channel-header">
+              <h3>4Chan Romance</h3>
+              <span class="channel-niche">4Chan Greentext Stories</span>
+            </div>
+            
+            <p class="channel-desc">Fast-growing 4Chan greentext story channel featuring romance and relationship narratives. Strong viewership with viral potential using proven thumbnail templates.</p>
+            
+            <div class="strategy-tags">
+              <span class="tag"><i class="fas fa-book"></i> Greentext Stories</span>
+              <span class="tag"><i class="fas fa-fire"></i> Viral Templates</span>
+              <span class="tag"><i class="fas fa-heart"></i> Romance Niche</span>
+              <span class="tag"><i class="fas fa-bolt"></i> Fast Growth</span>
+            </div>
+            
+            <div class="growth-stats">
+              <div class="growth-item">
+                <span class="growth-num">2.37K</span>
+                <span class="growth-label">Subscribers</span>
+              </div>
+              <div class="growth-item">
+                <span class="growth-num">1.2M</span>
+                <span class="growth-label">Total Views</span>
+              </div>
+              <div class="growth-item">
+                <span class="growth-num">245K</span>
+                <span class="growth-label">Watch Hours</span>
+              </div>
+            </div>
+            
+            <a href="https://youtube.com/@4chanromance-n6p?si=TcEPmWs5SVJ2IayP" target="_blank" class="btn-view-channel"><i class="fab fa-youtube"></i> View Channel</a>
+          </div>
+        </div>
+
+        <!-- Slide 3: YouTube Channel Card - Small Channel Portfolio -->
+        <div class="slide channel-card-yt">
+          <div class="channel-preview-multi">
+            <div class="channel-cards-grid">
+              <div class="mini-channel-card">
+                <img src="images/beruhrende-geschichten.png" alt="Berührende Geschichten" />
+                <span class="mini-badge">144 Subs</span>
+                <a href="https://youtube.com/@BerührendeGeschichten-w9b" target="_blank" class="mini-view-btn"><i class="fab fa-youtube"></i></a>
+              </div>
+              <div class="mini-channel-card">
+                <img src="images/reel-paranoia.png" alt="Reel Paranoia" />
+                <span class="mini-badge">970 Subs</span>
+                <a href="https://youtube.com/@ReelParanoia" target="_blank" class="mini-view-btn"><i class="fab fa-youtube"></i></a>
+              </div>
+              <div class="mini-channel-card">
+                <img src="images/silent-veins.png" alt="Silent Veins" />
+                <span class="mini-badge">203 Subs</span>
+                <a href="https://youtube.com/@silentveins" target="_blank" class="mini-view-btn"><i class="fab fa-youtube"></i></a>
+              </div>
+              <div class="mini-channel-card">
+                <img src="images/sereadsanon.png" alt="SheReadsAnon" />
+                <span class="mini-badge">1.49K Subs</span>
+                <a href="https://youtube.com/@SheReadsAnon" target="_blank" class="mini-view-btn"><i class="fab fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="channel-info">
+            <div class="channel-header">
+              <h3>Small Channel Portfolio</h3>
+              <span class="channel-niche">Multiple Niche Channels</span>
+            </div>
+            
+            <p class="channel-desc">Portfolio of smaller YouTube channels including both Shorts and Long-form content across various niches. Mix of 1K-5K subscriber channels with consistent upload strategies.</p>
+            
+            <div class="strategy-tags">
+              <span class="tag"><i class="fas fa-layer-group"></i> Multi-Channel</span>
+              <span class="tag"><i class="fas fa-play-circle"></i> Shorts</span>
+              <span class="tag"><i class="fas fa-video"></i> Long-Form</span>
+              <span class="tag"><i class="fas fa-cogs"></i> Automation</span>
+            </div>
+            
+            <div class="growth-stats">
+              <div class="growth-item">
+                <span class="growth-num">4</span>
+                <span class="growth-label">Channels</span>
+              </div>
+              <div class="growth-item">
+                <span class="growth-num">2.8K</span>
+                <span class="growth-label">Combined Subs</span>
+              </div>
+              <div class="growth-item">
+                <span class="growth-num">215</span>
+                <span class="growth-label">Total Videos</span>
+              </div>
+            </div>
+            
+            <a href="#" class="btn-view-channel"><i class="fas fa-th"></i> View Portfolio</a>
+          </div>
+        </div>
+
+        <!-- Slide 4: Thumbnail Portfolio -->
+        <div class="slide thumbnail-portfolio">
+          <div class="thumbnail-preview">
+            <div class="thumbnail-grid">
+              <div class="thumb-sample">
+                <img src="images/thumb-sample-1.png" alt="Thumbnail Sample 1" />
+              </div>
+              <div class="thumb-sample">
+                <img src="images/thumb-sample-2.png" alt="Thumbnail Sample 2" />
+              </div>
+              <div class="thumb-sample">
+                <img src="images/thumb-sample-3.png" alt="Thumbnail Sample 3" />
+              </div>
+              <div class="thumb-sample">
+                <img src="images/thumb-sample-4.png" alt="Thumbnail Sample 4" />
+              </div>
+            </div>
+            <a href="https://canva.link/vgg1id4bsn3242b" target="_blank" class="thumbnail-overlay">
+              <i class="fas fa-external-link-alt"></i>
+              <span>View Full Portfolio</span>
+            </a>
+          </div>
+          <div class="channel-info">
+            <div class="channel-header">
+              <h3>Thumbnail Design Portfolio</h3>
+              <span class="channel-niche">YouTube Thumbnails</span>
+            </div>
+            
+            <p class="channel-desc">Custom thumbnail designs optimized for high CTR. Specializing in anime-style thumbnails, viral hooks, and attention-grabbing layouts for story channels.</p>
+            
+            <div class="strategy-tags">
+              <span class="tag"><i class="fas fa-palette"></i> Anime Style</span>
+              <span class="tag"><i class="fas fa-mouse-pointer"></i> High CTR</span>
+              <span class="tag"><i class="fas fa-fire"></i> Viral Hooks</span>
+              <span class="tag"><i class="fas fa-bolt"></i> Fast Turnaround</span>
+            </div>
+            
+            <div class="growth-stats">
+              <div class="growth-item">
+                <span class="growth-num">200+</span>
+                <span class="growth-label">Thumbnails</span>
+              </div>
+              <div class="growth-item">
+                <span class="growth-num">8%</span>
+                <span class="growth-label">Avg CTR</span>
+              </div>
+              <div class="growth-item">
+                <span class="growth-num">24h</span>
+                <span class="growth-label">Delivery</span>
+              </div>
+            </div>
+            
+            <a href="https://canva.link/vgg1id4bsn3242b" target="_blank" class="btn-view-channel canva-btn"><i class="fas fa-palette"></i> View on Canva</a>
+          </div>
+        </div>
+
+        <!-- Slide 5: Instagram Channel Card -->
+        <div class="slide channel-card-ig">
+          <div class="channel-preview">
+            <img src="https://placehold.co/600x380/0a0a1a/a855f7?text=Instagram+Brand+Page" alt="Instagram Brand Preview" />
+            <div class="platform-badge instagram">
+              <i class="fab fa-instagram"></i> Instagram Brand
+            </div>
+          </div>
+          <div class="channel-info">
+            <div class="channel-header">
+              <h3>Lifestyle Daily</h3>
+              <span class="channel-niche">Lifestyle & Fashion</span>
+            </div>
+            
+            <p class="channel-desc">Organic lifestyle brand growth through Reels automation and strategic content calendar. Built from zero to 80K using trending audio and niche hashtags.</p>
+            
+            <div class="strategy-tags">
+              <span class="tag"><i class="fas fa-video"></i> Reels Strategy</span>
+              <span class="tag"><i class="fas fa-music"></i> Trending Audio</span>
+              <span class="tag"><i class="fas fa-hashtag"></i> Hashtag Clusters</span>
+              <span class="tag"><i class="fas fa-calendar"></i> 30-Day Calendar</span>
+            </div>
+            
+            <div class="growth-stats">
+              <div class="growth-item">
+                <span class="growth-num">80K+</span>
+                <span class="growth-label">Followers</span>
+              </div>
+              <div class="growth-item">
+                <span class="growth-num">2.3M</span>
+                <span class="growth-label">Viral Reel</span>
+              </div>
+              <div class="growth-item">
+                <span class="growth-num">5.4%</span>
+                <span class="growth-label">Engagement</span>
+              </div>
+            </div>
+            
+            <a href="#" class="btn-view-channel instagram-btn"><i class="fab fa-instagram"></i> View Profile</a>
+          </div>
+        </div>
+
+        <!-- Slide 5: TikTok Channel Card -->
+        <div class="slide channel-card-tiktok">
+          <div class="channel-preview">
+            <img src="https://placehold.co/600x380/0a0a1a/10b981?text=TikTok+Fitness+Coach" alt="TikTok Channel Preview" />
+            <div class="platform-badge tiktok">
+              <i class="fab fa-tiktok"></i> TikTok Account
+            </div>
+          </div>
+          <div class="channel-info">
+            <div class="channel-header">
+              <h3>Fitness Coach Tips</h3>
+              <span class="channel-niche">Health & Fitness</span>
+            </div>
+            
+            <p class="channel-desc">Hook-driven content strategy for fitness coaching brand. Achieved viral reach through trend-jacking templates and optimized pacing.</p>
+            
+            <div class="strategy-tags">
+              <span class="tag"><i class="fas fa-bolt"></i> Hook Optimization</span>
+              <span class="tag"><i class="fas fa-fire"></i> Trend Jacking</span>
+              <span class="tag"><i class="fas fa-clock"></i> 3×/day</span>
+              <span class="tag"><i class="fas fa-magic"></i> Auto Captions</span>
+            </div>
+            
+            <div class="growth-stats">
+              <div class="growth-item">
+                <span class="growth-num">1.1M</span>
+                <span class="growth-label">Viral Views</span>
+              </div>
+              <div class="growth-item">
+                <span class="growth-num">22K</span>
+                <span class="growth-label">Followers</span>
+              </div>
+              <div class="growth-item">
+                <span class="growth-num">30</span>
+                <span class="growth-label">Days to Viral</span>
+              </div>
+            </div>
+            
+            <a href="#" class="btn-view-channel tiktok-btn"><i class="fab fa-tiktok"></i> View Profile</a>
+          </div>
+        </div>
+
+        <!-- Slide 6: Multi-Platform Channel Card -->
+        <div class="slide channel-card-multi">
+          <div class="channel-preview">
+            <img src="https://placehold.co/600x380/0a0a1a/3b82f6?text=Multi-Platform+Strategy" alt="Multi-Platform Channel Preview" />
+            <div class="platform-badge multi">
+              <i class="fas fa-globe"></i> Multi-Platform
+            </div>
+          </div>
+          <div class="channel-info">
+            <div class="channel-header">
+              <h3>Tech Startup Brand</h3>
+              <span class="channel-niche">SaaS Product Launch</span>
+            </div>
+            
+            <p class="channel-desc">Unified strategy across YouTube, Instagram, and TikTok. Cross-posting automation with platform-optimized content repurposing.</p>
+            
+            <div class="strategy-tags">
+              <span class="tag"><i class="fas fa-sync"></i> Cross-Posting</span>
+              <span class="tag"><i class="fas fa-recycle"></i> Content Repurpose</span>
+              <span class="tag"><i class="fas fa-robot"></i> Automation</span>
+              <span class="tag"><i class="fas fa-chart-line"></i> Analytics</span>
+            </div>
+            
+            <div class="growth-stats">
+              <div class="growth-item">
+                <span class="growth-num">+120K</span>
+                <span class="growth-label">Total Reach</span>
+              </div>
+              <div class="growth-item">
+                <span class="growth-num">3×</span>
+                <span class="growth-label">Brand Growth</span>
+              </div>
+              <div class="growth-item">
+                <span class="growth-num">-40%</span>
+                <span class="growth-label">Time Saved</span>
+              </div>
+            </div>
+            
+            <a href="#" class="btn-view-channel multi-btn"><i class="fas fa-globe"></i> View Case Study</a>
+          </div>
+        </div>
+      </div><!-- /contentTrack -->
+
+      <div class="slider-controls">
+        <button class="slider-btn" id="contentPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+        <div class="slider-dots" id="contentDots"></div>
+        <button class="slider-btn" id="contentNext" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      <div class="slider-progress">
+        <div class="slider-progress-bar" id="contentProgress"></div>
+      </div>
+    </div>
+
+    <!-- Content Categories Grid -->
+    <div class="content-categories">
+      
+      <!-- CATEGORY 1: Content Creation -->
+      <div class="category-section">
+        <h3 class="category-title"><i class="fas fa-paint-brush"></i> Content Creation</h3>
+        <div class="project-grid">
+          <div class="project-card">
+            <div class="project-image" style="background:linear-gradient(135deg,#ff6b6b,#ee5a5a);"><i class="fas fa-image"></i></div>
+            <div class="project-content">
+              <span class="project-category">Visual Design</span>
+              <h4>YouTube Thumbnails</h4>
+              <p>Custom thumbnail designs optimized for high CTR with anime-style aesthetics and viral hooks.</p>
+              <div class="project-tools">
+                <span>Canva</span>
+                <span>Figma</span>
+                <span>Photoshop</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image" style="background:linear-gradient(135deg,#4ecdc4,#44a08d);"><i class="fas fa-video"></i></div>
+            <div class="project-content">
+              <span class="project-category">Video Production</span>
+              <h4>Video Editing</h4>
+              <p>Professional video editing with motion graphics, transitions, and optimized pacing for engagement.</p>
+              <div class="project-tools">
+                <span>CapCut</span>
+                <span>Premiere</span>
+                <span>After Effects</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image" style="background:linear-gradient(135deg,#a855f7,#7c3aed);"><i class="fas fa-palette"></i></div>
+            <div class="project-content">
+              <span class="project-category">Brand Identity</span>
+              <h4>Branding Kits</h4>
+              <p>Complete brand packages including logos, color palettes, and visual style guides.</p>
+              <div class="project-tools">
+                <span>Figma</span>
+                <span>Canva</span>
+                <span>Illustrator</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image" style="background:linear-gradient(135deg,#f59e0b,#d97706);"><i class="fas fa-bolt"></i></div>
+            <div class="project-content">
+              <span class="project-category">Short Form</span>
+              <h4>Short-form Content</h4>
+              <p>Engaging Reels and Shorts optimized for viral reach with trending audio and hooks.</p>
+              <div class="project-tools">
+                <span>CapCut</span>
+                <span>Canva</span>
+                <span>Trending Audio</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORY 2: Growth & Analytics -->
+      <div class="category-section">
+        <h3 class="category-title"><i class="fas fa-chart-line"></i> Growth &amp; Analytics</h3>
+        <div class="project-grid">
+          <div class="project-card">
+            <div class="project-image" style="background:linear-gradient(135deg,#3b82f6,#2563eb);"><i class="fas fa-chart-bar"></i></div>
+            <div class="project-content">
+              <span class="project-category">Data Analysis</span>
+              <h4>Analytics Dashboard</h4>
+              <p>Custom analytics dashboards tracking engagement, CTR, and growth metrics across platforms.</p>
+              <div class="project-tools">
+                <span>Google Analytics</span>
+                <span>YouTube Studio</span>
+                <span>Data Studio</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image" style="background:linear-gradient(135deg,#10b981,#059669);"><i class="fas fa-chess"></i></div>
+            <div class="project-content">
+              <span class="project-category">Strategy</span>
+              <h4>Content Strategy</h4>
+              <p>Data-driven content calendars and growth strategies tailored to platform algorithms.</p>
+              <div class="project-tools">
+                <span>Notion</span>
+                <span>Trello</span>
+                <span>Analytics</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image" style="background:linear-gradient(135deg,#ec4899,#db2777);"><i class="fas fa-users"></i></div>
+            <div class="project-content">
+              <span class="project-category">Community</span>
+              <h4>Audience Growth</h4>
+              <p>Organic growth systems using hashtag clusters, engagement funnels, and viral content patterns.</p>
+              <div class="project-tools">
+                <span>Hashtag Analytics</span>
+                <span>Engagement Tools</span>
+                <span>Trending Content</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image" style="background:linear-gradient(135deg,#6366f1,#4f46e5);"><i class="fas fa-calendar-alt"></i></div>
+            <div class="project-content">
+              <span class="project-category">Automation</span>
+              <h4>Scheduling System</h4>
+              <p>Automated content pipelines and scheduling systems for consistent publishing across platforms.</p>
+              <div class="project-tools">
+                <span>Buffer</span>
+                <span>Later</span>
+                <span>Native Scheduling</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORY 3: AI & Automation -->
+      <div class="category-section">
+        <h3 class="category-title"><i class="fas fa-robot"></i> AI &amp; Automation</h3>
+        <div class="project-grid">
+          <div class="project-card">
+            <div class="project-image" style="background:linear-gradient(135deg,#8b5cf6,#7c3aed);"><i class="fas fa-brain"></i></div>
+            <div class="project-content">
+              <span class="project-category">AI Content</span>
+              <h4>AI Script Generation</h4>
+              <p>Leveraging OpenAI and Gemini APIs for automated scriptwriting and content ideation.</p>
+              <div class="project-tools">
+                <span>OpenAI API</span>
+                <span>Gemini API</span>
+                <span>Prompt Engineering</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image" style="background:linear-gradient(135deg,#06b6d4,#0891b2);"><i class="fas fa-cogs"></i></div>
+            <div class="project-content">
+              <span class="project-category">Workflow</span>
+              <h4>AI Workflow Automation</h4>
+              <p>Built AI-assisted workflows for content generation, scheduling, and publishing systems.</p>
+              <div class="project-tools">
+                <span>Zapier</span>
+                <span>Make</span>
+                <span>Python Scripts</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image" style="background:linear-gradient(135deg,#f97316,#ea580c);"><i class="fas fa-lightbulb"></i></div>
+            <div class="project-content">
+              <span class="project-category">Planning</span>
+              <h4>AI Content Planning</h4>
+              <p>Intelligent content calendars with AI-suggested topics based on trending patterns.</p>
+              <div class="project-tools">
+                <span>ChatGPT</span>
+                <span>Notion AI</span>
+                <span>Trend Analysis</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image" style="background:linear-gradient(135deg,#14b8a6,#0d9488);"><i class="fas fa-share-nodes"></i></div>
+            <div class="project-content">
+              <span class="project-category">Distribution</span>
+              <h4>Social Media Automation</h4>
+              <p>Cross-platform automation with AI-optimized captions, hashtags, and posting times.</p>
+              <div class="project-tools">
+                <span>API Integration</span>
+                <span>Auto-Scheduling</span>
+                <span>Cross-Post</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sample Work Gallery -->
+    <div class="sample-work-section">
+      <h3 class="sample-work-title"><i class="fas fa-images"></i> Sample Work Gallery</h3>
+      
+      <!-- Thumbnail Samples -->
+      <div class="sample-category">
+        <h4><i class="fas fa-image"></i> YouTube Thumbnails</h4>
+        <div class="sample-grid">
+          <div class="sample-item">
+            <img src="images/thumb-sample-1.png" alt="Thumbnail Sample 1" />
+            <span class="sample-overlay">Anime Style</span>
+          </div>
+          <div class="sample-item">
+            <img src="images/thumb-sample-2.png" alt="Thumbnail Sample 2" />
+            <span class="sample-overlay">Viral Hook</span>
+          </div>
+          <div class="sample-item">
+            <img src="images/thumb-sample-3.png" alt="Thumbnail Sample 3" />
+            <span class="sample-overlay">Story Format</span>
+          </div>
+          <div class="sample-item">
+            <img src="images/thumb-sample-4.png" alt="Thumbnail Sample 4" />
+            <span class="sample-overlay">CTR Optimized</span>
+          </div>
+        </div>
+        <a href="https://canva.link/vgg1id4bsn3242b" target="_blank" class="view-all-link">
+          <i class="fas fa-external-link-alt"></i> View Full Thumbnail Portfolio
+        </a>
+      </div>
+
+      <!-- Video Edit Samples -->
+      <div class="sample-category">
+        <h4><i class="fas fa-video"></i> Video Editing</h4>
+        <div class="sample-grid video-samples">
+          <div class="sample-video-card">
+            <div class="video-thumb">
+              <i class="fas fa-play-circle"></i>
+              <span class="video-duration">0:45</span>
+            </div>
+            <div class="video-info">
+              <h5>Short-Form Reel</h5>
+              <p>Fast-paced edit with trending audio</p>
+            </div>
+          </div>
+          <div class="sample-video-card">
+            <div class="video-thumb">
+              <i class="fas fa-play-circle"></i>
+              <span class="video-duration">2:30</span>
+            </div>
+            <div class="video-info">
+              <h5>Long-Form Content</h5>
+              <p>Story narration with motion graphics</p>
+            </div>
+          </div>
+          <div class="sample-video-card">
+            <div class="video-thumb">
+              <i class="fas fa-play-circle"></i>
+              <span class="video-duration">0:30</span>
+            </div>
+            <div class="video-info">
+              <h5>Brand Promo</h5>
+              <p>Product showcase with transitions</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Script Writing Samples -->
+      <div class="sample-category">
+        <h4><i class="fas fa-file-alt"></i> Script Writing & AI Content</h4>
+        <div class="script-samples">
+          <div class="script-card">
+            <div class="script-header">
+              <i class="fas fa-robot"></i>
+              <span class="script-type">AI-Generated</span>
+            </div>
+            <h5>YouTube Story Script</h5>
+            <p class="script-excerpt">"The most terrifying 4chan post ever written... A user claimed they found a hidden door in their basement that wasn't on any blueprint..."</p>
+            <div class="script-meta">
+              <span><i class="fas fa-clock"></i> 8-min read</span>
+              <span><i class="fas fa-fire"></i> 2.1M views</span>
+            </div>
+          </div>
+          <div class="script-card">
+            <div class="script-header">
+              <i class="fas fa-hashtag"></i>
+              <span class="script-type">Social Media</span>
+            </div>
+            <h5>Instagram Reel Caption</h5>
+            <p class="script-excerpt">"POV: You finally found the productivity system that actually works 🧵⬇️ Follow for Part 2! #productivity #hacks #viral"</p>
+            <div class="script-meta">
+              <span><i class="fas fa-heart"></i> 50K likes</span>
+              <span><i class="fas fa-share"></i> 2.3M reach</span>
+            </div>
+          </div>
+          <div class="script-card">
+            <div class="script-header">
+              <i class="fas fa-lightbulb"></i>
+              <span class="script-type">Content Strategy</span>
+            </div>
+            <h5>30-Day Content Calendar</h5>
+            <p class="script-excerpt">Comprehensive content plan with daily topics, trending audio suggestions, hashtag clusters, and optimal posting times...</p>
+            <div class="script-meta">
+              <span><i class="fas fa-calendar"></i> 30 days</span>
+              <span><i class="fas fa-chart-line"></i> +80K growth</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Branding Kit Preview -->
+      <div class="sample-category">
+        <h4><i class="fas fa-palette"></i> Branding Kits</h4>
+        <div class="branding-preview">
+          <div class="brand-card">
+            <div class="brand-colors">
+              <span style="background:#a855f7"></span>
+              <span style="background:#0ea5e9"></span>
+              <span style="background:#1e293b"></span>
+            </div>
+            <h5>Tech Channel Brand</h5>
+            <p>Logo, color palette, thumbnail templates</p>
+          </div>
+          <div class="brand-card">
+            <div class="brand-colors">
+              <span style="background:#ec4899"></span>
+              <span style="background:#f97316"></span>
+              <span style="background:#fff"></span>
+            </div>
+            <h5>Lifestyle Brand</h5>
+            <p>Visual identity, Reels templates, fonts</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Tools Section -->
+    <div class="content-tools-section">
+      <h3 class="content-tools-title"><i class="fas fa-layer-group"></i> Technical Stack</h3>
+      <div class="content-tools">
+        <div class="tool-chip flutter"><i class="fas fa-mobile-alt"></i> Flutter</div>
+        <div class="tool-chip firebase"><i class="fas fa-fire"></i> Firebase</div>
+        <div class="tool-chip ai"><i class="fas fa-robot"></i> OpenAI API</div>
+        <div class="tool-chip ai"><i class="fas fa-brain"></i> Gemini API</div>
+        <div class="tool-chip"><i class="fas fa-palette"></i> Canva</div>
+        <div class="tool-chip"><i class="fas fa-video"></i> CapCut</div>
+        <div class="tool-chip"><i class="fab fa-figma"></i> Figma</div>
+        <div class="tool-chip"><i class="fas fa-image"></i> Photoshop</div>
+        <div class="tool-chip"><i class="fas fa-sticky-note"></i> Notion</div>
+        <div class="tool-chip"><i class="fas fa-calendar-alt"></i> Scheduling</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="nav-brand">J<span class="accent">.</span>dev</span>
+      <p>Crafted with AI, code &amp; strategy &copy; <span id="year"></span> Jamel</p>
+      <div class="footer-links">
+        <a href="index.html#hero">Home</a>
+        <a href="content.html">Content</a>
+        <a href="dev-projects.html">Dev Projects</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

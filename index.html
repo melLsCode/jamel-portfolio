@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jamel | Flutter Developer & AI Digital Strategist</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand">J<span class="accent">.</span>dev</div>
+    <ul class="nav-links">
+      <li><a href="index.html#hero" class="active">Home</a></li>
+      <li><a href="content.html">Content</a></li>
+      <li><a href="dev-projects.html">Dev Projects</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-cta" onclick="window.location.href='contact.html';">Hire Me</button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Available for Freelance & Projects
+      </div>
+      <h1 class="hero-title">
+        I Build
+        <span class="gradient-text">AI-Powered</span>
+        Mobile & Web Experiences
+      </h1>
+      <p class="hero-sub">
+        Flutter developer and digital strategist focused on building AI-powered mobile apps,
+        modern web platforms, and scalable digital systems with clean UI/UX and intelligent
+        user experiences.
+      </p>
+      <div class="hero-actions">
+        <a href="content.html" class="btn btn-primary">
+          <i class="fas fa-play-circle"></i> View Projects
+        </a>
+        <a href="contact.html" class="btn btn-secondary">
+          Contact Me <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">10+</span>
+          <span class="stat-label">Apps Developed</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">5+</span>
+          <span class="stat-label">AI Integrations</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">20+</span>
+          <span class="stat-label">Projects Completed</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card-stack">
+        <div class="floating-card card-analytics">
+          <i class="fas fa-brain card-icon"></i>
+          <div class="card-info">
+            <span class="card-label">AI Evaluation</span>
+            <span class="card-value">Active</span>
+          </div>
+          <div class="card-sparkline">
+            <svg viewBox="0 0 80 30" fill="none">
+              <polyline points="0,25 15,20 25,18 35,10 45,14 55,6 65,8 80,2"
+                stroke="#00d4ff" stroke-width="2" fill="none"/>
+            </svg>
+          </div>
+        </div>
+        <div class="floating-card card-subs">
+          <i class="fas fa-fire card-icon"></i>
+          <div class="card-info">
+            <span class="card-label">Firebase</span>
+            <span class="card-value">Connected</span>
+          </div>
+          <div class="card-trend up">
+            <i class="fas fa-check-circle"></i> Real-time
+          </div>
+        </div>
+        <div class="floating-card card-ctr">
+          <i class="fas fa-mobile-alt card-icon" style="color:var(--purple)"></i>
+          <div class="card-info">
+            <span class="card-label">Flutter Apps</span>
+            <span class="card-value" style="color:var(--purple)">10+</span>
+          </div>
+          <div class="card-trend up">
+            <i class="fas fa-arrow-up"></i> Growing
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-dot"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="nav-brand">J<span class="accent">.</span>dev</span>
+      <p>Crafted with AI, code &amp; strategy &copy; <span id="year"></span> Jamel</p>
+      <div class="footer-links">
+        <a href="#hero" onclick="scrollToHero(); return false;">Home</a>
+        <a href="content.html">Content</a>
+        <a href="dev-projects.html">Dev Projects</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
