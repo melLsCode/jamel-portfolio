@@ -286,6 +286,69 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 /* ================================================
+   SERVICES — TILT + MOUSE GLOW + PARTICLES
+================================================ */
+(function initServices() {
+  /* Card tilt + glow tracking */
+  document.querySelectorAll('.svc-card[data-tilt]').forEach(card => {
+    const glow = card.querySelector('.svc-card-glow');
+
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = e.clientX - r.left;
+      const y = e.clientY - r.top;
+      const cx = r.width  / 2;
+      const cy = r.height / 2;
+      const rotX = ((y - cy) / cy) * -8;
+      const rotY = ((x - cx) / cx) *  8;
+      card.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.02)`;
+      if (glow) { glow.style.left = x + 'px'; glow.style.top = y + 'px'; }
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+
+  /* Background particles for services section */
+  const canvas = document.getElementById('svcParticles');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H;
+
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const pts = Array.from({ length: 40 }, () => ({
+    x: Math.random() * 1400,
+    y: Math.random() * 800,
+    r: Math.random() * 1.2 + 0.2,
+    vx: (Math.random() - 0.5) * 0.3,
+    vy: (Math.random() - 0.5) * 0.3,
+    a: Math.random() * 0.35 + 0.05,
+  }));
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    pts.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(0,212,255,${p.a})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ================================================
    AI CORE — MOUSE PARALLAX + PARTICLES
 ================================================ */
 (function initAiCore() {

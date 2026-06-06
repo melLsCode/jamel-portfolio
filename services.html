@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jamel | Social Media Manager & Web Developer</title>
+  <title>Jamel | Flutter & React Native Developer | Services</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -29,62 +29,81 @@
   </nav>
 
   <!-- Services Section -->
-  <section class="services" id="services">
+  <section class="services svc-premium" id="services">
+    <canvas class="svc-particles" id="svcParticles"></canvas>
     <div class="section-header">
       <span class="section-tag">What I Do</span>
       <h2>Services <span class="gradient-text">I Offer</span></h2>
-      <p>End-to-end solutions from content strategy to custom web and mobile development.</p>
+      <p class="svc-subtitle">Helping startups, businesses, and founders build AI-powered mobile applications, dashboards, and scalable digital products.</p>
     </div>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon-wrap">
-          <i class="fas fa-share-nodes"></i>
+
+    <div class="svc-grid">
+
+      <!-- Card 1 -->
+      <div class="svc-card" data-tilt>
+        <div class="svc-card-glow"></div>
+        <div class="svc-icon-wrap">
+          <i class="fas fa-mobile-screen-button"></i>
         </div>
-        <h3>Social Media Management</h3>
-        <p>Full-service account management across YouTube, Instagram, TikTok, and Twitter/X. Strategy, scheduling, community management, and monthly reporting.</p>
-        <ul class="service-list">
-          <li><i class="fas fa-check"></i> Content calendars</li>
-          <li><i class="fas fa-check"></i> Audience research</li>
-          <li><i class="fas fa-check"></i> Performance reporting</li>
+        <h3>Mobile App Development</h3>
+        <p>Build modern Flutter and React Native applications for Android and iOS with scalable architecture, clean UI/UX, Firebase integration, and production-ready deployment.</p>
+        <ul class="svc-features">
+          <li><i class="fas fa-check-circle"></i> Flutter &amp; React Native</li>
+          <li><i class="fas fa-check-circle"></i> Android &amp; iOS Deployment</li>
+          <li><i class="fas fa-check-circle"></i> Firebase Authentication</li>
+          <li><i class="fas fa-check-circle"></i> Real-Time Features</li>
         </ul>
       </div>
-      <div class="service-card featured">
-        <div class="service-badge">Most Popular</div>
-        <div class="service-icon-wrap">
-          <i class="fab fa-youtube"></i>
+
+      <!-- Card 2 - Featured -->
+      <div class="svc-card svc-featured" data-tilt>
+        <div class="svc-card-glow"></div>
+        <div class="svc-badge">Featured Service</div>
+        <div class="svc-icon-wrap">
+          <i class="fas fa-robot"></i>
         </div>
-        <h3>YouTube Automation</h3>
-        <p>Build a YouTube channel that runs on autopilot. AI-assisted scripts, voiceover production, thumbnail design, SEO optimization, and scheduled uploads.</p>
-        <ul class="service-list">
-          <li><i class="fas fa-check"></i> Niche research &amp; setup</li>
-          <li><i class="fas fa-check"></i> End-to-end automation</li>
-          <li><i class="fas fa-check"></i> Monetization strategy</li>
+        <h3>AI Integration</h3>
+        <p>Integrate OpenAI, Gemini, and custom AI workflows into mobile and web applications to automate tasks, generate insights, and create intelligent user experiences.</p>
+        <ul class="svc-features">
+          <li><i class="fas fa-check-circle"></i> OpenAI API</li>
+          <li><i class="fas fa-check-circle"></i> Gemini API</li>
+          <li><i class="fas fa-check-circle"></i> AI Chatbots</li>
+          <li><i class="fas fa-check-circle"></i> AI Automation</li>
         </ul>
       </div>
-      <div class="service-card">
-        <div class="service-icon-wrap">
-          <i class="fas fa-film"></i>
+
+      <!-- Card 3 -->
+      <div class="svc-card" data-tilt>
+        <div class="svc-card-glow"></div>
+        <div class="svc-icon-wrap">
+          <i class="fas fa-chart-line"></i>
         </div>
-        <h3>Content Creation</h3>
-        <p>Short-form and long-form video creation and editing optimized for retention. Reels, Shorts, and full YouTube videos with captions, effects, and sound design.</p>
-        <ul class="service-list">
-          <li><i class="fas fa-check"></i> Hook-driven structure</li>
-          <li><i class="fas fa-check"></i> Captions &amp; graphics</li>
-          <li><i class="fas fa-check"></i> Platform optimization</li>
+        <h3>Admin Dashboard Development</h3>
+        <p>Develop modern admin dashboards and analytics platforms with Flutter Web, Firebase, and real-time reporting capabilities.</p>
+        <ul class="svc-features">
+          <li><i class="fas fa-check-circle"></i> Flutter Web</li>
+          <li><i class="fas fa-check-circle"></i> Analytics Dashboard</li>
+          <li><i class="fas fa-check-circle"></i> User Management</li>
+          <li><i class="fas fa-check-circle"></i> Real-Time Monitoring</li>
         </ul>
       </div>
-      <div class="service-card">
-        <div class="service-icon-wrap">
-          <i class="fas fa-laptop-code"></i>
+
+      <!-- Card 4 -->
+      <div class="svc-card" data-tilt>
+        <div class="svc-card-glow"></div>
+        <div class="svc-icon-wrap">
+          <i class="fas fa-rocket"></i>
         </div>
-        <h3>Web &amp; Mobile Development</h3>
-        <p>Custom websites, dashboards, and mobile apps built with HTML/CSS/JS, PHP, React Native, Flutter, and Three.js. Fast, clean, and conversion-focused.</p>
-        <ul class="service-list">
-          <li><i class="fas fa-check"></i> Portfolio &amp; web systems</li>
-          <li><i class="fas fa-check"></i> Creator dashboards</li>
-          <li><i class="fas fa-check"></i> Mobile apps (Flutter/RN)</li>
+        <h3>Startup MVP Development</h3>
+        <p>Transform startup ideas into working MVPs quickly using modern technologies and scalable architecture for validation and growth.</p>
+        <ul class="svc-features">
+          <li><i class="fas fa-check-circle"></i> MVP Planning</li>
+          <li><i class="fas fa-check-circle"></i> Full-Stack Development</li>
+          <li><i class="fas fa-check-circle"></i> Rapid Prototyping</li>
+          <li><i class="fas fa-check-circle"></i> Launch Support</li>
         </ul>
       </div>
+
     </div>
   </section>
 
