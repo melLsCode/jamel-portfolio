@@ -286,6 +286,105 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 /* ================================================
+   SKILLS PAGE — REVEAL + COUNTERS + TILT + ECOSYSTEM
+================================================ */
+(function initSkillsPage() {
+
+  /* ---- Scroll reveal ---- */
+  const revealEls = document.querySelectorAll('.sk-reveal');
+  if (revealEls.length) {
+    const ro = new IntersectionObserver(entries => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const delay = el.dataset.delay || 0;
+          setTimeout(() => el.classList.add('sk-visible'), delay);
+          ro.unobserve(el);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealEls.forEach((el, i) => {
+      el.dataset.delay = (i % 6) * 80;
+      ro.observe(el);
+    });
+  }
+
+  /* ---- Animated counters ---- */
+  const counters = document.querySelectorAll('.sk-stat-num');
+  if (counters.length) {
+    const co = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = +el.dataset.target;
+        const duration = 1400;
+        const step = 16;
+        const increment = target / (duration / step);
+        let current = 0;
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) { current = target; clearInterval(timer); }
+          el.textContent = Math.floor(current);
+        }, step);
+        co.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(el => co.observe(el));
+  }
+
+  /* ---- Expertise card tilt + glow ---- */
+  document.querySelectorAll('.sk-exp-card[data-tilt]').forEach(card => {
+    const glow = card.querySelector('.sk-exp-glow');
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = e.clientX - r.left;
+      const y = e.clientY - r.top;
+      const rx = ((y - r.height/2) / r.height) * -10;
+      const ry = ((x - r.width/2)  / r.width)  *  10;
+      card.style.transform = `perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.03)`;
+      if (glow) { glow.style.left = x + 'px'; glow.style.top = y + 'px'; }
+    });
+    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+  });
+
+  /* ---- Ecosystem particles canvas ---- */
+  const ecoCanvas = document.getElementById('skEcoParticles');
+  if (!ecoCanvas) return;
+  const ctx = ecoCanvas.getContext('2d');
+  let W, H;
+  function resize() {
+    W = ecoCanvas.width  = ecoCanvas.offsetWidth;
+    H = ecoCanvas.height = ecoCanvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const pts = Array.from({ length: 35 }, () => ({
+    x: Math.random() * 480, y: Math.random() * 480,
+    r: Math.random() * 1.2 + 0.2,
+    vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
+    a: Math.random() * 0.4 + 0.05,
+  }));
+
+  function drawEco() {
+    ctx.clearRect(0, 0, W, H);
+    pts.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(0,212,255,${p.a})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(drawEco);
+  }
+  drawEco();
+
+})();
+
+/* ================================================
    SERVICES — TILT + MOUSE GLOW + PARTICLES
 ================================================ */
 (function initServices() {
