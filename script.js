@@ -338,18 +338,66 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     core.style.transform = `translate(${x}px, ${y}px)`;
   });
 
-  /* Click — full core spin + ripple */
+  /* Click orb = launch into full-screen float bounce */
   const orb = core.querySelector('.ai-orb');
+  const heroVisual = core.closest('.hero-visual') || core.parentElement;
+  let floatRAF = null;
+  let isFloating = false;
+  let originRect = null;
+
+  function stopFloat() {
+    isFloating = false;
+    if (floatRAF) { cancelAnimationFrame(floatRAF); floatRAF = null; }
+    heroVisual.classList.remove('floating');
+    heroVisual.style.left = '';
+    heroVisual.style.top  = '';
+    heroVisual.style.width = '';
+    heroVisual.style.height = '';
+  }
+
   if (orb) {
     orb.addEventListener('click', () => {
-      if (core.classList.contains('spinning')) return;
-      core.classList.add('spinning');
-      core.addEventListener('animationend', () => core.classList.remove('spinning'), { once: true });
+      if (isFloating) { stopFloat(); return; }
+
+      isFloating = true;
+      originRect = heroVisual.getBoundingClientRect();
+
+      const W = heroVisual.offsetWidth;
+      const H = heroVisual.offsetHeight;
+
+      let x = originRect.left;
+      let y = originRect.top;
+      const speed = 1.8;
+      const angle = Math.random() * Math.PI * 2;
+      let vx = Math.cos(angle) * speed;
+      let vy = Math.sin(angle) * speed;
+
+      heroVisual.classList.add('floating');
+      heroVisual.style.width  = W + 'px';
+      heroVisual.style.height = H + 'px';
+      heroVisual.style.left   = x + 'px';
+      heroVisual.style.top    = y + 'px';
 
       const ripple = document.createElement('div');
       ripple.className = 'ai-click-ripple';
       core.appendChild(ripple);
       ripple.addEventListener('animationend', () => ripple.remove());
+
+      function loop() {
+        if (!isFloating) return;
+        x += vx;
+        y += vy;
+
+        if (x <= 0)                { x = 0;                  vx = Math.abs(vx); }
+        if (x + W >= window.innerWidth)  { x = window.innerWidth - W;  vx = -Math.abs(vx); }
+        if (y <= 0)                { y = 0;                  vy = Math.abs(vy); }
+        if (y + H >= window.innerHeight) { y = window.innerHeight - H; vy = -Math.abs(vy); }
+
+        heroVisual.style.left = x + 'px';
+        heroVisual.style.top  = y + 'px';
+        floatRAF = requestAnimationFrame(loop);
+      }
+      loop();
     });
   }
 })();
