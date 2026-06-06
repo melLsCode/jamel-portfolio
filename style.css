@@ -612,6 +612,97 @@ body.nav-open {
   to   { transform: rotate(360deg); }
 }
 
+/* ================================================
+   SATELLITE
+================================================ */
+.satellite-orbit {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 460px; height: 460px;
+  margin: -230px 0 0 -230px;
+  border-radius: 50%;
+  animation: satelliteOrbit 20s linear infinite;
+  pointer-events: none;
+}
+
+.satellite {
+  position: absolute;
+  top: -14px; left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  animation: satelliteCounter 20s linear infinite;
+  filter: drop-shadow(0 0 6px rgba(0,212,255,0.7));
+}
+
+/* Solar panels */
+.sat-panel {
+  width: 22px;
+  height: 10px;
+  background: linear-gradient(135deg, #1a3a6b, #2563eb);
+  border: 1px solid rgba(96,165,250,0.6);
+  border-radius: 2px;
+  position: relative;
+}
+
+.sat-panel::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 5px,
+    rgba(96,165,250,0.25) 5px,
+    rgba(96,165,250,0.25) 6px
+  );
+}
+
+/* Body */
+.sat-body {
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(135deg, #d97706, #fbbf24);
+  border: 1px solid rgba(251,191,36,0.8);
+  border-radius: 3px;
+  position: relative;
+  box-shadow: 0 0 8px rgba(251,191,36,0.5);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* Antenna */
+.sat-antenna {
+  width: 1.5px;
+  height: 8px;
+  background: rgba(0,212,255,0.9);
+  margin-top: -8px;
+  position: relative;
+}
+
+.sat-antenna::after {
+  content: '';
+  position: absolute;
+  top: -3px; left: 50%;
+  transform: translateX(-50%);
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: #00d4ff;
+  box-shadow: 0 0 6px #00d4ff;
+}
+
+@keyframes satelliteOrbit {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes satelliteCounter {
+  from { transform: translateX(-50%) rotate(0deg); }
+  to   { transform: translateX(-50%) rotate(-360deg); }
+}
+
 /* Scroll indicator */
 .scroll-indicator {
   position: absolute;
