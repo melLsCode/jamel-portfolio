@@ -338,14 +338,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     core.style.transform = `translate(${x}px, ${y}px)`;
   });
 
-  /* Click bounce + ripple on AI orb */
+  /* Click — full core spin + ripple */
   const orb = core.querySelector('.ai-orb');
   if (orb) {
     orb.addEventListener('click', () => {
-      orb.classList.remove('clicked');
-      void orb.offsetWidth;
-      orb.classList.add('clicked');
-      orb.addEventListener('animationend', () => orb.classList.remove('clicked'), { once: true });
+      if (core.classList.contains('spinning')) return;
+      core.classList.add('spinning');
+      core.addEventListener('animationend', () => core.classList.remove('spinning'), { once: true });
 
       const ripple = document.createElement('div');
       ripple.className = 'ai-click-ripple';
