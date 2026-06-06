@@ -285,6 +285,60 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+/* ================================================
+   AI CORE — MOUSE PARALLAX + PARTICLES
+================================================ */
+(function initAiCore() {
+  const core = document.getElementById('heroAiCore');
+  const canvas = document.getElementById('aiParticlesCanvas');
+  if (!core || !canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  let W, H;
+
+  function resize() {
+    W = canvas.width  = core.offsetWidth;
+    H = canvas.height = core.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  /* Particles */
+  const particles = Array.from({ length: 55 }, () => ({
+    x: Math.random() * 420,
+    y: Math.random() * 420,
+    r: Math.random() * 1.5 + 0.3,
+    vx: (Math.random() - 0.5) * 0.4,
+    vy: (Math.random() - 0.5) * 0.4,
+    alpha: Math.random() * 0.5 + 0.1,
+  }));
+
+  function drawParticles() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => {
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0) p.x = W;
+      if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H;
+      if (p.y > H) p.y = 0;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(0,212,255,${p.alpha})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(drawParticles);
+  }
+  drawParticles();
+
+  /* Mouse parallax */
+  document.addEventListener('mousemove', e => {
+    const x = (e.clientX / window.innerWidth  - 0.5) * 22;
+    const y = (e.clientY / window.innerHeight - 0.5) * 22;
+    core.style.transform = `translate(${x}px, ${y}px)`;
+  });
+})();
+
 // Initialize content area as loaded on page load
 if (contentArea) {
   contentArea.classList.add('loaded');
