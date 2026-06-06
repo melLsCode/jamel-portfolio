@@ -499,13 +499,13 @@ body.nav-open {
   transform-origin: center center;
 }
 
-.orbit-ring-1 { width: 200px; height: 200px; margin: -100px 0 0 -100px; animation: orbitSpin 6s linear infinite; }
-.orbit-ring-2 { width: 260px; height: 260px; margin: -130px 0 0 -130px; animation: orbitSpin 10s linear infinite reverse; }
-.orbit-ring-3 { width: 320px; height: 320px; margin: -160px 0 0 -160px; animation: orbitSpin 14s linear infinite; }
-.orbit-ring-4 { width: 370px; height: 370px; margin: -185px 0 0 -185px; animation: orbitSpin 9s linear infinite reverse; }
-.orbit-ring-5 { width: 415px; height: 415px; margin: -207px 0 0 -207px; animation: orbitSpin 18s linear infinite; }
+.orbit-ring-1 { width: 200px; height: 200px; margin: -100px 0 0 -100px; animation: orbitCW 12s linear infinite; }
+.orbit-ring-2 { width: 260px; height: 260px; margin: -130px 0 0 -130px; animation: orbitCW 18s linear infinite; }
+.orbit-ring-3 { width: 320px; height: 320px; margin: -160px 0 0 -160px; animation: orbitCW 24s linear infinite; }
+.orbit-ring-4 { width: 370px; height: 370px; margin: -185px 0 0 -185px; animation: orbitCW 30s linear infinite; }
+.orbit-ring-5 { width: 415px; height: 415px; margin: -207px 0 0 -207px; animation: orbitCW 38s linear infinite; }
 
-@keyframes orbitSpin {
+@keyframes orbitCW {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
@@ -536,16 +536,17 @@ body.nav-open {
   font-size: 1rem;
 }
 
-.orbit-ring-1 .tech-node { animation: counterSpin 6s linear infinite; }
-.orbit-ring-2 .tech-node { animation: counterSpin 10s linear infinite reverse; }
-.orbit-ring-3 .tech-node { animation: counterSpin 14s linear infinite; }
-.orbit-ring-4 .tech-node { animation: counterSpin 9s linear infinite reverse; }
-.orbit-ring-5 .tech-node { animation: counterSpin 18s linear infinite; }
+.orbit-ring-1 .tech-node { animation: counterSpin1 12s linear infinite; }
+.orbit-ring-2 .tech-node { animation: counterSpin2 18s linear infinite; }
+.orbit-ring-3 .tech-node { animation: counterSpin3 24s linear infinite; }
+.orbit-ring-4 .tech-node { animation: counterSpin4 30s linear infinite; }
+.orbit-ring-5 .tech-node { animation: counterSpin5 38s linear infinite; }
 
-@keyframes counterSpin {
-  from { transform: translateX(-50%) rotate(0deg); }
-  to   { transform: translateX(-50%) rotate(-360deg); }
-}
+@keyframes counterSpin1 { from { transform: translateX(-50%) rotate(0deg); } to { transform: translateX(-50%) rotate(-360deg); } }
+@keyframes counterSpin2 { from { transform: translateX(-50%) rotate(0deg); } to { transform: translateX(-50%) rotate(-360deg); } }
+@keyframes counterSpin3 { from { transform: translateX(-50%) rotate(0deg); } to { transform: translateX(-50%) rotate(-360deg); } }
+@keyframes counterSpin4 { from { transform: translateX(-50%) rotate(0deg); } to { transform: translateX(-50%) rotate(-360deg); } }
+@keyframes counterSpin5 { from { transform: translateX(-50%) rotate(0deg); } to { transform: translateX(-50%) rotate(-360deg); } }
 
 /* Node colors */
 .node-flutter i  { color: #54c5f8; }
