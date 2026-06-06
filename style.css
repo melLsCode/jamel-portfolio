@@ -162,6 +162,9 @@ ul { list-style: none; }
 .nav-links {
   display: flex;
   gap: 36px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .nav-links a {
