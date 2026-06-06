@@ -286,101 +286,208 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 /* ================================================
-   SKILLS PAGE — REVEAL + COUNTERS + TILT + ECOSYSTEM
+   MISSION CONTROL — Full Skills Page JS
 ================================================ */
-(function initSkillsPage() {
+(function initMissionControl() {
 
   /* ---- Scroll reveal ---- */
   const revealEls = document.querySelectorAll('.sk-reveal');
   if (revealEls.length) {
     const ro = new IntersectionObserver(entries => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          const delay = el.dataset.delay || 0;
-          setTimeout(() => el.classList.add('sk-visible'), delay);
-          ro.unobserve(el);
-        }
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const delay = parseInt(el.dataset.delay) || 0;
+        setTimeout(() => el.classList.add('sk-visible'), delay);
+        ro.unobserve(el);
       });
-    }, { threshold: 0.12 });
-
+    }, { threshold: 0.1 });
     revealEls.forEach((el, i) => {
-      el.dataset.delay = (i % 6) * 80;
+      if (!el.dataset.delay) el.dataset.delay = (i % 6) * 90;
       ro.observe(el);
     });
   }
 
-  /* ---- Animated counters ---- */
-  const counters = document.querySelectorAll('.sk-stat-num');
-  if (counters.length) {
-    const co = new IntersectionObserver(entries => {
+  /* ---- Typewriter ---- */
+  const tw = document.getElementById('mcTypewriter');
+  if (tw) {
+    const phrases = [
+      '> initializing AI core...',
+      '> loading Flutter SDK...',
+      '> connecting Firebase...',
+      '> OpenAI ready.',
+      '> all systems operational.',
+    ];
+    let pi = 0, ci = 0, deleting = false;
+    function type() {
+      const phrase = phrases[pi];
+      if (!deleting) {
+        tw.textContent = phrase.slice(0, ++ci);
+        if (ci === phrase.length) { deleting = true; setTimeout(type, 1800); return; }
+      } else {
+        tw.textContent = phrase.slice(0, --ci);
+        if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+      }
+      setTimeout(type, deleting ? 40 : 65);
+    }
+    setTimeout(type, 1200);
+  }
+
+  /* ---- Radar canvas ---- */
+  const radarCanvas = document.getElementById('mcRadarCanvas');
+  if (radarCanvas) {
+    const rc = radarCanvas.getContext('2d');
+    let angle = 0;
+    const SIZE = 460;
+    radarCanvas.width = SIZE; radarCanvas.height = SIZE;
+    const cx = SIZE / 2, cy = SIZE / 2, R = SIZE / 2 - 10;
+
+    function drawRadar() {
+      rc.clearRect(0, 0, SIZE, SIZE);
+
+      /* rings */
+      [0.25, 0.5, 0.75, 1].forEach(f => {
+        rc.beginPath();
+        rc.arc(cx, cy, R * f, 0, Math.PI * 2);
+        rc.strokeStyle = 'rgba(0,212,255,0.12)';
+        rc.lineWidth = 1;
+        rc.stroke();
+      });
+
+      /* crosshairs */
+      rc.strokeStyle = 'rgba(0,212,255,0.1)';
+      rc.beginPath(); rc.moveTo(cx - R, cy); rc.lineTo(cx + R, cy); rc.stroke();
+      rc.beginPath(); rc.moveTo(cx, cy - R); rc.lineTo(cx, cy + R); rc.stroke();
+
+      /* sweep gradient */
+      const sweep = rc.createConicalGradient ? null : null;
+      rc.save();
+      rc.translate(cx, cy);
+      rc.rotate(angle);
+      const grad = rc.createLinearGradient(0, 0, R, 0);
+      grad.addColorStop(0, 'rgba(0,212,255,0.5)');
+      grad.addColorStop(1, 'rgba(0,212,255,0)');
+      rc.beginPath();
+      rc.moveTo(0, 0);
+      rc.arc(0, 0, R, -Math.PI / 6, 0);
+      rc.closePath();
+      rc.fillStyle = grad;
+      rc.fill();
+      rc.restore();
+
+      /* outer ring */
+      rc.beginPath();
+      rc.arc(cx, cy, R, 0, Math.PI * 2);
+      rc.strokeStyle = 'rgba(0,212,255,0.25)';
+      rc.lineWidth = 1.5;
+      rc.stroke();
+
+      angle += 0.018;
+      requestAnimationFrame(drawRadar);
+    }
+    drawRadar();
+  }
+
+  /* ---- Core orbit particles ---- */
+  const coreCanvas = document.getElementById('mcCoreParticles');
+  if (coreCanvas) {
+    const cc = coreCanvas.getContext('2d');
+    let cW, cH;
+    function resizeCore() {
+      cW = coreCanvas.width  = coreCanvas.offsetWidth;
+      cH = coreCanvas.height = coreCanvas.offsetHeight;
+    }
+    resizeCore();
+    window.addEventListener('resize', resizeCore);
+
+    const cpts = Array.from({ length: 40 }, () => ({
+      x: Math.random() * 500, y: Math.random() * 500,
+      r: Math.random() * 1.3 + 0.2,
+      vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
+      a: Math.random() * 0.35 + 0.05,
+    }));
+
+    function drawCore() {
+      cc.clearRect(0, 0, cW, cH);
+      cpts.forEach(p => {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0) p.x = cW; if (p.x > cW) p.x = 0;
+        if (p.y < 0) p.y = cH; if (p.y > cH) p.y = 0;
+        cc.beginPath();
+        cc.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        cc.fillStyle = `rgba(0,212,255,${p.a})`;
+        cc.fill();
+      });
+      requestAnimationFrame(drawCore);
+    }
+    drawCore();
+
+    /* Mouse parallax on core */
+    const coreWrap = document.getElementById('mcCoreWrap');
+    const coreSystem = document.getElementById('mcCoreSystem');
+    if (coreWrap && coreSystem) {
+      coreWrap.addEventListener('mousemove', e => {
+        const r = coreWrap.getBoundingClientRect();
+        const dx = ((e.clientX - r.left) / r.width  - 0.5) * 18;
+        const dy = ((e.clientY - r.top)  / r.height - 0.5) * 18;
+        coreSystem.style.transform = `translate(${dx}px,${dy}px)`;
+      });
+      coreWrap.addEventListener('mouseleave', () => {
+        coreSystem.style.transform = '';
+      });
+    }
+  }
+
+  /* ---- Skill bars ---- */
+  const bars = document.querySelectorAll('.mc-bar-item');
+  if (bars.length) {
+    const bo = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
-        const el = entry.target;
-        const target = +el.dataset.target;
-        const duration = 1400;
-        const step = 16;
-        const increment = target / (duration / step);
-        let current = 0;
-        const timer = setInterval(() => {
-          current += increment;
-          if (current >= target) { current = target; clearInterval(timer); }
-          el.textContent = Math.floor(current);
-        }, step);
-        co.unobserve(el);
+        const fill = entry.target.querySelector('.mc-bar-fill');
+        const pct  = entry.target.dataset.pct || 0;
+        if (fill) fill.style.width = pct + '%';
+        bo.unobserve(entry.target);
       });
-    }, { threshold: 0.5 });
-    counters.forEach(el => co.observe(el));
+    }, { threshold: 0.3 });
+    bars.forEach(b => bo.observe(b));
   }
 
-  /* ---- Expertise card tilt + glow ---- */
-  document.querySelectorAll('.sk-exp-card[data-tilt]').forEach(card => {
-    const glow = card.querySelector('.sk-exp-glow');
-    card.addEventListener('mousemove', e => {
-      const r = card.getBoundingClientRect();
-      const x = e.clientX - r.left;
-      const y = e.clientY - r.top;
-      const rx = ((y - r.height/2) / r.height) * -10;
-      const ry = ((x - r.width/2)  / r.width)  *  10;
-      card.style.transform = `perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.03)`;
-      if (glow) { glow.style.left = x + 'px'; glow.style.top = y + 'px'; }
-    });
-    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
-  });
+  /* ---- Future section particles ---- */
+  const futCanvas = document.getElementById('mcFutureCanvas');
+  if (futCanvas) {
+    const fc = futCanvas.getContext('2d');
+    let fW, fH;
+    function resizeFut() {
+      fW = futCanvas.width  = futCanvas.offsetWidth;
+      fH = futCanvas.height = futCanvas.offsetHeight;
+    }
+    resizeFut();
+    window.addEventListener('resize', resizeFut);
 
-  /* ---- Ecosystem particles canvas ---- */
-  const ecoCanvas = document.getElementById('skEcoParticles');
-  if (!ecoCanvas) return;
-  const ctx = ecoCanvas.getContext('2d');
-  let W, H;
-  function resize() {
-    W = ecoCanvas.width  = ecoCanvas.offsetWidth;
-    H = ecoCanvas.height = ecoCanvas.offsetHeight;
+    const fpts = Array.from({ length: 50 }, () => ({
+      x: Math.random() * 1400, y: Math.random() * 600,
+      r: Math.random() * 1.5 + 0.2,
+      vx: (Math.random() - 0.5) * 0.25, vy: (Math.random() - 0.5) * 0.25,
+      a: Math.random() * 0.3 + 0.04,
+      hue: Math.random() > 0.7 ? 270 : 185,
+    }));
+
+    function drawFut() {
+      fc.clearRect(0, 0, fW, fH);
+      fpts.forEach(p => {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0) p.x = fW; if (p.x > fW) p.x = 0;
+        if (p.y < 0) p.y = fH; if (p.y > fH) p.y = 0;
+        fc.beginPath();
+        fc.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        fc.fillStyle = `hsla(${p.hue},100%,70%,${p.a})`;
+        fc.fill();
+      });
+      requestAnimationFrame(drawFut);
+    }
+    drawFut();
   }
-  resize();
-  window.addEventListener('resize', resize);
-
-  const pts = Array.from({ length: 35 }, () => ({
-    x: Math.random() * 480, y: Math.random() * 480,
-    r: Math.random() * 1.2 + 0.2,
-    vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
-    a: Math.random() * 0.4 + 0.05,
-  }));
-
-  function drawEco() {
-    ctx.clearRect(0, 0, W, H);
-    pts.forEach(p => {
-      p.x += p.vx; p.y += p.vy;
-      if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
-      if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(0,212,255,${p.a})`;
-      ctx.fill();
-    });
-    requestAnimationFrame(drawEco);
-  }
-  drawEco();
 
 })();
 
