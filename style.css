@@ -164,7 +164,7 @@ ul { list-style: none; }
   gap: 36px;
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-30%);
 }
 
 .nav-links a {
