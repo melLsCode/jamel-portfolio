@@ -407,8 +407,8 @@ body.nav-open {
 
 .hero-card-stack {
   position: relative;
-  width: 360px;
-  height: 460px;
+  width: 340px;
+  height: 400px;
 }
 
 .floating-card {
@@ -428,8 +428,8 @@ body.nav-open {
 .card-icon { font-size: 1.4rem; color: var(--cyan); }
 
 .card-analytics { top: 0; left: 0; width: 280px; animation-delay: 0s; }
-.card-subs      { top: 170px; right: 0; width: 240px; animation-delay: 0.8s; }
-.card-ctr       { bottom: 10px; left: 20px; width: 220px; animation-delay: 1.6s; }
+.card-subs      { top: 140px; right: 0; width: 240px; animation-delay: 0.8s; }
+.card-ctr       { bottom: 0; left: 20px; width: 220px; animation-delay: 1.6s; }
 
 .card-label { display: block; font-size: 0.75rem; color: var(--text-muted); }
 .card-value { font-size: 1rem; font-weight: 800; color: var(--cyan); white-space: nowrap; }
