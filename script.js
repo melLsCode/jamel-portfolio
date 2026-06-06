@@ -367,7 +367,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
       let x = originRect.left;
       let y = originRect.top;
-      const speed = 1.8;
+      const speed = 0.8;
       const angle = Math.random() * Math.PI * 2;
       let vx = Math.cos(angle) * speed;
       let vy = Math.sin(angle) * speed;
