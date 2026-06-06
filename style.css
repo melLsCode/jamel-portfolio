@@ -323,12 +323,56 @@ body.nav-open {
   animation: fadeInUp 0.6s 0.2s ease both;
 }
 
+.hero-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 20px 0 28px;
+  animation: fadeInUp 0.6s 0.25s ease both;
+}
+
+.hero-tech-stack span {
+  padding: 8px 16px;
+  border: 1px solid rgba(0,212,255,0.25);
+  background: rgba(0,212,255,0.05);
+  border-radius: 999px;
+  color: #00d4ff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
 .hero-actions {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
-  margin-bottom: 56px;
+  margin-bottom: 40px;
   animation: fadeInUp 0.6s 0.3s ease both;
+}
+
+.featured-projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+  animation: fadeInUp 0.6s 0.5s ease both;
+}
+
+.project-pill {
+  padding: 10px 18px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--text);
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.project-pill:hover {
+  background: rgba(0,212,255,0.07);
+  border-color: rgba(0,212,255,0.25);
 }
 
 .hero-stats {
