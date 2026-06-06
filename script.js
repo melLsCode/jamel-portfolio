@@ -337,6 +337,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const y = (e.clientY / window.innerHeight - 0.5) * 22;
     core.style.transform = `translate(${x}px, ${y}px)`;
   });
+
+  /* Click bounce + ripple on AI orb */
+  const orb = core.querySelector('.ai-orb');
+  if (orb) {
+    orb.addEventListener('click', () => {
+      orb.classList.remove('clicked');
+      void orb.offsetWidth;
+      orb.classList.add('clicked');
+      orb.addEventListener('animationend', () => orb.classList.remove('clicked'), { once: true });
+
+      const ripple = document.createElement('div');
+      ripple.className = 'ai-click-ripple';
+      core.appendChild(ripple);
+      ripple.addEventListener('animationend', () => ripple.remove());
+    });
+  }
 })();
 
 // Initialize content area as loaded on page load
