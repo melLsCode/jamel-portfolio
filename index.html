@@ -439,8 +439,11 @@ body.ocmode{--accent:var(--amber);--signal:var(--amber)}
 .modal-head .mx{margin-left:auto;cursor:none;color:var(--mist);border:1px solid var(--line-2);border-radius:7px;padding:5px 10px;transition:.2s}
 .modal-head .mx:hover{color:var(--signal);border-color:var(--signal)}
 .modal-body{padding:clamp(20px,3vw,34px)}
-.modal-grid{display:grid;grid-template-columns:1fr;gap:28px;align-items:start}
-@media(min-width:780px){.modal-grid{grid-template-columns:.95fr 1.05fr}}
+.modal-grid{display:grid;grid-template-columns:1fr;gap:30px;align-items:start}
+/* portrait/phone projects: side-by-side on desktop, stacked on mobile */
+@media(min-width:780px){.modal-grid.grid-split{grid-template-columns:.95fr 1.05fr}}
+/* landscape/desktop projects: big centered media on top, details below */
+.modal-grid.grid-stack>div:first-child{display:flex;justify-content:center}
 .modal-grid>div{opacity:0;transform:translateY(16px)}
 .modal.open .modal-grid>div{animation:dossierIn .55s var(--ease) forwards}
 .modal.open .modal-grid>div:nth-child(1){animation-delay:.12s}
@@ -505,12 +508,13 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
 .pf{position:relative;width:min(244px,72vw);aspect-ratio:9/19;border-radius:32px;border:1px solid var(--line-2);background:#000;overflow:hidden;margin:0 auto;
   box-shadow:0 0 0 6px #0c0e13,0 30px 70px rgba(0,0,0,.6),0 0 50px var(--signal-d)}
 .pf:before{content:"";position:absolute;top:10px;left:50%;transform:translateX(-50%);width:56px;height:6px;border-radius:6px;background:#1b1f27;z-index:4}
-.df{position:relative;width:100%;max-width:460px;border-radius:14px;border:1px solid var(--line-2);background:#000;overflow:hidden;margin:0 auto;
+.df{position:relative;width:100%;max-width:760px;border-radius:14px;border:1px solid var(--line-2);background:#000;overflow:hidden;margin:0 auto;
   box-shadow:0 24px 60px rgba(0,0,0,.6),0 0 50px var(--signal-d)}
 .df .bar{height:30px;background:#0c0e13;display:flex;align-items:center;gap:7px;padding:0 13px;border-bottom:1px solid var(--line)}
 .df .bar i{width:9px;height:9px;border-radius:50%;background:#2a2f3a}
 .df .scr{aspect-ratio:16/10;position:relative}
-.pf video,.pf img,.df .scr video,.df .scr img{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:2}
+.pf video,.pf img,.df .scr video{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:2}
+.df .scr img{width:100%;height:100%;object-fit:contain;background:#0a0c11;display:block;position:relative;z-index:2}
 .feed-fb{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
   background:radial-gradient(circle at 50% 38%,rgba(95,233,198,.1),transparent 60%),#0a0c11;
   font-family:var(--fm);color:var(--dim);font-size:9.5px;letter-spacing:.12em;text-align:center;padding:12px}
@@ -851,12 +855,12 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
      links:[{label:"Live Demo",href:"#",primary:true},{label:"View Code",href:"#"}]},
 
     {no:"MSN-004",name:"VoxFil AI",status:"ACTIVE",state:"plasma",platform:"WEB APP",
-     tag:"VOICE · GENERATIVE AI",engine:"OpenAI TTS + Edge TTS",surface:"Next.js · Web",media:"desktop",video:null,poster:"images/voice-studio.png",
-     objective:"AI text-to-speech web app that converts scripts into natural-sounding voice audio across multiple engines.",
-     impact:"Browser TTS up to 20K characters, free Edge TTS download with no API key, OpenAI TTS across 6 voices, adjustable speed & tone, and MP3 export.",
-     stack:["Next.js","React","TypeScript","Tailwind CSS","OpenAI API"],
-     feat:["Browser-based TTS (20K char limit)","Free Edge TTS download — no API key","OpenAI TTS — 6 voices","Adjustable speed & tone","Audio download in MP3"],
-     links:[{label:"Live Demo",href:"#",primary:true},{label:"View Code",href:"#"}]},
+     tag:"VOICE · GENERATIVE AI",engine:"OpenAI TTS + Edge TTS",surface:"Next.js · Vercel",media:"desktop",video:"videos/voxfil-demo.mp4",poster:"images/voice-studio.png",
+     objective:"Full-stack AI text-to-speech web app that turns scripts into natural-sounding voice across multiple engines — with auth, subscriptions and a Pro plan gating premium voices.",
+     impact:"Three TTS engines (Web Speech, free Edge TTS, premium OpenAI), Supabase auth (email/password + Google), and Stripe subscriptions gating Pro features — shipped live on Vercel.",
+     stack:["Next.js 14","React","TypeScript","Tailwind CSS","Supabase","Stripe","OpenAI API","Vercel"],
+     feat:["Browser-based TTS (Web Speech, 20K chars)","Free Edge TTS download — no API key, multi-language","OpenAI TTS — 6 premium voices, MP3 export","Adjustable speed & tone","Supabase auth — email/password + Google OAuth","Stripe subscriptions with Pro-plan gating","Protected routes via middleware + session management","Deployed live on Vercel"],
+     links:[{label:"Live Demo",href:"https://vox-fil-3kw1.vercel.app/",primary:true},{label:"View Code",href:"#"}]},
 
     {no:"MSN-005",name:"Victorianos",status:"OPERATIONAL",state:"signal",platform:"MOBILE APP",
      tag:"FOOD DELIVERY · SUPABASE",engine:"Supabase",surface:"Flutter · Android",media:"phone",video:"videos/victorianos-demo1.mp4",poster:"images/onboarding.png",
@@ -1097,7 +1101,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
     const btns=s.links.map(actBtn).join("");
     $("#modalCard").innerHTML=`
       <div class="modal-head"><span>${s.no} · ${s.tag}</span><span style="color:var(--accent)">● ${s.status}</span><span class="mx" id="mx">CLOSE [ESC]</span></div>
-      <div class="modal-body"><div class="modal-grid">
+      <div class="modal-body"><div class="modal-grid ${s.media==='desktop'?'grid-stack':'grid-split'}">
         <div>${mediaHTML(s)}</div>
         <div>
           <span class="dossier-type">${(s.platform||s.type)} · ${s.surface}</span>
