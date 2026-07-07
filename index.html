@@ -57,16 +57,10 @@ img,svg{display:block;max-width:100%}
 .scan{position:fixed;inset:0;z-index:69;pointer-events:none;opacity:.45;mix-blend-mode:multiply;
   background:repeating-linear-gradient(0deg,rgba(0,0,0,.16) 0 1px,transparent 1px 3px)}
 
-/* ---------- CURSOR ---------- */
-.cursor{position:fixed;left:0;top:0;z-index:130;pointer-events:none;transform:translate(-50%,-50%);will-change:transform}
-.cursor .ring{width:26px;height:26px;border:1px solid var(--accent);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  transition:width .18s,height .18s,border-color .2s,background .2s}
-.cursor .dot{width:3px;height:3px;border-radius:50%;background:var(--accent)}
-.cursor .co{position:absolute;left:20px;top:13px;font-family:var(--fm);font-size:9px;color:var(--dim);white-space:nowrap;letter-spacing:.04em}
-.cursor.hot .ring{width:46px;height:46px;border-color:var(--amber);background:rgba(255,180,84,.06)}
-.cursor.hot .dot{background:var(--amber)}
-body.touch .cursor{display:none}
+/* ---------- NORMAL ARROW CURSOR ---------- */
+.cursor{display:none!important}
+*{cursor:auto!important}
+a,button,.nav-link,.btn,.hire,.rail a,.dact,.mx,.cop,.vbadge,.burger,.sndbtn,.node,.social-btn,.brand,.ch-val,.ops-link{cursor:pointer!important}
 
 /* ---------- PRELOADER ---------- */
 .boot{position:fixed;inset:0;z-index:100;background:var(--void);display:flex;align-items:center;justify-content:center;
@@ -1137,7 +1131,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
       row.innerHTML=`<div class="ops-led"><span class="led ${statusCls}"></span><small>${s.state==='amber'?'OPS':'LIVE'}</small></div>
       <div class="ops-main">
         <div class="ops-no">${s.no} · ${s.tag}</div>
-        <div class="ops-top"><h3>${s.name}</h3><span class="tag ${statusCls}">${s.status}</span><span class="decrypt">DECRYPT ▸</span></div>
+        <div class="ops-top"><h3>${s.name}</h3><span class="tag ${statusCls}">${s.status}</span><span class="decrypt">Click ▸</span></div>
         <div class="ops-desc">${s.objective}</div>
         <div class="ops-tele">${tele}</div>
       </div>`;
