@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>J.dev — Operating System · Jamel</title>
-<meta name="description" content="Jamel (J.dev) — AI product builder. Flutter, React Native, Firebase, OpenAI & Gemini. Mission Control for shipped AI products." />
+<title>Jamel Duarte | AI-Assisted Full-Stack Developer</title>
+<meta name="description" content="Jamel Duarte — early-career AI-assisted full-stack developer building production-minded web, backend, and mobile applications with Next.js, FastAPI, Flutter, TypeScript, and Python." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -284,6 +284,17 @@ main section{scroll-margin-top:84px}
 .flow-leg i{font-style:normal;display:inline-flex;align-items:center;gap:7px}
 .flow-leg i:before{content:"";width:9px;height:9px;border-radius:2px;background:var(--c,var(--signal))}
 
+/* ---------- AI-ASSISTED ENGINEERING WORKFLOW ---------- */
+.workflow{border:1px solid var(--line);border-radius:var(--r-lg);background:linear-gradient(135deg,rgba(106,166,255,.08),transparent 46%),var(--void-2);padding:clamp(22px,4vw,34px)}
+.workflow-intro{max-width:760px;color:var(--mist);font-size:15px;margin:10px 0 24px}
+.workflow-grid{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:700px){.workflow-grid{grid-template-columns:repeat(3,1fr)}}
+.wf-card{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:20px}
+.wf-card b{display:block;font-family:var(--fm);font-size:10px;letter-spacing:.12em;color:var(--plasma);text-transform:uppercase;margin-bottom:9px}
+.wf-card p{font-size:13px;color:var(--mist);line-height:1.65}
+.wf-tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.wf-tools span{font-family:var(--fm);font-size:10.5px;color:var(--signal);border:1px solid var(--signal-d);background:var(--signal-d);border-radius:7px;padding:5px 9px}
+
 /* ---------- FLIGHT LOG ---------- */
 .split{display:grid;grid-template-columns:1fr;gap:26px}
 @media(min-width:900px){.split{grid-template-columns:1.05fr 1fr}}
@@ -343,6 +354,14 @@ body.ocmode{--accent:var(--amber);--signal:var(--amber)}
 .ops-link em{font-style:normal;opacity:.55;font-size:9.5px;margin-left:4px}
 .ops-creds{font-family:var(--fm);font-size:10.5px;color:var(--mist);margin-top:14px;border:1px dashed var(--line-2);border-radius:8px;padding:10px 12px}
 .ops-creds b{color:var(--ice);font-weight:600}
+
+/* ---------- PROJECT ARCHIVE GROUPS ---------- */
+.archive-group{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:34px 0 12px;padding:28px 30px 18px;border-top:1px solid var(--line);background:linear-gradient(90deg,rgba(95,233,198,.055),transparent 62%)}
+.archive-group:first-child{margin-top:0;padding-top:26px;border-top:0}
+.archive-group h3{font-size:clamp(20px,2.5vw,25px);font-weight:800;letter-spacing:-.025em;margin:0;color:var(--ice)}
+.archive-group p{font-family:var(--fm);font-size:11px;color:var(--mist);max-width:410px;text-align:right;margin:0;line-height:1.6}
+.archive-group .ag-kicker{display:block;font-family:var(--fm);font-size:10px;font-weight:600;letter-spacing:.16em;color:var(--signal);text-transform:uppercase;margin-bottom:6px}
+@media(max-width:620px){.archive-group{display:block;padding:22px 20px 15px}.archive-group p{text-align:left;margin-top:9px}}
 
 /* ---------- OPERATOR PROFILE ---------- */
 .op{display:grid;grid-template-columns:1fr;gap:26px}
@@ -554,20 +573,20 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
 <nav class="rail" id="rail">
   <a href="#hero" data-l="online" class="on"></a>
   <a href="#core-sec" data-l="core systems"></a>
+  <a href="#workflow-sec" data-l="ai workflow"></a>
   <a href="#archive-sec" data-l="mission archive"></a>
   <a href="#flow-sec" data-l="signal flow"></a>
   <a href="#operator-sec" data-l="operator"></a>
   <a href="#current-sec" data-l="current ops"></a>
-  <a href="#uplink-sec" data-l="uplink"></a>
 </nav>
 
 <header class="nav"><div class="wrap">
   <a href="#hero" class="brand"><span class="led"></span><span class="bword">J<span>.dev</span></span></a>
   <nav class="nav-links">
     <a href="#hero" class="nav-link on">Home</a>
-    <a href="#archive-sec" class="nav-link">Dev Projects</a>
+    <a href="#archive-sec" class="nav-link">Projects</a>
     <a href="#operator-sec" class="nav-link">About</a>
-    <a href="#current-sec" class="nav-link">Services</a>
+    <a href="#workflow-sec" class="nav-link">AI Workflow</a>
     <a href="#core-sec" class="nav-link">Skills</a>
     <!-- <a href="#uplink-sec" class="nav-link">Contact</a> -->
   </nav>
@@ -577,36 +596,35 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="snd-x" d="M17 9l4 6M21 9l-4 6"/><path class="snd-on" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8 8 0 0 1 0 12"/></svg>
     </button>
     <span class="vbadge" id="vbadge" title="diagnostics">v4.0</span>
-    <a href="#uplink-sec" class="hire">Hire Me</a>
+    <a href="mailto:jamelduarte93@gmail.com?subject=Portfolio%20inquiry" class="hire">Contact Me</a>
   </div>
   <button class="burger" id="burger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
 </div></header>
 
 <div class="mnav" id="mnav">
   <a href="#hero" class="nav-link on">Home</a>
-  <a href="#archive-sec" class="nav-link">Dev Projects</a>
+  <a href="#archive-sec" class="nav-link">Projects</a>
   <a href="#operator-sec" class="nav-link">About</a>
-  <a href="#current-sec" class="nav-link">Services</a>
+  <a href="#workflow-sec" class="nav-link">AI Workflow</a>
   <a href="#core-sec" class="nav-link">Skills</a>
-  <a href="#uplink-sec" class="nav-link">Contact</a>
   <div class="mnav-status">
     <span><span class="led"></span>ALL SYSTEMS NOMINAL</span>
     <span id="uptime">UPTIME 00:00:00</span>
   </div>
-  <a href="#uplink-sec" class="hire">Hire Me</a>
+  <a href="mailto:jamelduarte93@gmail.com?subject=Portfolio%20inquiry" class="hire">Contact Me</a>
 </div>
 
 <main>
   <!-- HERO -->
   <section class="hero" id="hero"><div class="wrap">
-    <span class="chip reveal"><span class="led"></span> Operator: Jamel · System Online · Accepting Missions</span>
-    <h1 class="reveal" id="heroTitle">AI Product Builder<br><span class="grad">Mission Control</span></h1>
-    <p class="lead reveal">I'm Jamel. I build mobile apps and AI tools — usually with Flutter or React Native, a Firebase or Supabase backend, and OpenAI or Gemini for the AI parts. I like making things that actually get used, not just demos.</p>
+    <span class="chip reveal"><span class="led"></span> Jamel Duarte · AI-Assisted Full-Stack Developer · Open to Remote Roles</span>
+    <h1 class="reveal" id="heroTitle">Production-minded<br><span class="grad">Full-Stack Engineering</span></h1>
+    <p class="lead reveal">I'm Jamel, a Computer Science graduate building web, backend, and mobile applications with Next.js, TypeScript, FastAPI, Python, and Flutter. I use AI to accelerate engineering work, then review, debug, test, and validate every implementation I ship.</p>
     <div class="ticker reveal">
-      <span><b>4+</b> AI products built</span>
-      <span><b>OpenAI + Gemini</b> integrated</span>
-      <span><b>Flutter + React Native</b> cross-platform</span>
-      <span>OPERATOR · <b>Jamel</b></span>
+      <span><b>Next.js + FastAPI</b> web &amp; API delivery</span>
+      <span><b>Flutter</b> mobile &amp; dashboard development</span>
+      <span><b>OpenAI + Gemini</b> product integrations</span>
+      <span>ENGINEER · <b>Jamel</b></span>
     </div>
     <div class="scrollcue reveal"></div>
   </div></section>
@@ -624,8 +642,8 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
       </div>
       <div class="telemetry" id="telemetry">
         <span class="tlabel">System Telemetry</span>
-        <h3 id="t-name">Flutter Engine</h3>
-        <span class="tsub" id="t-sub">CLIENT LAYER</span>
+        <h3 id="t-name">Next.js + TypeScript</h3>
+        <span class="tsub" id="t-sub">WEB CLIENT LAYER</span>
         <p class="tdesc" id="t-desc"></p>
         <div class="sigrow"><span>SIGNAL</span><div class="sigbar"><i id="t-sig"></i></div><span id="t-val">96%</span></div>
         <div class="tpw" id="t-pw"></div>
@@ -633,11 +651,28 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
     </div>
   </section>
 
+  <!-- AI-ASSISTED DEVELOPMENT WORKFLOW -->
+  <section class="modspace wrap" id="workflow-sec">
+    <div class="shead reveal">
+      <div><div class="eyebrow">// module 02 · engineering workflow</div><h2>AI-Assisted Development Workflow</h2></div>
+      <div class="idx">ACCELERATE · REVIEW · VALIDATE</div>
+    </div>
+    <div class="workflow reveal">
+      <p class="workflow-intro">I use AI tools as an engineering accelerator—not a replacement for judgment. Claude Code, ChatGPT, Cursor, and GitHub Copilot help me move faster through planning, architecture exploration, documentation, code generation, debugging, and test design. I remain responsible for the decisions and quality of the code that ships.</p>
+      <div class="workflow-grid">
+        <article class="wf-card"><b>Accelerate</b><p>Use AI to explore implementation options, draft documentation, generate focused scaffolding, and identify debugging or testing paths.</p></article>
+        <article class="wf-card"><b>Verify</b><p>Read the generated code, run it in context, test edge cases, inspect integrations, and correct failures before treating it as complete.</p></article>
+        <article class="wf-card"><b>Own</b><p>Engineering decisions, code review, validation, security, maintainability, and performance remain fully my responsibility.</p></article>
+      </div>
+      <div class="wf-tools"><span>Claude Code</span><span>ChatGPT</span><span>Cursor</span><span>GitHub Copilot</span></div>
+    </div>
+  </section>
+
   <!-- MISSION ARCHIVE -->
   <section class="modspace wrap" id="archive-sec">
     <div class="shead reveal">
-      <div><div class="eyebrow">// module 02 · mission archive</div><h2>Mission Archive</h2></div>
-      <div class="idx">5 CLASSIFIED MISSIONS · CLICK TO DECRYPT</div>
+      <div><div class="eyebrow">// module 03 · selected work</div><h2>Project Archive</h2></div>
+      <div class="idx">FEATURED · WEB / BACKEND · MOBILE / AI</div>
     </div>
     <div class="ops reveal" id="ops"></div>
   </section>
@@ -645,7 +680,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
   <!-- SIGNAL FLOW -->
   <section class="modspace wrap" id="flow-sec">
     <div class="shead reveal">
-      <div><div class="eyebrow">// module 03 · architecture</div><h2>Signal Flow</h2></div>
+      <div><div class="eyebrow">// module 04 · architecture</div><h2>Signal Flow</h2></div>
       <div class="idx">HOW A REQUEST TRAVELS THE STACK</div>
     </div>
     <div class="flow reveal">
@@ -656,9 +691,9 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
         <g id="flowNodes"></g>
       </svg>
       <div class="flow-leg">
-        <i style="--c:var(--signal)">Client · Flutter / React Native</i>
-        <i style="--c:var(--ice)">Edge · Auth &amp; API</i>
-        <i style="--c:var(--signal)">Firebase · Firestore / Functions</i>
+        <i style="--c:var(--signal)">Client · Next.js / Flutter</i>
+        <i style="--c:var(--ice)">API · FastAPI / REST</i>
+        <i style="--c:var(--signal)">Data · SQLite / PostgreSQL / Firebase</i>
         <i style="--c:var(--plasma)">AI · OpenAI &amp; Gemini</i>
       </div>
     </div>
@@ -667,8 +702,8 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
   <!-- OPERATOR PROFILE -->
   <section class="modspace wrap" id="operator-sec">
     <div class="shead reveal">
-      <div><div class="eyebrow">// module 04 · operator</div><h2>Operator Profile</h2></div>
-      <div class="idx">CLEARANCE: ARCHITECT</div>
+      <div><div class="eyebrow">// module 05 · engineer profile</div><h2>Engineer Profile</h2></div>
+      <div class="idx">EARLY-CAREER · PRODUCTION-MINDED</div>
     </div>
     <div class="op reveal">
       <div class="op-card">
@@ -682,18 +717,18 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
               <div class="op-scan"></div>
             </div>
            
-            <span class="op-tag t2">▸ AI-POWERED APPS</span>
+            <span class="op-tag t2">▸ FULL-STACK BUILDER</span>
           </div>
           <div class="op-headtext">
-            <h3>I build AI apps from <span>front to back.</span></h3>
-            <p>I'm a Flutter and React Native developer. I work a lot with Firebase, Supabase, and AI, building mobile apps, web dashboards, and small tools that people can actually use.</p>
+            <h3>I build software from <span>interface to API.</span></h3>
+            <p>I'm an early-career full-stack developer with a Computer Science degree. I build responsive web applications, APIs, mobile apps, dashboards, and AI-powered product features—and I am comfortable learning and contributing within an existing codebase.</p>
           </div>
         </div>
-        <p>Most of my projects run on Flutter, React Native, Firebase, Supabase, OpenAI, and Gemini. I usually handle the whole thing myself — the app, the backend, and the AI part — so the work actually ships and gets used instead of just sitting as a demo. With Supabase I've shipped real auth, Postgres CRUD, and row-level security on a live app.</p>
-        <p>Some of what I've built: <b style="color:var(--ice);font-weight:600">ReasonUp AI</b>, <b style="color:var(--ice);font-weight:600">EstateWise AI</b>, the <b style="color:var(--ice);font-weight:600">VoxFil AI</b> voice generator, and a few admin dashboards on Flutter Web and Firebase.</p>
+        <p>My core stack includes Next.js, React, TypeScript, FastAPI, Python, Flutter, Firebase, Supabase, PostgreSQL, SQLite, and REST APIs. I use Claude Code, ChatGPT, Cursor, and GitHub Copilot to accelerate execution while personally reviewing, debugging, testing, and validating generated code.</p>
+        <p>My recent work includes an <b style="color:var(--ice);font-weight:600">Orban Backend Challenge</b> technical assessment, a <b style="color:var(--ice);font-weight:600">Payload CMS Website</b>, and AI-enabled products such as <b style="color:var(--ice);font-weight:600">ReasonUp AI</b> and <b style="color:var(--ice);font-weight:600">VoxFil AI</b>.</p>
         <div class="op-meta">
-          <span class="k">Flutter</span><span class="k">React Native</span><span class="k">Firebase</span><span class="k">Supabase</span><span class="k">AI Integration</span>
-          <span>OpenAI API</span><span>Gemini API</span><span>Flutter Web</span><span>REST API</span><span>UI/UX · Figma</span><span>Base: Manila, PH</span>
+          <span class="k">Next.js</span><span class="k">FastAPI</span><span class="k">Flutter</span><span class="k">TypeScript</span><span class="k">AI Integration</span>
+          <span>Python</span><span>PostgreSQL</span><span>SQLite</span><span>Firebase</span><span>Supabase</span><span>Base: Manila, PH</span>
         </div>
       </div>
       <div class="op-side">
@@ -707,8 +742,8 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
   <!-- CURRENT OPERATIONS -->
   <section class="modspace wrap" id="current-sec">
     <div class="shead reveal">
-      <div><div class="eyebrow">// module 05 · services</div><h2>Services I Offer</h2></div>
-      <div class="idx">WHAT I DEPLOY FOR CLIENTS</div>
+      <div><div class="eyebrow">// module 06 · capabilities</div><h2>What I Can Contribute</h2></div>
+      <div class="idx">PRODUCT-FOCUSED ENGINEERING SUPPORT</div>
     </div>
     <div class="cops reveal" id="cops"></div>
   </section>
@@ -770,7 +805,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
     </div>
   </section> -->
 
-  <footer><div class="wrap"><div>J_OS v4.0 — © 2026 J.dev · Manila, PH</div><div id="fclock">SESSION ACTIVE</div></div></footer>
+  <footer><div class="wrap"><div>J_OS v4.1 — © 2026 J.dev · AI-Assisted Full-Stack Developer · Manila, PH</div><div id="fclock">SESSION ACTIVE</div></div></footer>
 </main>
 
 <div class="modal" id="modal"><div class="modal-card" id="modalCard"></div></div>
@@ -780,9 +815,9 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
   <div class="drow"><span>render</span><span class="dv" id="d-fps">— fps</span></div>
   <div class="drow"><span>core systems</span><span class="dv">8 / 8 online</span></div>
   <div class="drow"><span>ai providers</span><span class="dv">openai · gemini</span></div>
-  <div class="drow"><span>missions</span><span class="dv">5 archived</span></div>
+  <div class="drow"><span>projects</span><span class="dv">7 selected</span></div>
   <div class="drow"><span>viewport</span><span class="dv" id="d-vp">—</span></div>
-  <div class="drow"><span>build</span><span class="dv">jos-4.0-stable</span></div>
+  <div class="drow"><span>build</span><span class="dv">jos-4.1-recruiter</span></div>
 </div>
 <div class="oc" id="oc">⚡ OVERCLOCK MODE ENGAGED</div>
 
@@ -796,26 +831,26 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
 
   /* ===== REAL DATA — core systems (reactor) ===== */
   const NODES=[
-    {name:"Flutter Engine",layer:"client",sub:"CLIENT LAYER",sig:96,
-     desc:"Cross-platform native apps with pixel-perfect UI and 60fps motion. My primary client engine across mobile and web — the surface most of my products ship on.",
-     pw:["ReasonUp AI","VoxFil AI","Admin Dashboard"]},
-    {name:"React Native Stack",layer:"client",sub:"CLIENT LAYER",sig:90,
-     desc:"Native mobile via the RN ecosystem — shared logic, OTA updates and fast iteration toward the App Store and Play when the brief calls for it.",
-     pw:["EstateWise AI"]},
-    {name:"Firebase Infrastructure",layer:"backend",sub:"BACKEND LAYER",sig:94,
-     desc:"Auth, Firestore, Cloud Functions, Storage and realtime sync — the backbone behind every product, so I ship production backends without standing up infra.",
-     pw:["ReasonUp AI","EstateWise AI","VoxFil AI","Admin Dashboard"]},
+    {name:"Next.js + TypeScript",layer:"client",sub:"WEB CLIENT LAYER",sig:96,
+     desc:"Responsive web interfaces built with reusable React components and TypeScript. Used where a product needs a maintainable frontend connected to real APIs and content systems.",
+     pw:["Orban Backend Challenge","Payload CMS Website","VoxFil AI"]},
+    {name:"FastAPI + Python",layer:"backend",sub:"API LAYER",sig:92,
+     desc:"Python backend services with clear REST API boundaries, validation, and code that can be tested and documented for collaboration inside an existing application.",
+     pw:["Orban Backend Challenge"]},
+    {name:"SQLAlchemy + SQLite",layer:"backend",sub:"DATA LAYER",sig:90,
+     desc:"Relational persistence using SQLAlchemy and SQLite for practical data modeling, CRUD workflows, and backend assessment work that values clarity and testability.",
+     pw:["Orban Backend Challenge"]},
     {name:"OpenAI Intelligence Layer",layer:"ai",sub:"INTELLIGENCE LAYER",sig:92,
      desc:"Structured outputs, function calling, streaming and TTS — wired directly into product flows. Powers ReasonUp's evaluation and VoxFil's voice synthesis.",
      pw:["ReasonUp AI","EstateWise AI","VoxFil AI"]},
     {name:"Gemini Intelligence Layer",layer:"ai",sub:"INTELLIGENCE LAYER",sig:89,
      desc:"Multimodal reasoning and long-context evaluation — used for rubric grading and real-estate recommendation logic where the context window matters.",
      pw:["ReasonUp AI","EstateWise AI"]},
-    {name:"Flutter Web Console",layer:"client",sub:"CLIENT LAYER",sig:90,
-     desc:"Real dashboards in the browser — analytics, monitoring and admin surfaces shipped from a single Flutter codebase. The ReasonUp admin console runs on this.",
+    {name:"Flutter Application Layer",layer:"client",sub:"MOBILE + DASHBOARD",sig:90,
+     desc:"Cross-platform mobile applications and dashboard interfaces connected to production services, authentication, and operational workflows.",
      pw:["Admin Dashboard","ReasonUp AI"]},
-    {name:"API Integration Network",layer:"backend",sub:"INTEGRATION LAYER",sig:93,
-     desc:"The connective tissue — OpenAI TTS, Edge TTS, Gemini and Firebase orchestrated into one coherent product flow with auth, rate handling and fallback.",
+    {name:"Engineering Workflow",layer:"backend",sub:"QUALITY LAYER",sig:93,
+     desc:"AI-assisted planning and implementation supported by disciplined code review, debugging, testing, documentation, and Git-based collaboration.",
      pw:["VoxFil AI","ReasonUp AI","EstateWise AI"]},
     {name:"Supabase Backend",layer:"backend",sub:"BACKEND LAYER",sig:87,
      desc:"Postgres-backed backend with Supabase Auth (email/password + Google OAuth), real CRUD, Row Level Security and realtime sync. Powers Victorianos end to end.",
@@ -824,7 +859,23 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
 
   /* ===== REAL DATA — mission archive (real dev projects) ===== */
   const MISSIONS=[
-    {no:"MSN-001",name:"ReasonUp AI",status:"OPERATIONAL",state:"signal",platform:"MOBILE APP",
+    {no:"MSN-001",name:"Orban Backend Challenge",status:"COMPLETED",state:"signal",platform:"TECHNICAL ASSESSMENT",
+     tag:"BACKEND · EXISTING CODEBASE",engine:"FastAPI + SQLAlchemy",surface:"Next.js · FastAPI",media:"desktop",video:null,poster:"images/orban-backend.png",
+     objective:"Client technical assessment completed within an existing codebase. Implemented and documented backend-focused functionality with clear API boundaries, relational persistence, and a testable development workflow.",
+     impact:"Demonstrates practical engineering beyond a greenfield UI: codebase discovery, backend architecture, Git workflow, API implementation, documentation, and automated validation with Pytest.",
+     stack:["Next.js","FastAPI","SQLite","SQLAlchemy","Pytest","TypeScript"],
+     feat:["Worked within an existing codebase","Implemented backend architecture and REST API flows","Modeled persistence with SQLite and SQLAlchemy","Validated behavior with Pytest","Documented implementation decisions and workflow"],
+     links:[{label:"View Code",href:"https://github.com/melLsCode/orban-backend-challenge",primary:true}]},
+
+    {no:"MSN-002",name:"Payload CMS Website",status:"COMPLETED",state:"plasma",platform:"CMS WEBSITE",
+     tag:"WEB · CONTENT PLATFORM",engine:"Payload CMS",surface:"Next.js · Payload CMS",media:"desktop",video:null,poster:"images/payload-cms.png",
+     objective:"Responsive content-managed website built with Next.js and Payload CMS, designed around a modern web architecture that separates editorial content from reusable presentation components.",
+     impact:"Shows CMS development, responsive UI implementation, and a maintainable architecture for teams that need to update content without rewriting the front end.",
+     stack:["Next.js","Payload CMS","TypeScript","Responsive Design"],
+     feat:["Next.js application architecture","Payload CMS content modeling","Reusable, responsive UI components","Editorial workflow separated from presentation"],
+     links:[{label:"View Code",href:"https://github.com/melLsCode/lendly-payload-hero-section",primary:true}]},
+
+    {no:"MSN-004",name:"ReasonUp AI",status:"OPERATIONAL",state:"signal",platform:"MOBILE APP",
      tag:"AI EDUCATION",engine:"OpenAI + Gemini",surface:"Flutter · Mobile",media:"phone",video:"videos/reasonup-demo.mp4",poster:"images/reasonup-homepage.png",
      objective:"AI-powered mobile app that builds students' argumentation and critical-thinking skills through rubric-based AI evaluation, real-time feedback and gamified learning.",
      impact:"Dual-engine evaluation on OpenAI + Gemini grades reasoning against rubrics in real time, with anti-cheat answer protection and a leaderboard that keeps students progressing.",
@@ -832,7 +883,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
      feat:["AI-based rubric evaluation","Real-time feedback & suggestions","Anti-cheat timer & answer protection","Leaderboard & progress tracking"],
      links:[{label:"Install App",href:"https://drive.google.com/file/d/1Me-kjHiP5dgrvhUpR3r-NR_GsOtyzsbK/view?usp=sharing",primary:true},{label:"View Code",href:"#"}]},
 
-    {no:"MSN-002",name:"EstateWise AI",status:"DEPLOYED",state:"signal",platform:"MOBILE APP",
+    {no:"MSN-005",name:"EstateWise AI",status:"DEPLOYED",state:"signal",platform:"MOBILE APP",
      tag:"AI REAL-ESTATE",engine:"OpenAI GPT-3.5",surface:"React Native · Capacitor",media:"phone",video:"videos/estatewise-demo.mp4",poster:"images/estatewise-preview.png",
      objective:"AI real-estate investment app that helps users discover, analyze and invest in properties through intelligent, personalized recommendations.",
      impact:"A live GPT-3.5 chatbot plus AI investment scoring turns listings into ranked, explainable plays — with Google sign-in, contact-agent (call / SMS / email) and a Stripe-style premium flow.",
@@ -840,7 +891,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
      feat:["AI-powered property investment scoring","Live GPT-3.5 real-estate chatbot","Google Sign-in via Firebase Auth","Contact Agent — Call / SMS / Email","Stripe-style premium subscription UI","Real-time property recommendations"],
      links:[{label:"Install App",href:"https://drive.google.com/file/d/1lD7sonUY-Mj9i5wfCjLKZ8J5JHUvChAm/view?usp=sharing",primary:true},{label:"View Code",href:"#"}]},
 
-    {no:"MSN-003",name:"ReasonUp Admin Panel",status:"OPERATIONAL",state:"amber",platform:"WEB DASHBOARD",
+    {no:"MSN-006",name:"ReasonUp Admin Panel",status:"OPERATIONAL",state:"amber",platform:"WEB DASHBOARD",
      tag:"OPS CONSOLE",engine:"Gemini",surface:"Flutter Web",media:"desktop",video:null,poster:"images/reasonup-admin.png",
      objective:"Web admin dashboard for monitoring student performance, managing leaderboards, analyzing rubric scores and sending NDG invitations and feedback notifications.",
      impact:"Real-time Firebase monitoring with student analytics, leaderboard / ranking management and an NDG invitation + notification system — the control surface behind ReasonUp.",
@@ -848,15 +899,15 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
      feat:["Student performance analytics","Leaderboard & ranking management","NDG invitation & notification system","Real-time Firebase monitoring"],
      links:[{label:"Live Demo",href:"#",primary:true},{label:"View Code",href:"#"}]},
 
-    {no:"MSN-004",name:"VoxFil AI",status:"ACTIVE",state:"plasma",platform:"WEB APP",
+    {no:"MSN-003",name:"VoxFil AI",status:"ACTIVE",state:"plasma",platform:"WEB APP",
      tag:"VOICE · GENERATIVE AI",engine:"OpenAI TTS + Edge TTS",surface:"Next.js · Vercel",media:"desktop",video:"videos/voxfil-demo.mp4",poster:"images/voice-studio.png",
      objective:"Full-stack AI text-to-speech web app that turns scripts into natural-sounding voice across multiple engines — with auth, subscriptions and a Pro plan gating premium voices.",
      impact:"Three TTS engines (Web Speech, free Edge TTS, premium OpenAI), Supabase auth (email/password + Google), and Stripe subscriptions gating Pro features — shipped live on Vercel.",
      stack:["Next.js 14","React","TypeScript","Tailwind CSS","Supabase","Stripe","OpenAI API","Vercel"],
      feat:["Browser-based TTS (Web Speech, 20K chars)","Free Edge TTS download — no API key, multi-language","OpenAI TTS — 6 premium voices, MP3 export","Adjustable speed & tone","Supabase auth — email/password + Google OAuth","Stripe subscriptions with Pro-plan gating","Protected routes via middleware + session management","Deployed live on Vercel"],
-     links:[{label:"Live Demo",href:"https://vox-fil-3kw1.vercel.app/",primary:true},{label:"View Code",href:"#"}]},
+     links:[{label:"Live Demo",href:"https://vox-fil-3kw1.vercel.app/",primary:true},{label:"View Code",href:"https://github.com/melLsCode/VoxFil"}]},
 
-    {no:"MSN-005",name:"Victorianos",status:"OPERATIONAL",state:"signal",platform:"MOBILE APP",
+    {no:"MSN-007",name:"Victorianos",status:"OPERATIONAL",state:"signal",platform:"MOBILE APP",
      tag:"FOOD DELIVERY · SUPABASE",engine:"Supabase",surface:"Flutter · Android",media:"phone",video:"videos/victorianos-demo1.mp4",poster:"images/onboarding.png",
      objective:"Food-delivery mobile app built in Flutter with a real Supabase backend — auth, live orders, cart and profiles synced to a PostgreSQL database.",
      impact:"Email/password and Google sign-in through Supabase Auth, full CRUD on orders, a persistent cart, and profile editing backed by real user data — with an order flow from checkout to tracking.",
@@ -867,47 +918,48 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
 
   /* ===== mission status metrics, field log, current ops ===== */
   const METRICS=[
-    {v:4,suf:"+",label:"AI Products Built"},
-    {v:10,suf:"+",label:"Production Systems"},
-    {text:"Flutter · RN",label:"Cross-Platform Client"},
-    {text:"OpenAI · Gemini",label:"Intelligence Integrated"}
+    {text:"Next.js · FastAPI",label:"Web & API Development"},
+    {text:"Flutter",label:"Mobile & Dashboard Delivery"},
+    {text:"Pytest · Git",label:"Testing & Engineering Workflow"},
+    {text:"OpenAI · Gemini",label:"AI Product Integration"}
   ];
   const LOG=[
-    ["MSN-001","<b>ReasonUp AI</b> — rubric AI evaluation + analytics, operational"],
-    ["MSN-002","<b>EstateWise AI</b> — GPT chat + investment scoring, deployed"],
-    ["MSN-003","<b>VoxFil AI</b> — OpenAI TTS + Edge TTS voice engine, active"],
-    ["MSN-004","<b>Admin Dashboard</b> — realtime monitoring on Flutter Web"],
-    ["SYS-01","OpenAI + Gemini integrated into live product flows"],
-    ["SYS-02","Firebase backbone — auth, functions, Firestore, realtime sync"],
-    ["MSN-005","<b>Victorianos</b> — Supabase auth + real CRUD orders, operational"]
+    ["MSN-001","<b>Orban Backend Challenge</b> — FastAPI, SQLAlchemy, SQLite, Pytest"],
+    ["MSN-002","<b>Payload CMS Website</b> — Next.js content platform and responsive UI"],
+    ["MSN-003","<b>VoxFil AI</b> — OpenAI TTS + Edge TTS voice engine"],
+    ["MSN-004","<b>ReasonUp AI</b> — rubric AI evaluation + admin visibility"],
+    ["MSN-005","<b>EstateWise AI</b> — GPT chat + investment scoring"],
+    ["MSN-006","<b>ReasonUp Admin Panel</b> — realtime monitoring on Flutter Web"],
+    ["MSN-007","<b>Victorianos</b> — Supabase auth + PostgreSQL CRUD"],
+    ["SYS-01","AI-assisted workflow with human code review and validation"]
   ];
   const CURRENTOPS=[
-    {h:"Mobile App Development",st:"ACTIVE",state:"signal",
-     p:"Modern Flutter & React Native apps for Android and iOS — scalable architecture, clean UI/UX, Firebase, production-ready deployment.",
-     feat:["Flutter & React Native","Android & iOS deployment","Firebase Authentication","Real-time features"]},
-    {h:"AI Integration",st:"FEATURED",state:"plasma",featured:true,
-     p:"OpenAI, Gemini and custom AI workflows wired into mobile and web apps — automate tasks, generate insights, build intelligent user experiences.",
-     feat:["OpenAI API","Gemini API","AI chatbots","AI automation"]},
-    {h:"Admin Dashboard Development",st:"ACTIVE",state:"signal",
-     p:"Modern admin dashboards and analytics platforms with Flutter Web, Firebase and real-time reporting capabilities.",
-     feat:["Flutter Web","Analytics dashboard","User management","Real-time monitoring"]},
-    {h:"Startup MVP Development",st:"ACTIVE",state:"amber",
-     p:"Turn startup ideas into working MVPs fast — modern tech and scalable architecture, built for validation and growth.",
-     feat:["MVP planning","Full-stack development","Rapid prototyping","Launch support"]}
+    {h:"Web & API Engineering",st:"CORE",state:"signal",
+     p:"Build and improve TypeScript web applications and Python APIs with clear boundaries, maintainable code, and practical documentation.",
+     feat:["Next.js & React","FastAPI & REST APIs","TypeScript & Python","SQLAlchemy & SQLite"]},
+    {h:"AI Product Integration",st:"CORE",state:"plasma",featured:true,
+     p:"Integrate OpenAI and Gemini capabilities into product flows, with careful prompt handling, validation, and user-focused implementation.",
+     feat:["OpenAI API","Gemini API","AI evaluation flows","Human validation"]},
+    {h:"Mobile & Dashboard Development",st:"CORE",state:"signal",
+     p:"Develop Flutter applications and operational dashboards connected to auth, data, and real-time application needs.",
+     feat:["Flutter","Firebase","Admin interfaces","Responsive UI"]},
+    {h:"Existing Codebase Contribution",st:"WORKFLOW",state:"amber",
+     p:"Learn a project’s conventions, identify the right implementation path, document decisions, and validate changes with tests and review.",
+     feat:["Codebase discovery","Git workflow","Testing","Technical documentation"]}
   ];
   const FLOW=[
-    {x:60,label:"CLIENT",sub:"Flutter / RN",c:"#5fe9c6"},
-    {x:340,label:"EDGE",sub:"Auth · API",c:"#EEF1F6"},
-    {x:540,label:"FIREBASE",sub:"Firestore · Fn",c:"#5fe9c6"},
+    {x:60,label:"CLIENT",sub:"Next.js / Flutter",c:"#5fe9c6"},
+    {x:340,label:"API",sub:"FastAPI · REST",c:"#EEF1F6"},
+    {x:540,label:"DATA",sub:"SQL · Firebase",c:"#5fe9c6"},
     {x:740,label:"AI LAYER",sub:"OpenAI · Gemini",c:"#6aa6ff"},
     {x:940,label:"RESPONSE",sub:"streamed",c:"#5fe9c6"}
   ];
 
   /* ===== PRELOADER ===== */
   const bootLines=[
-    ["init j_os kernel","OK"],["mount client layer · flutter / react native","OK"],
-    ["link firebase backbone","OK"],["handshake openai api","OK"],["handshake gemini api","OK"],
-    ["calibrate core systems · 8 modules","OK"],["index mission archive · 5 missions","OK"],["all systems nominal","READY"]
+    ["init j_os kernel","OK"],["mount client layer · next.js / flutter","OK"],
+    ["link api + data layer · fastapi / sql","OK"],["handshake openai api","OK"],["handshake gemini api","OK"],
+    ["calibrate core systems · 8 modules","OK"],["index project archive · 7 projects","OK"],["all systems nominal","READY"]
   ];
   function runBoot(){
     if(reduce){finishBoot();return;}
@@ -1124,20 +1176,30 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
   /* ===== MISSION ARCHIVE BOARD ===== */
   function buildOps(){
     const ops=$("#ops");
-    MISSIONS.forEach((s,i)=>{
-      const row=document.createElement("div");row.className="ops-row";row.tabIndex=0;
-      const statusCls=s.state==='amber'?'amber':s.state==='plasma'?'plasma':'';
-      const tele=`<i><b>${s.platform}</b>BUILD</i><i><b>${s.stack.length} services</b>TECH STACK</i><i><b>${s.surface}</b>SURFACE</i>`;
-      row.innerHTML=`<div class="ops-led"><span class="led ${statusCls}"></span><small>${s.state==='amber'?'OPS':'LIVE'}</small></div>
-      <div class="ops-main">
-        <div class="ops-no">${s.no} · ${s.tag}</div>
-        <div class="ops-top"><h3>${s.name}</h3><span class="tag ${statusCls}">${s.status}</span><span class="decrypt">Click ▸</span></div>
-        <div class="ops-desc">${s.objective}</div>
-        <div class="ops-tele">${tele}</div>
-      </div>`;
-      row.addEventListener("click",()=>openDossier(i));
-      row.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();openDossier(i);}});
-      ops.appendChild(row);
+    const groups=[
+      {kicker:"Featured projects",title:"Featured Work",detail:"Top web and backend projects for a fast recruiter review.",items:[0,1]},
+      {kicker:"Web & backend",title:"Additional Web Engineering",detail:"Web application work that connects UI, authentication, product workflows, and AI capabilities.",items:[5]},
+      {kicker:"Mobile & AI",title:"Mobile, AI & Operations",detail:"Cross-platform apps, operational dashboards, and AI-enabled product flows.",items:[2,3,4,6]}
+    ];
+    groups.forEach(group=>{
+      const head=document.createElement("div");head.className="archive-group";
+      head.innerHTML=`<div><span class="ag-kicker">${group.kicker}</span><h3>${group.title}</h3></div><p>${group.detail}</p>`;
+      ops.appendChild(head);
+      group.items.forEach(i=>{
+        const s=MISSIONS[i],row=document.createElement("div");row.className="ops-row";row.tabIndex=0;
+        const statusCls=s.state==='amber'?'amber':s.state==='plasma'?'plasma':'';
+        const tele=`<i><b>${s.platform}</b>BUILD</i><i><b>${s.stack.length} services</b>TECH STACK</i><i><b>${s.surface}</b>SURFACE</i>`;
+        row.innerHTML=`<div class="ops-led"><span class="led ${statusCls}"></span><small>${s.state==='amber'?'OPS':'LIVE'}</small></div>
+        <div class="ops-main">
+          <div class="ops-no">${s.no} · ${s.tag}</div>
+          <div class="ops-top"><h3>${s.name}</h3><span class="tag ${statusCls}">${s.status}</span><span class="decrypt">Click ▸</span></div>
+          <div class="ops-desc">${s.objective}</div>
+          <div class="ops-tele">${tele}</div>
+        </div>`;
+        row.addEventListener("click",()=>openDossier(i));
+        row.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();openDossier(i);}});
+        ops.appendChild(row);
+      });
     });
   }
 
@@ -1204,7 +1266,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
 
   /* ===== RAIL SCROLL SPY ===== */
   function railSpy(){
-    const secs=["hero","core-sec","archive-sec","flow-sec","operator-sec","current-sec","uplink-sec"];
+    const secs=["hero","core-sec","workflow-sec","archive-sec","flow-sec","operator-sec","current-sec"];
     const io=new IntersectionObserver(es=>es.forEach(e=>{
       if(e.isIntersecting){const id=e.target.id;
         $$(".rail a").forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+id));
