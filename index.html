@@ -232,7 +232,7 @@ main section{scroll-margin-top:84px}
 .hero-hud .scrollcue{position:absolute;z-index:4;bottom:28px;left:50%;margin:0;transform:translateX(-50%)}
 @media(max-width:1040px){.hud-layout{grid-template-columns:minmax(230px,.85fr) minmax(310px,1.1fr);min-height:680px}.hud-side{display:none}.hud-portrait{height:610px}}
 @media(max-width:720px){.hero.hero-hud{padding-top:30px;align-items:flex-start}.hud-layout{display:flex;flex-direction:column;min-height:auto;gap:10px;padding-top:25px;padding-bottom:86px}.hud-copy{text-align:center}.hud-copy .lead{margin-inline:auto}.hud-actions{justify-content:center}.hud-visual{width:100%;min-height:440px;height:56svh;max-height:560px;order:2}.hud-portrait{height:100%;width:min(100%,390px)}.hud-ring{top:43%;width:min(92%,400px)}.hud-ring.inner{width:min(72%,315px)}.hud-ring.scan{width:min(102%,430px)}.hud-copy h1{font-size:clamp(42px,13vw,62px)}.hud-role{font-size:10px}.hero-hud .scrollcue{bottom:22px}.hud-available{margin-top:18px}}
-@media(prefers-reduced-motion:reduce){.hud-ring{animation:none}.hud-visual{transition:none}.hud-portrait video{display:none}.hud-portrait .video-poster{display:block}.hud-portrait:after{background:linear-gradient(90deg,rgba(2,8,5,.66),transparent 25%,transparent 76%,rgba(2,8,5,.55))}}
+@media(prefers-reduced-motion:reduce){.hud-ring{animation:none}.hud-visual{transition:none}.hud-portrait:after{background:linear-gradient(90deg,rgba(2,8,5,.66),transparent 25%,transparent 76%,rgba(2,8,5,.55))}}
 
 /* ---------- HERO HUD V2: CINEMATIC SPLIT CONSOLE ---------- */
 .hero.hero-hud{padding:18px 0 12px}.hero-hud:before{background:radial-gradient(circle at 69% 50%,rgba(95,233,198,.15),transparent 29%),linear-gradient(90deg,rgba(2,8,5,.97) 0%,rgba(2,8,5,.91) 40%,rgba(2,8,5,.22) 73%,rgba(2,8,5,.68) 100%)}
@@ -696,8 +696,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
     </div>
     <div class="hud-visual" aria-label="Jamel Duarte in a green futuristic engineering operator portrait">
       <div class="hud-portrait">
-        <video autoplay muted loop playsinline preload="metadata" poster="videos/jamel-operator-hud.png?v=20260901" aria-label="Cinematic green futuristic developer armor portrait of Jamel Duarte"><source src="videos/jamel-operator-powerup.mp4?v=20260901" type="video/mp4"></video>
-        <img class="video-poster" src="videos/jamel-operator-hud.png?v=20260901" width="1536" height="1024" alt="Jamel Duarte in a futuristic green developer armor portrait">
+        <video autoplay muted loop playsinline preload="metadata" aria-label="Cinematic green futuristic developer armor portrait of Jamel Duarte"><source src="videos/jamel-operator-powerup.mp4?v=20260901" type="video/mp4"></video>
       </div>
       <div class="hero-vmeta" aria-hidden="true"><span>OPERATOR FEED // ACTIVE</span><span>BUILD · VALIDATE · SHIP</span></div>
     </div>
@@ -820,8 +819,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
             <span class="op-idtag">OPERATOR ID</span>
             <div class="frame">
               <div class="op-fb"><b>J</b><small>PORTRAIT · J.DEV</small></div>
-              <video class="op-video" muted loop playsinline preload="none" poster="videos/jamel-operator-hud.png?v=20260901" aria-label="Cinematic green operator profile video of Jamel Duarte"><source src="videos/jamel-operator-powerup.mp4?v=20260901" type="video/mp4"></video>
-              <img class="op-video-poster" src="videos/jamel-operator-hud.png?v=20260901" width="1536" height="1024" alt="Jamel Duarte in a futuristic green developer armor portrait">
+              <video class="op-video" muted loop playsinline preload="none" aria-label="Cinematic green operator profile video of Jamel Duarte"><source src="videos/jamel-operator-powerup.mp4?v=20260901" type="video/mp4"></video>
               <div class="op-scan"></div>
             </div>
             <span class="op-tag t2">▸ FULL-STACK BUILDER</span>
