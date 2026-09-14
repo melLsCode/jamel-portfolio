@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/jai.css">
 <style>
 /* =====================================================================
    J.dev — AI Engineering Mission Control
@@ -60,7 +61,7 @@ img,svg{display:block;max-width:100%}
 /* ---------- NORMAL ARROW CURSOR ---------- */
 .cursor{display:none!important}
 *{cursor:auto!important}
-a,button,.nav-link,.btn,.hire,.rail a,.dact,.mx,.cop,.vbadge,.burger,.sndbtn,.node,.social-btn,.brand,.ch-val,.ops-link{cursor:pointer!important}
+a,button,.nav-link,.btn,.hire,.rail a,.dact,.mx,.cop,.vbadge,.burger,.sndbtn,.node,.social-btn,.brand,.ch-val,.ops-link,.wf-stage,.wf-tools span{cursor:pointer!important}
 
 /* ---------- PRELOADER ---------- */
 .boot{position:fixed;inset:0;z-index:100;background:var(--void);display:flex;align-items:center;justify-content:center;
@@ -110,7 +111,7 @@ a,button,.nav-link,.btn,.hire,.rail a,.dact,.mx,.cop,.vbadge,.burger,.sndbtn,.no
 .nav-links{display:none;align-items:center;gap:2px;margin:0 auto}
 @media(min-width:920px){.nav-links{display:flex}}
 .nav-link{position:relative;font-family:var(--fd);font-size:14px;font-weight:500;color:var(--mist);
-  padding:8px 14px;border-radius:9px;cursor:none;transition:color .2s}
+  padding:8px 14px;border-radius:9px;cursor:none;transition:color .2s;background:none;border:0}
 .nav-link:hover{color:var(--ice)}
 .nav-link:after{content:"";position:absolute;left:14px;right:14px;bottom:4px;height:2px;border-radius:2px;
   background:linear-gradient(90deg,var(--signal),var(--plasma));transform:scaleX(0);transform-origin:left;transition:transform .26s var(--ease)}
@@ -217,6 +218,30 @@ main section{scroll-margin-top:84px}
   transform:translateX(-50%);animation:sd 1.8s var(--ease) infinite}
 @keyframes sd{0%{opacity:0;transform:translate(-50%,0)}30%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
 
+/* ---------- HERO HUD / OPERATOR REVEAL ---------- */
+.hero.hero-hud{--hud-scroll:0;padding:28px 0 12px;text-align:left;min-height:calc(100svh - 64px);display:flex;align-items:center;overflow:hidden}
+.hero-hud:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 48%,rgba(95,233,198,.17),transparent 29%),linear-gradient(90deg,rgba(2,8,5,.96),rgba(2,8,5,.1) 42%,rgba(2,8,5,.86));z-index:0}
+.hero-hud:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.33;background:repeating-linear-gradient(0deg,rgba(95,233,198,.045) 0 1px,transparent 1px 5px);z-index:1}
+.hud-layout{position:relative;z-index:2;display:grid;grid-template-columns:minmax(260px,.9fr) minmax(320px,1.1fr) minmax(250px,.78fr);align-items:center;min-height:720px;gap:clamp(14px,2vw,34px)}
+.hud-copy{position:relative;z-index:4}.hud-kicker{font-family:var(--fm);font-size:13px;letter-spacing:.17em;color:var(--signal);margin-bottom:15px}.hud-copy h1{font-family:var(--fm);font-size:clamp(44px,5.5vw,82px);line-height:.88;letter-spacing:-.075em;margin:0}.hud-copy h1 span{color:var(--signal);text-shadow:0 0 20px var(--signal-d)}
+.hud-role{margin:16px 0 22px;font-family:var(--fm);font-size:clamp(11px,1.35vw,15px);letter-spacing:.1em;color:var(--signal)}.hud-copy .lead{max-width:37ch;margin:0;color:var(--mist);font-size:15px;line-height:1.75}.hud-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.hud-actions .btn{display:inline-flex;align-items:center;text-align:center}.hud-available{display:inline-flex;align-items:center;gap:8px;margin-top:24px;font-family:var(--fm);font-size:10.5px;letter-spacing:.11em;color:var(--signal);border:1px solid var(--signal-d);padding:7px 10px;background:rgba(95,233,198,.06)}.hud-available i{width:7px;height:7px;border-radius:50%;background:var(--signal);box-shadow:0 0 10px var(--signal)}
+.hud-visual{position:relative;align-self:stretch;min-height:620px;display:flex;align-items:flex-end;justify-content:center;isolation:isolate;opacity:calc(1 - var(--hud-scroll)*.54);transform:translateY(calc(var(--hud-scroll)*-28px)) scale(calc(1 - var(--hud-scroll)*.055));transition:opacity .1s linear,transform .1s linear}.hud-visual:before{content:"";position:absolute;width:min(84%,530px);aspect-ratio:1;border-radius:50%;top:8%;left:50%;transform:translateX(-50%);background:radial-gradient(circle,rgba(95,233,198,.18),transparent 66%);filter:blur(12px);z-index:-2}
+.hud-portrait{position:relative;width:min(100%,500px);height:650px;overflow:hidden;mask-image:linear-gradient(to bottom,#000 0 80%,transparent 100%);z-index:1}.hud-portrait video,.hud-portrait .video-poster{width:100%;height:100%;object-fit:cover;object-position:center 47%;filter:contrast(1.08) saturate(.88) brightness(.86);mix-blend-mode:screen}.hud-portrait .video-poster{display:none;position:absolute;inset:0}.hud-portrait:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,8,5,.66),transparent 25%,transparent 76%,rgba(2,8,5,.55)),repeating-linear-gradient(0deg,rgba(95,233,198,.11) 0 1px,transparent 1px 5px);pointer-events:none}
+.hud-ring{position:absolute;left:50%;top:37%;width:min(94%,510px);aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:2}.hud-ring.outer{border:1px solid rgba(95,233,198,.48);box-shadow:0 0 34px rgba(95,233,198,.18),inset 0 0 30px rgba(95,233,198,.08);border-right-color:transparent;border-bottom-color:rgba(95,233,198,.85);animation:hudSpin 22s linear infinite}.hud-ring.inner{width:min(75%,400px);border:2px dashed rgba(95,233,198,.42);border-top-color:#c8ffcf;border-left-color:transparent;animation:hudSpinReverse 16s linear infinite}.hud-ring.scan{width:min(105%,570px);background:conic-gradient(from 20deg,transparent 0 78%,rgba(95,233,198,.22) 82%,transparent 89%);mask-image:radial-gradient(transparent 61%,#000 63% 65%,transparent 67%);animation:hudSpin 8s linear infinite}.hud-ring:before,.hud-ring:after{content:"";position:absolute;width:12px;height:12px;border:2px solid var(--signal);box-shadow:0 0 12px var(--signal)}.hud-ring:before{top:12%;left:12%;border-right:0;border-bottom:0}.hud-ring:after{bottom:12%;right:12%;border-left:0;border-top:0}@keyframes hudSpin{to{transform:translate(-50%,-50%) rotate(360deg)}}@keyframes hudSpinReverse{to{transform:translate(-50%,-50%) rotate(-360deg)}}
+.hud-panel{position:relative;border:1px solid rgba(95,233,198,.28);background:rgba(4,13,8,.68);padding:18px;box-shadow:inset 0 0 24px rgba(95,233,198,.035),0 0 24px rgba(95,233,198,.04);clip-path:polygon(0 0,93% 0,100% 10%,100% 90%,93% 100%,0 100%)}.hud-panel+.hud-panel{margin-top:20px}.hud-panel h2{font-family:var(--fm);font-size:11px;font-weight:600;letter-spacing:.14em;color:var(--signal);margin:0 0 14px}.hud-module{display:grid;grid-template-columns:30px 1fr;gap:10px;padding:12px 0;border-top:1px solid rgba(255,255,255,.07)}.hud-module i{width:28px;height:28px;border:1px solid var(--signal-d);display:grid;place-items:center;color:var(--signal);font-style:normal;font-family:var(--fm);font-size:11px}.hud-module b{display:block;font-family:var(--fm);font-size:10.5px;letter-spacing:.06em;color:var(--ice)}.hud-module span,.hud-mission p{display:block;margin-top:3px;color:var(--mist);font-size:12px;line-height:1.55}.hud-mission p{margin:0}.hud-status{margin-top:14px;padding:9px;border:1px solid var(--signal-d);font-family:var(--fm);font-size:10px;letter-spacing:.07em;color:var(--signal);display:flex;justify-content:space-between;align-items:center}.hud-status i{width:7px;height:7px;border-radius:50%;background:var(--signal);box-shadow:0 0 10px var(--signal)}
+.hero-hud .scrollcue{position:absolute;z-index:4;bottom:28px;left:50%;margin:0;transform:translateX(-50%)}
+@media(max-width:1040px){.hud-layout{grid-template-columns:minmax(230px,.85fr) minmax(310px,1.1fr);min-height:680px}.hud-side{display:none}.hud-portrait{height:610px}}
+@media(max-width:720px){.hero.hero-hud{padding-top:30px;align-items:flex-start}.hud-layout{display:flex;flex-direction:column;min-height:auto;gap:10px;padding-top:25px;padding-bottom:86px}.hud-copy{text-align:center}.hud-copy .lead{margin-inline:auto}.hud-actions{justify-content:center}.hud-visual{width:100%;min-height:440px;height:56svh;max-height:560px;order:2}.hud-portrait{height:100%;width:min(100%,390px)}.hud-ring{top:43%;width:min(92%,400px)}.hud-ring.inner{width:min(72%,315px)}.hud-ring.scan{width:min(102%,430px)}.hud-copy h1{font-size:clamp(42px,13vw,62px)}.hud-role{font-size:10px}.hero-hud .scrollcue{bottom:22px}.hud-available{margin-top:18px}}
+@media(prefers-reduced-motion:reduce){.hud-ring{animation:none}.hud-visual{transition:none}.hud-portrait video{display:none}.hud-portrait .video-poster{display:block}.hud-portrait:after{background:linear-gradient(90deg,rgba(2,8,5,.66),transparent 25%,transparent 76%,rgba(2,8,5,.55))}}
+
+/* ---------- HERO HUD V2: CINEMATIC SPLIT CONSOLE ---------- */
+.hero.hero-hud{padding:18px 0 12px}.hero-hud:before{background:radial-gradient(circle at 69% 50%,rgba(95,233,198,.15),transparent 29%),linear-gradient(90deg,rgba(2,8,5,.97) 0%,rgba(2,8,5,.91) 40%,rgba(2,8,5,.22) 73%,rgba(2,8,5,.68) 100%)}
+.hud-layout{grid-template-columns:minmax(290px,.78fr) minmax(470px,1.22fr);gap:clamp(28px,5vw,88px);min-height:720px}.hud-copy{align-self:center;padding:26px 0 46px}.hud-kicker{font-size:10.5px;margin-bottom:16px;color:var(--dim)}.hud-kicker:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:9px;background:var(--signal);box-shadow:0 0 10px var(--signal)}.hud-copy h1{max-width:500px;font-family:var(--fd);font-size:clamp(50px,5.4vw,78px);line-height:.91;letter-spacing:-.065em;text-transform:none}.hud-role{margin:17px 0 20px;font-size:11px;letter-spacing:.14em}.hud-copy .lead{max-width:43ch;font-size:clamp(15px,1.3vw,17px);line-height:1.75;color:var(--mist)}.hud-actions{margin-top:26px}.hud-actions .btn{padding:13px 20px}.hud-available{margin-top:22px}.hud-stack{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:20px 0 0;list-style:none}.hud-stack li{font-family:var(--fm);font-size:10px;letter-spacing:.03em;color:var(--mist);border:1px solid var(--line);padding:6px 9px;background:rgba(255,255,255,.018)}.hud-stack li:first-child{color:var(--signal);border-color:var(--signal-d);background:var(--signal-d)}
+.hud-visual{min-height:690px;height:calc(100svh - 94px);max-height:780px;align-self:center;align-items:center;justify-content:center}.hud-visual:before{width:min(96%,690px);top:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(95,233,198,.24),transparent 65%);filter:blur(18px)}.hud-portrait{width:min(100%,650px);height:100%;max-height:760px;mask-image:linear-gradient(to bottom,transparent 0,#000 5%,#000 86%,transparent 100%);border-left:1px solid rgba(95,233,198,.12);border-right:1px solid rgba(95,233,198,.12)}.hud-portrait video,.hud-portrait .video-poster{object-position:center 48%;filter:contrast(1.06) saturate(.86) brightness(.91)}.hud-portrait:after{background:linear-gradient(90deg,rgba(2,8,5,.56),transparent 18%,transparent 82%,rgba(2,8,5,.36)),linear-gradient(to bottom,rgba(2,8,5,.15),transparent 20%,transparent 80%,rgba(2,8,5,.55)),repeating-linear-gradient(0deg,rgba(95,233,198,.07) 0 1px,transparent 1px 6px)}.hero-vmeta{position:absolute;z-index:3;left:clamp(10px,2vw,24px);right:clamp(10px,2vw,24px);bottom:32px;display:flex;justify-content:space-between;gap:10px;font-family:var(--fm);font-size:9.5px;letter-spacing:.12em;color:var(--signal);pointer-events:none}.hero-vmeta span{padding:7px 9px;border:1px solid rgba(95,233,198,.27);background:rgba(2,8,5,.7)}.hero-vmeta span:last-child{color:var(--mist)}
+.hud-role{margin:17px 0 7px}.hud-specialization{margin:0 0 20px;font-family:var(--fm);font-size:10px;letter-spacing:.08em;color:var(--mist)}
+@media(max-width:860px){.hud-layout{grid-template-columns:minmax(270px,.85fr) minmax(390px,1.15fr);gap:20px}.hud-copy h1{font-size:clamp(48px,6.2vw,65px)}.hud-visual{min-height:610px}.hud-portrait{height:670px}}
+@media(max-width:720px){.hero.hero-hud{padding-top:0}.hud-layout{display:flex;flex-direction:column;gap:0;padding:0 0 84px}.hud-visual{order:1;width:100%;min-height:490px;height:57svh;max-height:610px}.hud-copy{order:2;width:100%;text-align:left;padding:16px 0 0}.hud-copy .lead{margin:0}.hud-actions{justify-content:flex-start}.hud-portrait{width:min(100%,450px);height:100%;mask-image:linear-gradient(to bottom,transparent 0,#000 6%,#000 86%,transparent 100%)}.hero-vmeta{bottom:20px}.hero-hud .scrollcue{bottom:20px}}
+
 /* ---------- REACTOR ---------- */
 .reactor{display:grid;grid-template-columns:1fr;gap:26px}
 @media(min-width:940px){.reactor{grid-template-columns:1.4fr .9fr}}
@@ -283,17 +308,50 @@ main section{scroll-margin-top:84px}
 .flow-leg{display:flex;flex-wrap:wrap;gap:18px;margin-top:24px;font-family:var(--fm);font-size:11px;color:var(--mist)}
 .flow-leg i{font-style:normal;display:inline-flex;align-items:center;gap:7px}
 .flow-leg i:before{content:"";width:9px;height:9px;border-radius:2px;background:var(--c,var(--signal))}
+.flow-leg i.opt{opacity:.78}
+.flow-note{margin-top:16px;max-width:78ch;color:var(--mist);font-size:13px;line-height:1.65}
 
 /* ---------- AI-ASSISTED ENGINEERING WORKFLOW ---------- */
 .workflow{border:1px solid var(--line);border-radius:var(--r-lg);background:linear-gradient(135deg,rgba(106,166,255,.08),transparent 46%),var(--void-2);padding:clamp(22px,4vw,34px)}
-.workflow-intro{max-width:760px;color:var(--mist);font-size:15px;margin:10px 0 24px}
-.workflow-grid{display:grid;grid-template-columns:1fr;gap:12px}
-@media(min-width:700px){.workflow-grid{grid-template-columns:repeat(3,1fr)}}
-.wf-card{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:20px}
-.wf-card b{display:block;font-family:var(--fm);font-size:10px;letter-spacing:.12em;color:var(--plasma);text-transform:uppercase;margin-bottom:9px}
-.wf-card p{font-size:13px;color:var(--mist);line-height:1.65}
-.wf-tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.wf-tools span{font-family:var(--fm);font-size:10.5px;color:var(--signal);border:1px solid var(--signal-d);background:var(--signal-d);border-radius:7px;padding:5px 9px}
+.workflow-intro{max-width:760px;color:var(--mist);font-size:15px;margin:10px 0 22px}
+.wf-sys{border:1px solid var(--line);border-radius:var(--r);background:rgba(6,8,12,.35);padding:18px 16px 16px}
+.wf-syshead{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.wf-telem{font-family:var(--fm);font-size:10.5px;letter-spacing:.06em;color:var(--signal);text-transform:uppercase}
+.wf-tools{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.wf-inlbl{font-family:var(--fm);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin-right:4px}
+.wf-tools span:not(.wf-inlbl){font-family:var(--fm);font-size:10.5px;color:var(--signal);border:1px solid var(--signal-d);background:var(--signal-d);border-radius:7px;padding:5px 9px;transition:.25s var(--ease)}
+.wf-pipe[data-stage="accelerate"] .wf-tools span:not(.wf-inlbl){box-shadow:0 0 16px rgba(95,233,198,.18);border-color:rgba(95,233,198,.45)}
+.wf-drop{width:1px;height:18px;margin:10px auto 12px;background:linear-gradient(to bottom,rgba(95,233,198,.05),var(--signal));position:relative;opacity:.45;transition:.25s}
+.wf-pipe[data-stage="accelerate"] .wf-drop.from-tools,
+.wf-pipe[data-stage="own"] .wf-drop.to-ctrl{opacity:1}
+.wf-drop i{position:absolute;left:50%;width:5px;height:5px;border-radius:50%;background:var(--signal);transform:translate(-50%,-6px);box-shadow:0 0 8px var(--signal);animation:wfPulse 2.2s var(--ease) infinite}
+.wf-flow{display:grid;grid-template-columns:1fr 22px 1fr 22px 1fr;gap:8px;align-items:stretch}
+.wf-stage{text-align:left;border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:16px 16px 18px;color:inherit;transition:.25s var(--ease)}
+.wf-stage .wf-no{display:block;font-family:var(--fm);font-size:9px;letter-spacing:.16em;color:var(--dim);margin-bottom:8px}
+.wf-stage b{display:block;font-family:var(--fm);font-size:11px;letter-spacing:.14em;color:var(--plasma);text-transform:uppercase;margin-bottom:8px}
+.wf-stage p{font-size:13px;color:var(--mist);line-height:1.65}
+.wf-stage.on{border-color:var(--signal);background:rgba(95,233,198,.06);box-shadow:0 0 24px rgba(95,233,198,.08)}
+.wf-stage.on b{color:var(--signal)}
+.wf-stage[data-stage="own"].on{border-color:var(--plasma);background:rgba(106,166,255,.08);box-shadow:0 0 24px rgba(106,166,255,.1)}
+.wf-stage[data-stage="own"].on b{color:var(--plasma)}
+.wf-link{position:relative;align-self:center;height:2px;background:rgba(95,233,198,.16);overflow:hidden;border-radius:2px}
+.wf-link i{position:absolute;top:-2px;left:-8px;width:8px;height:6px;border-radius:50%;background:var(--signal);box-shadow:0 0 10px var(--signal);opacity:.2}
+.wf-pipe[data-stage="verify"] .wf-link[data-from="accelerate"] i,
+.wf-pipe[data-stage="own"] .wf-link[data-from="verify"] i{opacity:1;animation:wfSignal 1.6s linear infinite}
+.wf-ctrl{margin-top:14px;display:flex;align-items:center;gap:10px;border:1px dashed rgba(106,166,255,.28);border-radius:10px;padding:11px 13px;font-family:var(--fm);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);transition:.25s var(--ease)}
+.wf-ctrl .led.plasma{background:var(--plasma);box-shadow:0 0 10px var(--plasma);flex:0 0 auto}
+.wf-pipe[data-stage="own"] .wf-ctrl{border-color:rgba(106,166,255,.55);color:var(--ice);background:rgba(106,166,255,.06);box-shadow:0 0 18px rgba(106,166,255,.08)}
+@keyframes wfSignal{0%{left:-10px}100%{left:calc(100% + 4px)}}
+@keyframes wfPulse{0%,100%{opacity:.35;transform:translate(-50%,-8px)}50%{opacity:1;transform:translate(-50%,6px)}}
+@media(max-width:760px){
+  .wf-flow{grid-template-columns:1fr}
+  .wf-link{width:2px;height:18px;margin:0 auto;background:rgba(95,233,198,.16)}
+  .wf-link i{left:-2px;top:-8px;animation-name:wfSignalY}
+}
+@keyframes wfSignalY{0%{top:-8px}100%{top:calc(100% + 4px)}}
+@media(prefers-reduced-motion:reduce){
+  .wf-drop i,.wf-link i{animation:none!important;opacity:.7}
+}
 
 /* ---------- FLIGHT LOG ---------- */
 .split{display:grid;grid-template-columns:1fr;gap:26px}
@@ -381,13 +439,18 @@ body.ocmode{--accent:var(--amber);--signal:var(--amber)}
 .op-head{display:flex;flex-direction:column;gap:22px;margin-bottom:18px}
 @media(min-width:580px){.op-head{flex-direction:row;align-items:flex-start}}
 .op-headtext{min-width:0}
-.op-photo{position:relative;width:100%;max-width:200px;flex:none;margin:6px auto 0}
+.op-photo{position:relative;width:100%;max-width:250px;flex:none;margin:6px auto 0;isolation:isolate}
 @media(min-width:580px){.op-photo{margin:0}}
-.op-photo .frame{position:relative;aspect-ratio:4/5;border-radius:16px;overflow:hidden;border:1px solid var(--line-2);
-  background:radial-gradient(circle at 50% 35%,rgba(95,233,198,.14),transparent 65%),#0a0c11;box-shadow:0 0 44px var(--signal-d)}
-.op-photo .frame img{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:2;filter:contrast(1.05) saturate(.92)}
+.op-photo .frame{position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;border:1px solid rgba(95,233,198,.52);
+  background:radial-gradient(circle at 50% 35%,rgba(95,233,198,.18),transparent 65%),#0a0c11;box-shadow:0 0 0 5px rgba(95,233,198,.035),0 0 44px var(--signal-d),inset 0 0 40px rgba(95,233,198,.1)}
+.op-photo .frame img,.op-photo .frame video{width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block;position:relative;z-index:2;filter:contrast(1.08) saturate(.82) brightness(.92)}
+.op-photo .frame .op-video-poster{display:none;position:absolute;inset:0}
 .op-photo .frame:after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
   background:repeating-linear-gradient(0deg,rgba(0,0,0,.16) 0 1px,transparent 1px 3px);mix-blend-mode:multiply;opacity:.5}
+.op-photo .frame:before{content:"";position:absolute;z-index:4;inset:0;pointer-events:none;opacity:.75;
+  background:linear-gradient(90deg,rgba(95,233,198,.22),transparent 18%,transparent 82%,rgba(95,233,198,.16)),radial-gradient(circle at 50% 45%,transparent 48%,rgba(95,233,198,.11) 100%)}
+.op-photo.verified .frame img{filter:contrast(1.12) saturate(.78) brightness(.96) sepia(.12)}
+.op-photo.verified .frame video{filter:contrast(1.12) saturate(.78) brightness(.96) sepia(.12)}
 .op-fb{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
   font-family:var(--fd);color:var(--signal)}
 .op-fb b{font-size:64px;font-weight:900;line-height:1;letter-spacing:-.04em}
@@ -415,6 +478,8 @@ body.ocmode{--accent:var(--amber);--signal:var(--amber)}
 @keyframes opFrame{0%,100%{box-shadow:0 0 44px var(--signal-d)}45%{box-shadow:0 0 72px rgba(95,233,198,.55)}}
 .op-photo.scanning:before,.op-photo.scanning:after{animation:opBrk 1.9s var(--ease)}
 @keyframes opBrk{0%,100%{box-shadow:none}40%{box-shadow:0 0 16px var(--signal)}}
+.op-photo.verified:after{box-shadow:0 0 18px var(--signal)}
+@media(prefers-reduced-motion:reduce){.op-photo .frame .op-video{display:none}.op-photo .frame .op-video-poster{display:block}}
 
 /* ---------- CURRENT OPERATIONS ---------- */
 .cops{display:grid;grid-template-columns:repeat(auto-fit,minmax(184px,1fr));gap:14px}
@@ -588,7 +653,8 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
     <a href="#operator-sec" class="nav-link">About</a>
     <a href="#workflow-sec" class="nav-link">AI Workflow</a>
     <a href="#core-sec" class="nav-link">Skills</a>
-    <!-- <a href="#uplink-sec" class="nav-link">Contact</a> -->
+    <button type="button" class="nav-link jai-nav" data-jai-open aria-haspopup="dialog" aria-controls="jaiRoot">J.AI</button>
+    <a href="#uplink-sec" class="nav-link">Contact</a>
   </nav>
   <div class="nav-right">
     <span class="nav-clock" id="clock">MNL --:--:--</span>
@@ -596,7 +662,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="snd-x" d="M17 9l4 6M21 9l-4 6"/><path class="snd-on" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8 8 0 0 1 0 12"/></svg>
     </button>
     <span class="vbadge" id="vbadge" title="diagnostics">v4.0</span>
-    <a href="mailto:jamelduarte93@gmail.com?subject=Portfolio%20inquiry" class="hire">Contact Me</a>
+    <a href="#uplink-sec" class="hire">Contact Me</a>
   </div>
   <button class="burger" id="burger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
 </div></header>
@@ -607,26 +673,35 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
   <a href="#operator-sec" class="nav-link">About</a>
   <a href="#workflow-sec" class="nav-link">AI Workflow</a>
   <a href="#core-sec" class="nav-link">Skills</a>
+  <button type="button" class="nav-link jai-nav" data-jai-open aria-haspopup="dialog" aria-controls="jaiRoot">J.AI</button>
   <div class="mnav-status">
     <span><span class="led"></span>ALL SYSTEMS NOMINAL</span>
     <span id="uptime">UPTIME 00:00:00</span>
   </div>
-  <a href="mailto:jamelduarte93@gmail.com?subject=Portfolio%20inquiry" class="hire">Contact Me</a>
+  <a href="#uplink-sec" class="hire">Contact Me</a>
 </div>
 
 <main>
   <!-- HERO -->
-  <section class="hero" id="hero"><div class="wrap">
-    <span class="chip reveal"><span class="led"></span> Jamel Duarte · AI-Assisted Full-Stack Developer · Open to Remote Roles</span>
-    <h1 class="reveal" id="heroTitle">Production-minded<br><span class="grad">Full-Stack Engineering</span></h1>
-    <p class="lead reveal">I'm Jamel, a Computer Science graduate building web, backend, and mobile applications with Next.js, TypeScript, FastAPI, Python, and Flutter. I use AI to accelerate engineering work, then review, debug, test, and validate every implementation I ship.</p>
-    <div class="ticker reveal">
-      <span><b>Next.js + FastAPI</b> web &amp; API delivery</span>
-      <span><b>Flutter</b> mobile &amp; dashboard development</span>
-      <span><b>OpenAI + Gemini</b> product integrations</span>
-      <span>ENGINEER · <b>Jamel</b></span>
+  <section class="hero hero-hud" id="hero" aria-labelledby="heroTitle"><div class="wrap hud-layout">
+    <div class="hud-copy">
+      <p class="hud-kicker reveal">OPERATOR CONSOLE // JAMEL DUARTE</p>
+      <h1 class="reveal" id="heroTitle">JAMEL</h1>
+      <p class="hud-role reveal">FULL-STACK DEVELOPER</p>
+      <p class="hud-specialization reveal">Web Apps • APIs • AI-Powered Products</p>
+      <p class="lead reveal">I build modern web and mobile applications, APIs, and AI-powered features — from frontend interfaces and backend systems to databases, integrations, and deployment.</p>
+      <div class="hud-actions reveal"><a class="btn primary" href="#archive-sec">▸ View My Work</a></div>
+      <span class="hud-available reveal"><i></i> OPEN TO REMOTE ROLES</span>
+      <ul class="hud-stack reveal" aria-label="Primary technologies"><li>Next.js + FastAPI</li><li>Flutter</li><li>TypeScript + Python</li><li>AI + APIs</li></ul>
     </div>
-    <div class="scrollcue reveal"></div>
+    <div class="hud-visual" aria-label="Jamel Duarte in a green futuristic engineering operator portrait">
+      <div class="hud-portrait">
+        <video autoplay muted loop playsinline preload="metadata" poster="videos/jamel-operator-hud.png?v=20260901" aria-label="Cinematic green futuristic developer armor portrait of Jamel Duarte"><source src="videos/jamel-operator-powerup.mp4?v=20260901" type="video/mp4"></video>
+        <img class="video-poster" src="videos/jamel-operator-hud.png?v=20260901" width="1536" height="1024" alt="Jamel Duarte in a futuristic green developer armor portrait">
+      </div>
+      <div class="hero-vmeta" aria-hidden="true"><span>OPERATOR FEED // ACTIVE</span><span>BUILD · VALIDATE · SHIP</span></div>
+    </div>
+    <div class="scrollcue" aria-hidden="true"></div>
   </div></section>
 
   <!-- CORE SYSTEMS -->
@@ -638,7 +713,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
     <div class="reactor reveal">
       <div class="stage" id="stage">
         <canvas id="rcanvas"></canvas>
-        <div class="corelbl"><b>J_CORE</b><small>KERNEL</small></div>
+        <div class="corelbl"><b>FULL-STACK CORE</b><small>SYSTEM NETWORK</small></div>
       </div>
       <div class="telemetry" id="telemetry">
         <span class="tlabel">System Telemetry</span>
@@ -655,16 +730,45 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
   <section class="modspace wrap" id="workflow-sec">
     <div class="shead reveal">
       <div><div class="eyebrow">// module 02 · engineering workflow</div><h2>AI-Assisted Development Workflow</h2></div>
-      <div class="idx">ACCELERATE · REVIEW · VALIDATE</div>
+      <div class="idx">ACCELERATE · VERIFY · OWN</div>
     </div>
     <div class="workflow reveal">
       <p class="workflow-intro">I use AI tools as an engineering accelerator—not a replacement for judgment. Claude Code, ChatGPT, Cursor, and GitHub Copilot help me move faster through planning, architecture exploration, documentation, code generation, debugging, and test design. I remain responsible for the decisions and quality of the code that ships.</p>
-      <div class="workflow-grid">
-        <article class="wf-card"><b>Accelerate</b><p>Use AI to explore implementation options, draft documentation, generate focused scaffolding, and identify debugging or testing paths.</p></article>
-        <article class="wf-card"><b>Verify</b><p>Read the generated code, run it in context, test edge cases, inspect integrations, and correct failures before treating it as complete.</p></article>
-        <article class="wf-card"><b>Own</b><p>Engineering decisions, code review, validation, security, maintainability, and performance remain fully my responsibility.</p></article>
+      <div class="wf-sys wf-pipe" id="wfPipe" data-stage="accelerate">
+        <div class="wf-syshead">
+          <span class="tlabel">AI-Assisted Engineering</span>
+          <span class="wf-telem" id="wfTelem">STAGE 01 · ACCELERATE — AI speeds exploration, not ownership</span>
+        </div>
+        <div class="wf-tools" id="wfTools">
+          <span class="wf-inlbl">AI Tools</span>
+          <span data-stage="accelerate">Claude Code</span>
+          <span data-stage="accelerate">ChatGPT</span>
+          <span data-stage="accelerate">Cursor</span>
+          <span data-stage="accelerate">GitHub Copilot</span>
+        </div>
+        <div class="wf-drop from-tools" aria-hidden="true"><i></i></div>
+        <div class="wf-flow">
+          <button type="button" class="wf-stage on" data-stage="accelerate">
+            <span class="wf-no">01</span>
+            <b>Accelerate</b>
+            <p>Use AI to explore implementation options, draft documentation, generate focused scaffolding, and identify debugging or testing paths.</p>
+          </button>
+          <div class="wf-link" data-from="accelerate" aria-hidden="true"><i></i></div>
+          <button type="button" class="wf-stage" data-stage="verify">
+            <span class="wf-no">02</span>
+            <b>Verify</b>
+            <p>Read the generated code, run it in context, test edge cases, inspect integrations, and correct failures before treating it as complete.</p>
+          </button>
+          <div class="wf-link" data-from="verify" aria-hidden="true"><i></i></div>
+          <button type="button" class="wf-stage" data-stage="own">
+            <span class="wf-no">03</span>
+            <b>Own</b>
+            <p>Engineering decisions, code review, validation, security, maintainability, and performance remain fully my responsibility.</p>
+          </button>
+        </div>
+        <div class="wf-drop to-ctrl" aria-hidden="true"><i></i></div>
+        <div class="wf-ctrl"><span class="led plasma"></span>Human engineering judgment // control point</div>
       </div>
-      <div class="wf-tools"><span>Claude Code</span><span>ChatGPT</span><span>Cursor</span><span>GitHub Copilot</span></div>
     </div>
   </section>
 
@@ -691,11 +795,14 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
         <g id="flowNodes"></g>
       </svg>
       <div class="flow-leg">
-        <i style="--c:var(--signal)">Client · Next.js / Flutter</i>
-        <i style="--c:var(--ice)">API · FastAPI / REST</i>
-        <i style="--c:var(--signal)">Data · SQLite / PostgreSQL / Firebase</i>
-        <i style="--c:var(--plasma)">AI · OpenAI &amp; Gemini</i>
+        <i style="--c:var(--signal)">Client · Next.js / React / Flutter</i>
+        <i style="--c:var(--ice)">API · Express / FastAPI / REST</i>
+        <i style="--c:var(--signal)">Data · Prisma / MySQL / PostgreSQL</i>
+        <i style="--c:var(--plasma)">Integrations · Stripe / External APIs</i>
+        <i style="--c:var(--signal)">Response · validated / protected</i>
+        <i class="opt" style="--c:var(--plasma)">AI capability · OpenAI / Gemini — optional, not on this request path</i>
       </div>
+      <p class="flow-note">Clients talk to APIs. APIs validate requests, persist data through Prisma/MySQL or PostgreSQL, and integrate Stripe and other external services behind backend boundaries before returning a protected response. OpenAI and Gemini are product capabilities used where a product needs them—not a required hop on every request.</p>
     </div>
   </section>
 
@@ -713,10 +820,10 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
             <span class="op-idtag">OPERATOR ID</span>
             <div class="frame">
               <div class="op-fb"><b>J</b><small>PORTRAIT · J.DEV</small></div>
-              <img src="images/jam.png" alt="Jamel — Flutter &amp; React Native Developer" onerror="this.style.display='none'" />
+              <video class="op-video" muted loop playsinline preload="none" poster="videos/jamel-operator-hud.png?v=20260901" aria-label="Cinematic green operator profile video of Jamel Duarte"><source src="videos/jamel-operator-powerup.mp4?v=20260901" type="video/mp4"></video>
+              <img class="op-video-poster" src="videos/jamel-operator-hud.png?v=20260901" width="1536" height="1024" alt="Jamel Duarte in a futuristic green developer armor portrait">
               <div class="op-scan"></div>
             </div>
-           
             <span class="op-tag t2">▸ FULL-STACK BUILDER</span>
           </div>
           <div class="op-headtext">
@@ -724,11 +831,11 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
             <p>I'm an early-career full-stack developer with a Computer Science degree. I build responsive web applications, APIs, mobile apps, dashboards, and AI-powered product features—and I am comfortable learning and contributing within an existing codebase.</p>
           </div>
         </div>
-        <p>My core stack includes Next.js, React, TypeScript, FastAPI, Python, Flutter, Firebase, Supabase, PostgreSQL, SQLite, and REST APIs. I use Claude Code, ChatGPT, Cursor, and GitHub Copilot to accelerate execution while personally reviewing, debugging, testing, and validating generated code.</p>
-        <p>My recent work includes an <b style="color:var(--ice);font-weight:600">Orban Backend Challenge</b> technical assessment, a <b style="color:var(--ice);font-weight:600">Payload CMS Website</b>, and AI-enabled products such as <b style="color:var(--ice);font-weight:600">ReasonUp AI</b> and <b style="color:var(--ice);font-weight:600">VoxFil AI</b>.</p>
+        <p>My core stack includes Next.js, React, TypeScript, Express.js, FastAPI, Python, Flutter, REST APIs, MySQL, PostgreSQL, SQLite, Prisma ORM, Supabase, and Firebase. I build integrations with external APIs and AI services, use Zod validation with Helmet and CORS for API security, and use Vitest, Docker Compose for local development, Git, and GitHub to test and ship reliable work.</p>
+        <p>My recent work includes a production-deployed <b style="color:var(--ice);font-weight:600">Food &amp; Nutrition Subscription Platform</b>: Next.js on Vercel, with an Express/TypeScript API and MySQL on Railway. It integrates Stripe Checkout, recurring subscriptions, Customer Portal management, webhooks, and protected nutrition endpoints; the full test-mode subscription lifecycle was manually validated. I have also completed the <b style="color:var(--ice);font-weight:600">Orban Backend Challenge</b>, a <b style="color:var(--ice);font-weight:600">Payload CMS Website</b>, and AI-enabled products such as <b style="color:var(--ice);font-weight:600">ReasonUp AI</b> and <b style="color:var(--ice);font-weight:600">VoxFil AI</b>.</p>
         <div class="op-meta">
-          <span class="k">Next.js</span><span class="k">FastAPI</span><span class="k">Flutter</span><span class="k">TypeScript</span><span class="k">AI Integration</span>
-          <span>Python</span><span>PostgreSQL</span><span>SQLite</span><span>Firebase</span><span>Supabase</span><span>Base: Manila, PH</span>
+          <span class="k">Next.js / React</span><span class="k">TypeScript</span><span class="k">Express.js</span><span class="k">FastAPI / Python</span><span class="k">MySQL / Prisma</span><span class="k">Stripe</span><span class="k">Vercel / Railway</span>
+          <span>PostgreSQL / SQLite</span><span>Supabase / Firebase</span><span>Docker Compose</span><span>External APIs</span><span>AI Integration</span><span>Base: Manila, PH</span>
         </div>
       </div>
       <div class="op-side">
@@ -748,8 +855,8 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
     <div class="cops reveal" id="cops"></div>
   </section>
 
-  <!-- UPLINK - Temporarily hidden -->
-  <!-- <section class="modspace wrap" id="uplink-sec">
+  <!-- UPLINK -->
+  <section class="modspace wrap" id="uplink-sec">
     <div class="uplink reveal">
       <div class="eyebrow">// module 06 · comms</div>
       <h2>Establish an Uplink</h2>
@@ -803,7 +910,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
         </div>
       </div>
     </div>
-  </section> -->
+  </section>
 
   <footer><div class="wrap"><div>J_OS v4.1 — © 2026 J.dev · AI-Assisted Full-Stack Developer · Manila, PH</div><div id="fclock">SESSION ACTIVE</div></div></footer>
 </main>
@@ -815,7 +922,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
   <div class="drow"><span>render</span><span class="dv" id="d-fps">— fps</span></div>
   <div class="drow"><span>core systems</span><span class="dv">8 / 8 online</span></div>
   <div class="drow"><span>ai providers</span><span class="dv">openai · gemini</span></div>
-  <div class="drow"><span>projects</span><span class="dv">7 selected</span></div>
+  <div class="drow"><span>projects</span><span class="dv">8 selected</span></div>
   <div class="drow"><span>viewport</span><span class="dv" id="d-vp">—</span></div>
   <div class="drow"><span>build</span><span class="dv">jos-4.1-recruiter</span></div>
 </div>
@@ -829,32 +936,32 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
   if(isTouch)document.body.classList.add("touch");
   const $=(s,p=document)=>p.querySelector(s), $$=(s,p=document)=>[...p.querySelectorAll(s)];
 
-  /* ===== REAL DATA — core systems (reactor) ===== */
+  /* ===== REAL DATA — core systems (engineering architecture map) ===== */
   const NODES=[
-    {name:"Next.js + TypeScript",layer:"client",sub:"WEB CLIENT LAYER",sig:96,
-     desc:"Responsive web interfaces built with reusable React components and TypeScript. Used where a product needs a maintainable frontend connected to real APIs and content systems.",
-     pw:["Orban Backend Challenge","Payload CMS Website","VoxFil AI"]},
-    {name:"FastAPI + Python",layer:"backend",sub:"API LAYER",sig:92,
-     desc:"Python backend services with clear REST API boundaries, validation, and code that can be tested and documented for collaboration inside an existing application.",
-     pw:["Orban Backend Challenge"]},
-    {name:"SQLAlchemy + SQLite",layer:"backend",sub:"DATA LAYER",sig:90,
-     desc:"Relational persistence using SQLAlchemy and SQLite for practical data modeling, CRUD workflows, and backend assessment work that values clarity and testability.",
-     pw:["Orban Backend Challenge"]},
-    {name:"OpenAI Intelligence Layer",layer:"ai",sub:"INTELLIGENCE LAYER",sig:92,
-     desc:"Structured outputs, function calling, streaming and TTS — wired directly into product flows. Powers ReasonUp's evaluation and VoxFil's voice synthesis.",
-     pw:["ReasonUp AI","EstateWise AI","VoxFil AI"]},
-    {name:"Gemini Intelligence Layer",layer:"ai",sub:"INTELLIGENCE LAYER",sig:89,
-     desc:"Multimodal reasoning and long-context evaluation — used for rubric grading and real-estate recommendation logic where the context window matters.",
-     pw:["ReasonUp AI","EstateWise AI"]},
-    {name:"Flutter Application Layer",layer:"client",sub:"MOBILE + DASHBOARD",sig:90,
-     desc:"Cross-platform mobile applications and dashboard interfaces connected to production services, authentication, and operational workflows.",
-     pw:["Admin Dashboard","ReasonUp AI"]},
-    {name:"Engineering Workflow",layer:"backend",sub:"QUALITY LAYER",sig:93,
-     desc:"AI-assisted planning and implementation supported by disciplined code review, debugging, testing, documentation, and Git-based collaboration.",
-     pw:["VoxFil AI","ReasonUp AI","EstateWise AI"]},
-    {name:"Supabase Backend",layer:"backend",sub:"BACKEND LAYER",sig:87,
-     desc:"Postgres-backed backend with Supabase Auth (email/password + Google OAuth), real CRUD, Row Level Security and realtime sync. Powers Victorianos end to end.",
-     pw:["Victorianos"]}
+    {name:"Next.js + TypeScript",layer:"client",sub:"WEB CLIENT LAYER",sig:96,x:.50,y:.15,
+     desc:"Build responsive, maintainable web interfaces with reusable React components, typed application logic, and real API-driven workflows.",
+     pw:["Food & Nutrition Platform","Payload CMS Website","VoxFil AI"]},
+    {name:"Express.js",layer:"backend",sub:"API / SERVICE LAYER",sig:95,x:.17,y:.31,
+     desc:"Build structured REST APIs with clear service boundaries, validation, security middleware, error handling, and external service integrations.",
+     pw:["Food & Nutrition Platform","Stripe","Open Food Facts"]},
+    {name:"Prisma + MySQL",layer:"backend",sub:"DATA LAYER",sig:94,x:.17,y:.70,
+     desc:"Design persistent application data models and reliable database workflows using Prisma ORM and relational databases.",
+     pw:["Food & Nutrition Platform","Railway MySQL"]},
+    {name:"Stripe",layer:"client",sub:"BILLING INTEGRATION",sig:93,x:.50,y:.85,
+     desc:"Integrate recurring subscriptions, Checkout, Customer Portal, and verified webhooks into production-oriented application flows.",
+     pw:["Food & Nutrition Platform","Checkout","Subscription webhooks"]},
+    {name:"Vercel + Railway",layer:"client",sub:"PRODUCTION DEPLOYMENT",sig:94,x:.83,y:.70,
+     desc:"Deploy full-stack applications across managed frontend, API, and database infrastructure with environment-specific configuration.",
+     pw:["Food & Nutrition Platform","Vercel frontend","Railway API + MySQL"]},
+    {name:"OpenAI + Gemini",layer:"ai",sub:"AI PRODUCT INTEGRATION",sig:92,x:.83,y:.31,
+     desc:"Integrate AI capabilities into product workflows with prompt handling, validation, evaluation, and user-focused implementation.",
+     pw:["ReasonUp AI","VoxFil AI","EstateWise AI"]},
+    {name:"FastAPI + Python",layer:"backend",sub:"API / SERVICE LAYER",sig:92,x:.18,y:.51,
+     desc:"Develop testable Python API services with clear REST boundaries, documentation, and maintainable existing-codebase contributions.",
+     pw:["Orban Backend Challenge","REST APIs","Pytest"]},
+    {name:"Flutter + Firebase",layer:"client",sub:"MOBILE / APPLICATION LAYER",sig:90,x:.82,y:.51,
+     desc:"Build mobile application interfaces and operational dashboards connected to authentication, real data, and application workflows.",
+     pw:["ReasonUp AI","ReasonUp Admin Panel","Firebase"]}
   ];
 
   /* ===== REAL DATA — mission archive (real dev projects) ===== */
@@ -873,7 +980,15 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
      impact:"Shows CMS development, responsive UI implementation, and a maintainable architecture for teams that need to update content without rewriting the front end.",
      stack:["Next.js","Payload CMS","TypeScript","Responsive Design"],
      feat:["Next.js application architecture","Payload CMS content modeling","Reusable, responsive UI components","Editorial workflow separated from presentation"],
-     links:[{label:"View Code",href:"https://github.com/melLsCode/lendly-payload-hero-section",primary:true}]},
+     links:[{label:"Live Demo",href:"https://lendly-payload-hero-section-vert.vercel.app/",primary:true},{label:"View Code",href:"https://github.com/melLsCode/lendly-payload-hero-section"}]},
+
+    {no:"MSN-003",name:"Food & Nutrition Subscription Platform",status:"DEPLOYED",state:"signal",platform:"FULL-STACK WEB APP",
+     tag:"FULL-STACK · TECHNICAL ASSESSMENT",engine:"Stripe + Open Food Facts",surface:"Next.js · Express · MySQL",media:"desktop",video:null,poster:"images/foodSearch.png",
+     objective:"Production-deployed full-stack food and nutrition platform combining multilingual product search, recurring subscriptions, secure webhook processing, database persistence, authorization, automated testing, and Dockerized local development.",
+     impact:"Live production deployment with the complete subscription lifecycle manually validated: subscribe, nutrition unlock, manage subscription, cancel, nutrition lock, and subscribe again.",
+     stack:["TypeScript","React","Next.js","Express.js","REST APIs","MySQL","Prisma ORM","Stripe Checkout","Stripe Webhooks","Open Food Facts","Zod","Vitest","Docker","Docker Compose","Helmet","CORS","Git + GitHub"],
+     feat:["Production deployment with Next.js on Vercel, Express API and MySQL on Railway, with Stripe test-mode billing and webhooks.","Open Food Facts product search with English, Dutch, German, and French support","Recent-search persistence in MySQL through Prisma ORM","Stripe Checkout and monthly recurring subscriptions in test mode","Webhook signature verification, idempotency, and subscription state persistence","Backend authorization for protected nutrition data and API endpoints","External API caching with in-flight request deduplication","Zod validation, Helmet, CORS, error handling, and environment configuration","Vitest unit and integration tests with Docker Compose local MySQL and Prisma migrations","Source code is available privately upon request"],
+     links:[{label:"Live Demo",href:"https://food-product-search-web.vercel.app",primary:true},{label:"Source Code · Private Repository",href:"#",private:true}]},
 
     {no:"MSN-004",name:"ReasonUp AI",status:"OPERATIONAL",state:"signal",platform:"MOBILE APP",
      tag:"AI EDUCATION",engine:"OpenAI + Gemini",surface:"Flutter · Mobile",media:"phone",video:"videos/reasonup-demo.mp4",poster:"images/reasonup-homepage.png",
@@ -899,7 +1014,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
      feat:["Student performance analytics","Leaderboard & ranking management","NDG invitation & notification system","Real-time Firebase monitoring"],
      links:[{label:"Live Demo",href:"#",primary:true},{label:"View Code",href:"#"}]},
 
-    {no:"MSN-003",name:"VoxFil AI",status:"ACTIVE",state:"plasma",platform:"WEB APP",
+    {no:"MSN-007",name:"VoxFil AI",status:"ACTIVE",state:"plasma",platform:"WEB APP",
      tag:"VOICE · GENERATIVE AI",engine:"OpenAI TTS + Edge TTS",surface:"Next.js · Vercel",media:"desktop",video:"videos/voxfil-demo.mp4",poster:"images/voice-studio.png",
      objective:"Full-stack AI text-to-speech web app that turns scripts into natural-sounding voice across multiple engines — with auth, subscriptions and a Pro plan gating premium voices.",
      impact:"Three TTS engines (Web Speech, free Edge TTS, premium OpenAI), Supabase auth (email/password + Google), and Stripe subscriptions gating Pro features — shipped live on Vercel.",
@@ -907,7 +1022,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
      feat:["Browser-based TTS (Web Speech, 20K chars)","Free Edge TTS download — no API key, multi-language","OpenAI TTS — 6 premium voices, MP3 export","Adjustable speed & tone","Supabase auth — email/password + Google OAuth","Stripe subscriptions with Pro-plan gating","Protected routes via middleware + session management","Deployed live on Vercel"],
      links:[{label:"Live Demo",href:"https://vox-fil-3kw1.vercel.app/",primary:true},{label:"View Code",href:"https://github.com/melLsCode/VoxFil"}]},
 
-    {no:"MSN-007",name:"Victorianos",status:"OPERATIONAL",state:"signal",platform:"MOBILE APP",
+    {no:"MSN-008",name:"Victorianos",status:"OPERATIONAL",state:"signal",platform:"MOBILE APP",
      tag:"FOOD DELIVERY · SUPABASE",engine:"Supabase",surface:"Flutter · Android",media:"phone",video:"videos/victorianos-demo1.mp4",poster:"images/onboarding.png",
      objective:"Food-delivery mobile app built in Flutter with a real Supabase backend — auth, live orders, cart and profiles synced to a PostgreSQL database.",
      impact:"Email/password and Google sign-in through Supabase Auth, full CRUD on orders, a persistent cart, and profile editing backed by real user data — with an order flow from checkout to tracking.",
@@ -918,48 +1033,49 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
 
   /* ===== mission status metrics, field log, current ops ===== */
   const METRICS=[
-    {text:"Next.js · FastAPI",label:"Web & API Development"},
-    {text:"Flutter",label:"Mobile & Dashboard Delivery"},
-    {text:"Pytest · Git",label:"Testing & Engineering Workflow"},
+    {text:"Next.js · Express",label:"Full-Stack Web Development"},
+    {text:"Vercel · Railway",label:"Production Deployment"},
+    {text:"Stripe · Vitest",label:"Subscriptions, Webhooks & Testing"},
     {text:"OpenAI · Gemini",label:"AI Product Integration"}
   ];
   const LOG=[
+    ["MSN-003","<b>Food &amp; Nutrition Subscription Platform</b> — deployed Next.js, Express, MySQL, Stripe, and Open Food Facts"],
     ["MSN-001","<b>Orban Backend Challenge</b> — FastAPI, SQLAlchemy, SQLite, Pytest"],
     ["MSN-002","<b>Payload CMS Website</b> — Next.js content platform and responsive UI"],
-    ["MSN-003","<b>VoxFil AI</b> — OpenAI TTS + Edge TTS voice engine"],
+    ["MSN-007","<b>VoxFil AI</b> — OpenAI TTS + Edge TTS voice engine"],
     ["MSN-004","<b>ReasonUp AI</b> — rubric AI evaluation + admin visibility"],
     ["MSN-005","<b>EstateWise AI</b> — GPT chat + investment scoring"],
     ["MSN-006","<b>ReasonUp Admin Panel</b> — realtime monitoring on Flutter Web"],
-    ["MSN-007","<b>Victorianos</b> — Supabase auth + PostgreSQL CRUD"],
+    ["MSN-008","<b>Victorianos</b> — Supabase auth + PostgreSQL CRUD"],
     ["SYS-01","AI-assisted workflow with human code review and validation"]
   ];
   const CURRENTOPS=[
     {h:"Web & API Engineering",st:"CORE",state:"signal",
-     p:"Build and improve TypeScript web applications and Python APIs with clear boundaries, maintainable code, and practical documentation.",
-     feat:["Next.js & React","FastAPI & REST APIs","TypeScript & Python","SQLAlchemy & SQLite"]},
+     p:"Build full-stack web applications and APIs with persistent data, external integrations, subscription billing, and practical production workflows.",
+     feat:["Next.js & React","TypeScript & Express","Prisma & MySQL","Zod, Helmet & CORS"]},
     {h:"AI Product Integration",st:"CORE",state:"plasma",featured:true,
-     p:"Integrate OpenAI and Gemini capabilities into product flows, with careful prompt handling, validation, and user-focused implementation.",
+     p:"Integrate OpenAI and Gemini capabilities into product flows with careful prompt handling, validation, human review, and user-focused implementation.",
      feat:["OpenAI API","Gemini API","AI evaluation flows","Human validation"]},
     {h:"Mobile & Dashboard Development",st:"CORE",state:"signal",
-     p:"Develop Flutter applications and operational dashboards connected to auth, data, and real-time application needs.",
+     p:"Develop Flutter application interfaces and operational dashboards connected to authentication, real data, and application workflows.",
      feat:["Flutter","Firebase","Admin interfaces","Responsive UI"]},
     {h:"Existing Codebase Contribution",st:"WORKFLOW",state:"amber",
-     p:"Learn a project’s conventions, identify the right implementation path, document decisions, and validate changes with tests and review.",
+     p:"Learn project conventions, identify safe implementation paths, document decisions, and validate reviewable changes with tests.",
      feat:["Codebase discovery","Git workflow","Testing","Technical documentation"]}
   ];
   const FLOW=[
-    {x:60,label:"CLIENT",sub:"Next.js / Flutter",c:"#5fe9c6"},
-    {x:340,label:"API",sub:"FastAPI · REST",c:"#EEF1F6"},
-    {x:540,label:"DATA",sub:"SQL · Firebase",c:"#5fe9c6"},
-    {x:740,label:"AI LAYER",sub:"OpenAI · Gemini",c:"#6aa6ff"},
-    {x:940,label:"RESPONSE",sub:"streamed",c:"#5fe9c6"}
+    {x:60,label:"CLIENT",sub:"Next.js · React",c:"#5fe9c6"},
+    {x:340,label:"API",sub:"Express · REST",c:"#EEF1F6"},
+    {x:540,label:"DATA",sub:"Prisma · MySQL",c:"#5fe9c6"},
+    {x:740,label:"INTEGRATE",sub:"Stripe · APIs",c:"#6aa6ff"},
+    {x:940,label:"RESPONSE",sub:"validated",c:"#5fe9c6"}
   ];
 
   /* ===== PRELOADER ===== */
   const bootLines=[
     ["init j_os kernel","OK"],["mount client layer · next.js / flutter","OK"],
     ["link api + data layer · fastapi / sql","OK"],["handshake openai api","OK"],["handshake gemini api","OK"],
-    ["calibrate core systems · 8 modules","OK"],["index project archive · 7 projects","OK"],["all systems nominal","READY"]
+    ["calibrate core systems · 8 modules","OK"],["index project archive · 8 projects","OK"],["all systems nominal","READY"]
   ];
   function runBoot(){
     if(reduce){finishBoot();return;}
@@ -1045,7 +1161,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
   const stage=$("#stage"),canvas=$("#rcanvas"),ctx=canvas.getContext("2d");
   const dpr=Math.min(devicePixelRatio||1,2);
   let W=0,H=0,nodeEls=[],hover=-1,active=0,lastUser=Date.now();
-  let nx=[],ny=[],nAng=[],sweep=0,prevSweep=0;
+  let nx=[],ny=[];
   function buildNodes(){
     NODES.forEach((n,i)=>{
       const el=document.createElement("div");el.className="node";el.dataset.layer=n.layer;
@@ -1059,13 +1175,10 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
   function layout(){
     const r=stage.getBoundingClientRect();W=r.width;H=r.height;
     canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
-    const cx=W/2,cy=H/2,maxR=Math.min(W,H)*.42,N=NODES.length,off=-Math.PI/2;
-    nx=[];ny=[];nAng=[];
+    nx=[];ny=[];
     NODES.forEach((n,i)=>{
-      const ang=off+(i/N)*Math.PI*2;
-      const band=0.52+0.32*((i*0.6180339)%1);
-      const rr=maxR*band, x=cx+Math.cos(ang)*rr, y=cy+Math.sin(ang)*rr;
-      nAng[i]=((ang%(Math.PI*2))+Math.PI*2)%(Math.PI*2);nx[i]=x;ny[i]=y;
+      const x=W*n.x,y=H*n.y;
+      nx[i]=x;ny[i]=y;
       nodeEls[i].style.left=x+"px";nodeEls[i].style.top=y+"px";
     });
   }
@@ -1082,36 +1195,36 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
     const r=24,t=8;[[-1,-1],[1,-1],[1,1],[-1,1]].forEach(([sx,sy])=>{
       ctx.beginPath();ctx.moveTo(x+sx*r,y+sy*r-sy*t);ctx.lineTo(x+sx*r,y+sy*r);ctx.lineTo(x+sx*r-sx*t,y+sy*r);ctx.stroke();});
   }
-  function crossed(a,b,tg){return b>=a?(tg>a&&tg<=b):(tg>a||tg<=b);}
-  function drawRadar(t){
+  function drawNetwork(t){
     if(!W)return;ctx.clearRect(0,0,W,H);
-    const cx=W/2,cy=H/2,maxR=Math.min(W,H)*.42;
-    ctx.strokeStyle="rgba(95,233,198,.10)";ctx.lineWidth=1;
-    for(let k=1;k<=4;k++){ctx.beginPath();ctx.arc(cx,cy,maxR*k/4,0,7);ctx.stroke();}
-    ctx.strokeStyle="rgba(95,233,198,.07)";
-    for(let a=0;a<8;a++){const ang=a*Math.PI/4;ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+Math.cos(ang)*maxR,cy+Math.sin(ang)*maxR);ctx.stroke();}
-    if(!reduce){prevSweep=sweep;sweep=(sweep+0.02)%(Math.PI*2);}
-    const wedge=1.0;
-    for(let s=0;s<wedge;s+=0.045){
-      const a=sweep-s,al=(1-s/wedge)*0.16;
-      ctx.strokeStyle="rgba(95,233,198,"+al+")";ctx.lineWidth=2;
-      ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+Math.cos(a)*maxR,cy+Math.sin(a)*maxR);ctx.stroke();}
-    ctx.strokeStyle="rgba(95,233,198,.85)";ctx.lineWidth=2;
-    ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+Math.cos(sweep)*maxR,cy+Math.sin(sweep)*maxR);ctx.stroke();
-    const cr=15+Math.sin(t*.002)*3;
+    const cx=W/2,cy=H/2,cr=18+(reduce?0:Math.sin(t*.002)*2);
     const g=ctx.createRadialGradient(cx,cy,0,cx,cy,cr*4);
     g.addColorStop(0,"rgba(95,233,198,.5)");g.addColorStop(.4,"rgba(95,233,198,.12)");g.addColorStop(1,"transparent");
     ctx.fillStyle=g;ctx.beginPath();ctx.arc(cx,cy,cr*4,0,7);ctx.fill();
-    ctx.fillStyle="rgba(95,233,198,.92)";ctx.beginPath();ctx.arc(cx,cy,cr,0,7);ctx.fill();
+    ctx.fillStyle="rgba(95,233,198,.9)";ctx.beginPath();ctx.arc(cx,cy,cr,0,7);ctx.fill();
+    NODES.forEach((n,i)=>{
+      const activeLink=i===active||i===hover;
+      ctx.strokeStyle=activeLink?"rgba(95,233,198,.7)":"rgba(95,233,198,.16)";
+      ctx.lineWidth=activeLink?1.5:1;ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(nx[i],ny[i]);ctx.stroke();
+      if(!reduce&&activeLink){
+        const p=(t*.00032+i*.13)%1,x=cx+(nx[i]-cx)*p,y=cy+(ny[i]-cy)*p;
+        ctx.fillStyle="rgba(95,233,198,.95)";ctx.beginPath();ctx.arc(x,y,2.3,0,7);ctx.fill();
+      }
+    });
+    const links=[[0,1],[0,4],[1,2],[1,3],[1,6],[2,3],[2,4],[3,4],[0,5],[0,7]];
+    links.forEach(([a,b],k)=>{
+      const activeLink=a===active||b===active;
+      ctx.strokeStyle=activeLink?"rgba(95,233,198,.58)":"rgba(149,172,191,.14)";
+      ctx.lineWidth=activeLink?1.5:1;ctx.beginPath();ctx.moveTo(nx[a],ny[a]);ctx.lineTo(nx[b],ny[b]);ctx.stroke();
+      if(!reduce&&activeLink){
+        const p=(t*.00028+k*.17)%1,x=nx[a]+(nx[b]-nx[a])*p,y=ny[a]+(ny[b]-ny[a])*p;
+        ctx.fillStyle="rgba(95,233,198,.9)";ctx.beginPath();ctx.arc(x,y,2.2,0,7);ctx.fill();
+      }
+    });
     NODES.forEach((n,i)=>{
       const ai=n.layer==="ai",on=(i===active||i===hover);
-      let dd=sweep-nAng[i];dd=((dd%(Math.PI*2))+Math.PI*2)%(Math.PI*2);
-      const lit=dd<wedge?(1-dd/wedge):0;
-      ctx.strokeStyle=on?(ai?"rgba(106,166,255,.6)":"rgba(95,233,198,.6)"):"rgba(255,255,255,"+(0.05+lit*0.2)+")";
-      ctx.lineWidth=on?1.5:1;ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(nx[i],ny[i]);ctx.stroke();
-      if(lit>0.02){ctx.fillStyle="rgba(95,233,198,"+(lit*0.5)+")";ctx.beginPath();ctx.arc(nx[i],ny[i],10*lit+4,0,7);ctx.fill();}
+      if(on){ctx.fillStyle=ai?"rgba(106,166,255,.16)":"rgba(95,233,198,.14)";ctx.beginPath();ctx.arc(nx[i],ny[i],20,0,7);ctx.fill();}
       if(on)drawBracket(nx[i],ny[i],ai);
-      if(crossed(prevSweep,sweep,nAng[i])){nodeEls[i].classList.add("ping");setTimeout(()=>{if(nodeEls[i])nodeEls[i].classList.remove("ping");},550);}
     });
     if(!reduce&&Date.now()-lastUser>5000){lastUser=Date.now();setActive((active+1)%NODES.length);}
   }
@@ -1130,6 +1243,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
       : `<div class="pf">${inner}</div>`;
   }
   function actBtn(b){
+    if(b.private)return `<span class="dact disabled">⌁ ${b.label}</span>`;
     const real=b.href&&b.href!=="#";
     const lc=b.label.toLowerCase();
     const g=lc.includes("install")?"⬇":lc.includes("code")?"&lt;/&gt;":"↗";
@@ -1177,9 +1291,9 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
   function buildOps(){
     const ops=$("#ops");
     const groups=[
-      {kicker:"Featured projects",title:"Featured Work",detail:"Top web and backend projects for a fast recruiter review.",items:[0,1]},
-      {kicker:"Web & backend",title:"Additional Web Engineering",detail:"Web application work that connects UI, authentication, product workflows, and AI capabilities.",items:[5]},
-      {kicker:"Mobile & AI",title:"Mobile, AI & Operations",detail:"Cross-platform apps, operational dashboards, and AI-enabled product flows.",items:[2,3,4,6]}
+      {kicker:"Featured projects",title:"Featured Work",detail:"Top web and backend projects for a fast recruiter review.",items:[0,1,2]},
+      {kicker:"Web & backend",title:"Additional Web Engineering",detail:"Web application work that connects UI, authentication, product workflows, and AI capabilities.",items:[6]},
+      {kicker:"Mobile & AI",title:"Mobile, AI & Operations",detail:"Cross-platform apps, operational dashboards, and AI-enabled product flows.",items:[3,4,5,7]}
     ];
     groups.forEach(group=>{
       const head=document.createElement("div");head.className="archive-group";
@@ -1188,7 +1302,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
       group.items.forEach(i=>{
         const s=MISSIONS[i],row=document.createElement("div");row.className="ops-row";row.tabIndex=0;
         const statusCls=s.state==='amber'?'amber':s.state==='plasma'?'plasma':'';
-        const tele=`<i><b>${s.platform}</b>BUILD</i><i><b>${s.stack.length} services</b>TECH STACK</i><i><b>${s.surface}</b>SURFACE</i>`;
+        const tele=`<i><b>${s.platform}</b>BUILD</i><i><b>${s.stack.length} technologies</b>TECH STACK</i><i><b>${s.surface}</b>SURFACE</i>`;
         row.innerHTML=`<div class="ops-led"><span class="led ${statusCls}"></span><small>${s.state==='amber'?'OPS':'LIVE'}</small></div>
         <div class="ops-main">
           <div class="ops-no">${s.no} · ${s.tag}</div>
@@ -1281,10 +1395,10 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
   function runScan(){
     const ph=$(".op-photo");if(!ph)return;
     const tag=ph.querySelector(".op-idtag");
-    ph.classList.remove("scanning");void ph.offsetWidth;ph.classList.add("scanning");
+    ph.classList.remove("scanning","verified");void ph.offsetWidth;ph.classList.add("scanning");
     if(tag)tag.textContent="SCANNING…";
     clearTimeout(ph._a);clearTimeout(ph._b);
-    ph._a=setTimeout(()=>{if(tag)tag.textContent="● ID VERIFIED";},1900);
+    ph._a=setTimeout(()=>{if(tag)tag.textContent="● ID VERIFIED";ph.classList.add("verified");},1900);
     ph._b=setTimeout(()=>{if(tag)tag.textContent="OPERATOR ID";ph.classList.remove("scanning");},4400);
   }
   function operatorScan(){
@@ -1394,11 +1508,26 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
       sndOn=!sndOn;sb.classList.toggle("on",sndOn);sb.title=sndOn?"Sound on":"Sound off";
       if(sndOn){ensureAudio();if(ac&&ac.state==="suspended")ac.resume();powerBeep();}
     });
-    const SEL=".nav-link,.btn,.hire,.ops-row,.node,.dact,.mx,.social-btn,.cop,.vbadge,.rail a,.burger,.decrypt,.ch-val";
+    const SEL=".nav-link,.btn,.hire,.ops-row,.node,.dact,.mx,.social-btn,.cop,.vbadge,.rail a,.burger,.decrypt,.ch-val,.wf-stage";
     document.addEventListener("click",e=>{
       if(!sndOn||!e.target.closest(SEL))return;
       ensureAudio();if(ac&&ac.state==="suspended")ac.resume();thwip();
     },true);
+  }
+  /* ===== HERO HUD SCROLL TRANSITION ===== */
+  function heroHudTransition(){
+    const hero=$(".hero-hud");if(!hero||reduce)return;
+    let queued=false;
+    const update=()=>{queued=false;const rect=hero.getBoundingClientRect(),progress=Math.max(0,Math.min(1,-rect.top/Math.max(innerHeight*.9,1)));hero.style.setProperty("--hud-scroll",progress.toFixed(3));};
+    const onScroll=()=>{if(!queued){queued=true;requestAnimationFrame(update);}};
+    addEventListener("scroll",onScroll,{passive:true});addEventListener("resize",onScroll,{passive:true});update();
+  }
+  /* ===== VIDEO PLAYBACK: ONE VISIBLE OPERATOR FEED AT A TIME ===== */
+  function manageOperatorVideos(){
+    const videos=$$(".hud-portrait video,.op-video");if(!videos.length||reduce)return;
+    const start=video=>{const play=video.play();if(play&&typeof play.catch==="function")play.catch(()=>{});};
+    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)start(entry.target);else entry.target.pause();}),{threshold:.35});
+    videos.forEach(video=>observer.observe(video));
   }
   console.log("%cJ_OS v4.0 — AI Engineering Mission Control","color:#5fe9c6;font:600 14px monospace");
   console.log("%cYou opened the console. That's the kind of curiosity I build for. — J.dev","color:#98A1B2;font:12px monospace");
@@ -1407,10 +1536,40 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
   let frames=0,lastF=performance.now();
   function fps(t){frames++;if(t-lastF>=1000){const el=$("#d-fps");if(el)el.textContent=frames+" fps";frames=0;lastF=t;}}
 
+  /* ===== AI ENGINEERING CONTROL FLOW ===== */
+  function bindWorkflow(){
+    const pipe=$("#wfPipe");if(!pipe)return;
+    const telem=$("#wfTelem");
+    const copy={
+      accelerate:"STAGE 01 · ACCELERATE — AI speeds exploration, not ownership",
+      verify:"STAGE 02 · VERIFY — generated code is inspected and tested",
+      own:"STAGE 03 · OWN — human judgment remains the control point"
+    };
+    let last=Date.now(),stage="accelerate";
+    const setStage=s=>{
+      stage=s;pipe.dataset.stage=s;
+      $$(".wf-stage",pipe).forEach(el=>el.classList.toggle("on",el.dataset.stage===s));
+      if(telem)telem.textContent=copy[s];
+    };
+    pipe.addEventListener("pointerenter",e=>{
+      const t=e.target.closest("[data-stage]");if(!t||!copy[t.dataset.stage])return;
+      last=Date.now();setStage(t.dataset.stage);
+    });
+    pipe.addEventListener("click",e=>{
+      const t=e.target.closest("[data-stage]");if(!t||!copy[t.dataset.stage])return;
+      last=Date.now();setStage(t.dataset.stage);
+    });
+    if(!reduce)setInterval(()=>{
+      if(Date.now()-last<5000)return;
+      const order=["accelerate","verify","own"];
+      setStage(order[(order.indexOf(stage)+1)%order.length]);
+    },5000);
+  }
+
   /* ===== LOOP + INIT ===== */
-  function loop(t){drawRadar(t);fps(t);requestAnimationFrame(loop);}
+  function loop(t){drawNetwork(t);fps(t);requestAnimationFrame(loop);}
   function init(){
-    buildNodes();layout();setActive(0);buildOps();buildFlow();buildMetrics();buildCurrentOps();railSpy();mobileNav();dossierSetup();operatorScan();setupSound();
+    buildNodes();layout();setActive(0);buildOps();buildFlow();buildMetrics();buildCurrentOps();railSpy();mobileNav();dossierSetup();operatorScan();setupSound();heroHudTransition();manageOperatorVideos();bindWorkflow();
     addEventListener("resize",layout);requestAnimationFrame(loop);
     /* BOOT PRELOADER DISABLED — reveal directly. To re-enable, swap finishBoot() back to runBoot(): */
     finishBoot(); /* was: runBoot(); */
@@ -1418,5 +1577,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
   if(document.readyState!=="loading")init();else addEventListener("DOMContentLoaded",init);
 })();
 </script>
+<div id="jaiRoot" class="jai-root"></div>
+<script src="js/jai.js" defer></script>
 </body>
 </html>
