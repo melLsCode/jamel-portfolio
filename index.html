@@ -467,16 +467,6 @@ body.ocmode{--accent:var(--amber);--signal:var(--amber)}
 .op-tag.t2{bottom:18px;left:-14px}
 .op-idtag{position:absolute;top:-11px;left:14px;z-index:5;font-family:var(--fm);font-size:8.5px;letter-spacing:.16em;
   color:var(--void);background:var(--signal);border-radius:6px;padding:3px 9px;font-weight:600;transition:background .3s}
-/* one-time green scan / target-lock sweep */
-.op-scan{position:absolute;left:0;right:0;top:-20%;height:15%;z-index:4;pointer-events:none;opacity:0;
-  background:linear-gradient(180deg,transparent,rgba(95,233,198,.22) 78%,rgba(95,233,198,.95));
-  box-shadow:0 0 24px 5px rgba(95,233,198,.45);border-bottom:1px solid var(--signal)}
-.op-photo.scanning .op-scan{animation:opScan 1.9s cubic-bezier(.45,0,.2,1) forwards}
-@keyframes opScan{0%{opacity:0;top:-20%}10%{opacity:1}90%{opacity:1}100%{opacity:0;top:104%}}
-.op-photo.scanning .frame{animation:opFrame 1.9s var(--ease)}
-@keyframes opFrame{0%,100%{box-shadow:0 0 44px var(--signal-d)}45%{box-shadow:0 0 72px rgba(95,233,198,.55)}}
-.op-photo.scanning:before,.op-photo.scanning:after{animation:opBrk 1.9s var(--ease)}
-@keyframes opBrk{0%,100%{box-shadow:none}40%{box-shadow:0 0 16px var(--signal)}}
 .op-photo.verified:after{box-shadow:0 0 18px var(--signal)}
 @media(prefers-reduced-motion:reduce){.op-photo .frame .op-video{display:none}.op-photo .frame .op-video-poster{display:block}}
 
@@ -804,20 +794,19 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
 
   <!-- OPERATOR PROFILE -->
   <section class="modspace wrap" id="operator-sec">
-    <div class="shead reveal">
+    <div class="shead reveal on">
       <div><div class="eyebrow">// module 05 · engineer profile</div><h2>Engineer Profile</h2></div>
       <div class="idx">EARLY-CAREER · PRODUCTION-MINDED</div>
     </div>
-    <div class="op reveal">
+    <div class="op reveal on">
       <div class="op-card">
         <div class="op-id"><span class="led"></span> OPERATOR // JAMEL · CALLSIGN J.DEV</div>
         <div class="op-head">
-          <div class="op-photo">
+          <div class="op-photo verified">
             <span class="op-idtag">OPERATOR ID</span>
             <div class="frame">
               <div class="op-fb"><b>J</b><small>PORTRAIT · J.DEV</small></div>
               <video class="op-video" muted loop playsinline preload="none" aria-label="Cinematic green operator profile video of Jamel Duarte"><source src="videos/jamel-operator-powerup.mp4?v=20260901" type="video/mp4"></video>
-              <div class="op-scan"></div>
             </div>
             <span class="op-tag t2">▸ FULL-STACK BUILDER</span>
           </div>
@@ -1386,25 +1375,6 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
     secs.forEach(id=>{const s=document.getElementById(id);if(s)io.observe(s);});
   }
 
-  /* ===== OPERATOR SCAN (one-time green target-lock) ===== */
-  function runScan(){
-    const ph=$(".op-photo");if(!ph)return;
-    const tag=ph.querySelector(".op-idtag");
-    ph.classList.remove("scanning","verified");void ph.offsetWidth;ph.classList.add("scanning");
-    if(tag)tag.textContent="SCANNING…";
-    clearTimeout(ph._a);clearTimeout(ph._b);
-    ph._a=setTimeout(()=>{if(tag)tag.textContent="● ID VERIFIED";ph.classList.add("verified");},1900);
-    ph._b=setTimeout(()=>{if(tag)tag.textContent="OPERATOR ID";ph.classList.remove("scanning");},4400);
-  }
-  function operatorScan(){
-    const sec=$("#operator-sec");
-    if(sec){
-      const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){runScan();io.unobserve(e.target);}}),{threshold:.45});
-      io.observe(sec);
-    }
-    $$('a[href="#operator-sec"]').forEach(a=>a.addEventListener("click",()=>setTimeout(runScan,650)));
-  }
-
   /* ===== MOBILE NAV ===== */
   function mobileNav(){
     const burger=$("#burger"),mnav=$("#mnav");if(!burger||!mnav)return;
@@ -1564,7 +1534,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
   /* ===== LOOP + INIT ===== */
   function loop(t){drawNetwork(t);fps(t);requestAnimationFrame(loop);}
   function init(){
-    buildNodes();layout();setActive(0);buildOps();buildFlow();buildMetrics();buildCurrentOps();railSpy();mobileNav();dossierSetup();operatorScan();setupSound();heroHudTransition();manageOperatorVideos();bindWorkflow();
+    buildNodes();layout();setActive(0);buildOps();buildFlow();buildMetrics();buildCurrentOps();railSpy();mobileNav();dossierSetup();setupSound();heroHudTransition();manageOperatorVideos();bindWorkflow();
     addEventListener("resize",layout);requestAnimationFrame(loop);
     /* BOOT PRELOADER DISABLED — reveal directly. To re-enable, swap finishBoot() back to runBoot(): */
     finishBoot(); /* was: runBoot(); */
