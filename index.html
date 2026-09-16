@@ -906,7 +906,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
   <div class="drow"><span>render</span><span class="dv" id="d-fps">— fps</span></div>
   <div class="drow"><span>core systems</span><span class="dv">8 / 8 online</span></div>
   <div class="drow"><span>ai providers</span><span class="dv">openai · gemini</span></div>
-  <div class="drow"><span>projects</span><span class="dv">8 selected</span></div>
+  <div class="drow"><span>projects</span><span class="dv">9 selected</span></div>
   <div class="drow"><span>viewport</span><span class="dv" id="d-vp">—</span></div>
   <div class="drow"><span>build</span><span class="dv">jos-4.1-recruiter</span></div>
 </div>
@@ -950,6 +950,14 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
 
   /* ===== REAL DATA — mission archive (real dev projects) ===== */
   const MISSIONS=[
+    {no:"MSN-009",name:"POLIX",status:"MVP COMPLETE",state:"plasma",platform:"PAID CLIENT MVP",
+     tag:"REAL CLIENT PROJECT · PAID MVP",engine:"Supabase + Resend",surface:"Next.js · Vercel",media:"desktop",video:null,poster:null,
+     objective:"Paid client MVP — a Hebrew RTL SaaS platform for Israeli insurance agents to track manual insurance requests, identify stuck work, and stay on top of follow-ups.",
+     impact:"שליטה חכמה בכל בקשה — a fixed-scope paid MVP for Israeli insurance agents (Asia/Jerusalem). Agents record requests to insurers, track status and days-in-status, surface stuck or action-required items, and get in-app plus email reminders. The Next.js app on Vercel uses Supabase Auth, PostgreSQL, and RLS; Vercel Cron runs alert processing and Resend sends email. The MVP does not connect to insurer APIs, payments, analytics, or native mobile apps.",
+     stack:["Next.js","React","TypeScript","Tailwind CSS","shadcn/ui","Supabase","PostgreSQL","RLS","Vercel","Resend","Zod","Git + GitHub"],
+     feat:["Hebrew RTL-first SaaS UX (Heebo / Assistant) for insurance-agent request tracking","Request create/edit with client, insurer, type, dates, notes, status, history, and soft delete","Statuses: Submitted, In Progress, Action Required, Completed, Rejected","Dashboard KPIs, attention items, search, and filters (status, company, type, date, days since status change)","Configurable stuck-request alerts, action-required reminders, and a notification inbox with read/handled state","Email pipeline via Resend with deduplicated keys, retries, and timestamps only after successful delivery","30-day trial with 7/3/1-day reminders; data remains after trial expiration","Supabase Auth (register, login, email confirm, password reset) and protected routes","PostgreSQL RLS, per-user isolation, server-side ownership checks, and Zod validation","Vercel Cron alerts with CRON_SECRET timing-safe comparison; secrets kept out of Git","Automated unit/integration-style tests (Node.js test runner / tsx)"],
+     links:[{label:"Live Demo",href:"#",private:true},{label:"Source Code · Private Repository",href:"#",private:true}]},
+
     {no:"MSN-001",name:"Orban Backend Challenge",status:"COMPLETED",state:"signal",platform:"TECHNICAL ASSESSMENT",
      tag:"BACKEND · EXISTING CODEBASE",engine:"FastAPI + SQLAlchemy",surface:"Next.js · FastAPI",media:"desktop",video:null,poster:"images/orban-backend.png",
      objective:"Client technical assessment completed within an existing codebase. Implemented and documented backend-focused functionality with clear API boundaries, relational persistence, and a testable development workflow.",
@@ -1023,6 +1031,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
     {text:"OpenAI · Gemini",label:"AI Product Integration"}
   ];
   const LOG=[
+    ["MSN-009","<b>POLIX</b> — paid client MVP · Hebrew RTL request tracking for Israeli insurance agents"],
     ["MSN-003","<b>Food &amp; Nutrition Subscription Platform</b> — deployed Next.js, Express, MySQL, Stripe, and Open Food Facts"],
     ["MSN-001","<b>Orban Backend Challenge</b> — FastAPI, SQLAlchemy, SQLite, Pytest"],
     ["MSN-002","<b>Payload CMS Website</b> — Next.js content platform and responsive UI"],
@@ -1059,7 +1068,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
   const bootLines=[
     ["init j_os kernel","OK"],["mount client layer · next.js / flutter","OK"],
     ["link api + data layer · fastapi / sql","OK"],["handshake openai api","OK"],["handshake gemini api","OK"],
-    ["calibrate core systems · 8 modules","OK"],["index project archive · 8 projects","OK"],["all systems nominal","READY"]
+    ["calibrate core systems · 8 modules","OK"],["index project archive · 9 projects","OK"],["all systems nominal","READY"]
   ];
   function runBoot(){
     if(reduce){finishBoot();return;}
@@ -1275,9 +1284,9 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
   function buildOps(){
     const ops=$("#ops");
     const groups=[
-      {kicker:"Featured projects",title:"Featured Work",detail:"Top web and backend projects for a fast recruiter review.",items:[0,1,2]},
-      {kicker:"Web & backend",title:"Additional Web Engineering",detail:"Web application work that connects UI, authentication, product workflows, and AI capabilities.",items:[6]},
-      {kicker:"Mobile & AI",title:"Mobile, AI & Operations",detail:"Cross-platform apps, operational dashboards, and AI-enabled product flows.",items:[3,4,5,7]}
+      {kicker:"Featured projects",title:"Featured Work",detail:"Paid client MVP first, then top web and backend projects for a fast recruiter review.",items:[0,1,2,3]},
+      {kicker:"Web & backend",title:"Additional Web Engineering",detail:"Web application work that connects UI, authentication, product workflows, and AI capabilities.",items:[7]},
+      {kicker:"Mobile & AI",title:"Mobile, AI & Operations",detail:"Cross-platform apps, operational dashboards, and AI-enabled product flows.",items:[4,5,6,8]}
     ];
     groups.forEach(group=>{
       const head=document.createElement("div");head.className="archive-group";
