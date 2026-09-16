@@ -951,7 +951,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
   /* ===== REAL DATA — mission archive (real dev projects) ===== */
   const MISSIONS=[
     {no:"MSN-009",name:"POLIX",status:"MVP COMPLETE",state:"plasma",platform:"PAID CLIENT MVP",
-     tag:"REAL CLIENT PROJECT · PAID MVP",engine:"Supabase + Resend",surface:"Next.js · Vercel",media:"desktop",video:null,poster:null,
+     tag:"REAL CLIENT PROJECT · PAID MVP",engine:"Supabase + Resend",surface:"Next.js · Vercel",media:"desktop",video:null,poster:"images/Polix.png",
      objective:"Paid client MVP — a Hebrew RTL SaaS platform for Israeli insurance agents to track manual insurance requests, identify stuck work, and stay on top of follow-ups.",
      impact:"שליטה חכמה בכל בקשה — a fixed-scope paid MVP for Israeli insurance agents (Asia/Jerusalem). Agents record requests to insurers, track status and days-in-status, surface stuck or action-required items, and get in-app plus email reminders. The Next.js app on Vercel uses Supabase Auth, PostgreSQL, and RLS; Vercel Cron runs alert processing and Resend sends email. The MVP does not connect to insurer APIs, payments, analytics, or native mobile apps.",
      stack:["Next.js","React","TypeScript","Tailwind CSS","shadcn/ui","Supabase","PostgreSQL","RLS","Vercel","Resend","Zod","Git + GitHub"],
@@ -1284,7 +1284,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
   function buildOps(){
     const ops=$("#ops");
     const groups=[
-      {kicker:"Featured projects",title:"Featured Work",detail:"Paid client MVP first, then top web and backend projects for a fast recruiter review.",items:[0,1,2,3]},
+      {kicker:"Featured projects",title:"Featured Work",detail:"Paid client MVP first, then top web and backend projects for a fast recruiter review.",items:[0,3,1,2]},
       {kicker:"Web & backend",title:"Additional Web Engineering",detail:"Web application work that connects UI, authentication, product workflows, and AI capabilities.",items:[7]},
       {kicker:"Mobile & AI",title:"Mobile, AI & Operations",detail:"Cross-platform apps, operational dashboards, and AI-enabled product flows.",items:[4,5,6,8]}
     ];
