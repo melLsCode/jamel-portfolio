@@ -1229,7 +1229,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
     const fb=`<div class="feed-fb"><div class="pl">▶</div><span>MISSION FEED</span><span class="fn">${file}</span><span style="opacity:.55">plays on deployment</span></div>`;
     let inner;
     if(s.video) inner=`${fb}<video autoplay loop muted playsinline preload="auto"${s.poster?` poster="${s.poster}"`:""} onerror="this.style.display='none'"><source src="${s.video}" type="video/mp4"></video>`;
-    else if(s.poster) inner=`${fb}<img src="${s.poster}" alt="${s.name}" onerror="this.style.display='none'">`;
+    else if(s.poster) inner=`<img src="${s.poster}" alt="${s.name}">`;
     else inner=fb;
     return s.media==='desktop'
       ? `<div class="df"><div class="bar"><i></i><i></i><i></i></div><div class="scr">${inner}</div></div>`
