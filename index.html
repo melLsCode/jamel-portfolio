@@ -24,6 +24,7 @@
   --signal:#5fe9c6;  --signal-d:rgba(95,233,198,.16);   /* systems online / primary */
   --amber:#ffb454;   --amber-d:rgba(255,180,84,.16);     /* live ops / active */
   --plasma:#6aa6ff;  --plasma-d:rgba(106,166,255,.16);   /* AI intelligence layer */
+  --crimson:#E23B48; --crimson-d:rgba(226,59,72,.16);
   --accent:var(--signal);
   /* shape & motion */
   --r:14px; --r-lg:22px; --maxw:1180px;
@@ -169,10 +170,14 @@ main section{scroll-margin-top:84px}
 .shead .idx{font-family:var(--fm);font-size:11px;color:var(--dim)}
 
 /* ---------- HERO ---------- */
-.hero{padding:96px 0 30px;text-align:center;position:relative}
+.hero{padding:clamp(56px,8vw,96px) 0 36px;text-align:left;position:relative;overflow-x:hidden}
 .chip{display:inline-flex;align-items:center;gap:9px;font-family:var(--fm);font-size:11px;letter-spacing:.16em;
   text-transform:uppercase;color:var(--signal);border:1px solid var(--signal-d);background:var(--signal-d);border-radius:999px;padding:7px 15px}
-.hero h1{font-size:clamp(42px,8.4vw,90px);font-weight:800;letter-spacing:-.04em;line-height:.96;margin-top:26px;position:relative}
+.hero h1{font-size:clamp(32px,4.6vw,52px);font-weight:800;letter-spacing:-.045em;line-height:.96;margin:22px 0 0;position:relative;max-width:none;text-transform:uppercase}
+.hero h1 .hl{color:var(--signal)}
+.hero h1 .hl-red{color:var(--crimson)}
+.hero-br{display:none}
+@media(min-width:720px){.hero-br{display:block}}
 /* ---------- TARGET KNOCKDOWN on hero title (one-time, FPS-style) ---------- */
 .knockwrap{position:relative;perspective:1400px}
 .knockwrap h1{transform-origin:50% 100%}
@@ -208,7 +213,7 @@ main section{scroll-margin-top:84px}
 @keyframes hdown{0%,18%{opacity:0}30%{opacity:1}54%{opacity:1}66%{opacity:0}100%{opacity:0}}
 .hero h1 .grad{background:linear-gradient(108deg,var(--ice) 8%,var(--signal) 55%,var(--plasma));
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.hero .lead{max-width:600px;margin:24px auto 0;font-size:clamp(15px,2vw,18px);color:var(--mist)}
+.hero .lead{max-width:52ch;margin:22px 0 0;font-size:clamp(15px,1.6vw,17px);color:var(--mist);line-height:1.7}
 .ticker{margin-top:32px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;font-family:var(--fm);font-size:11px}
 .ticker span{border:1px solid var(--line);border-radius:9px;padding:6px 12px;color:var(--mist)}
 .ticker span b{color:var(--ice);font-weight:600}
@@ -217,29 +222,49 @@ main section{scroll-margin-top:84px}
   transform:translateX(-50%);animation:sd 1.8s var(--ease) infinite}
 @keyframes sd{0%{opacity:0;transform:translate(-50%,0)}30%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
 
-/* ---------- HERO HUD / OPERATOR REVEAL ---------- */
-.hero.hero-hud{--hud-scroll:0;padding:28px 0 12px;text-align:left;min-height:calc(100svh - 64px);display:flex;align-items:center;overflow:hidden}
-.hero-hud:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 48%,rgba(95,233,198,.17),transparent 29%),linear-gradient(90deg,rgba(2,8,5,.96),rgba(2,8,5,.1) 42%,rgba(2,8,5,.86));z-index:0}
-.hero-hud:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.33;background:repeating-linear-gradient(0deg,rgba(95,233,198,.045) 0 1px,transparent 1px 5px);z-index:1}
-.hud-layout{position:relative;z-index:2;display:grid;grid-template-columns:minmax(260px,.9fr) minmax(320px,1.1fr) minmax(250px,.78fr);align-items:center;min-height:720px;gap:clamp(14px,2vw,34px)}
-.hud-copy{position:relative;z-index:4}.hud-kicker{font-family:var(--fm);font-size:13px;letter-spacing:.17em;color:var(--signal);margin-bottom:15px}.hud-copy h1{font-family:var(--fm);font-size:clamp(44px,5.5vw,82px);line-height:.88;letter-spacing:-.075em;margin:0}.hud-copy h1 span{color:var(--signal);text-shadow:0 0 20px var(--signal-d)}
-.hud-role{margin:16px 0 22px;font-family:var(--fm);font-size:clamp(11px,1.35vw,15px);letter-spacing:.1em;color:var(--signal)}.hud-copy .lead{max-width:37ch;margin:0;color:var(--mist);font-size:15px;line-height:1.75}.hud-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.hud-actions .btn{display:inline-flex;align-items:center;text-align:center}.hud-available{display:inline-flex;align-items:center;gap:8px;margin-top:24px;font-family:var(--fm);font-size:10.5px;letter-spacing:.11em;color:var(--signal);border:1px solid var(--signal-d);padding:7px 10px;background:rgba(95,233,198,.06)}.hud-available i{width:7px;height:7px;border-radius:50%;background:var(--signal);box-shadow:0 0 10px var(--signal)}
-.hud-visual{position:relative;align-self:stretch;min-height:620px;display:flex;align-items:flex-end;justify-content:center;isolation:isolate;opacity:calc(1 - var(--hud-scroll)*.54);transform:translateY(calc(var(--hud-scroll)*-28px)) scale(calc(1 - var(--hud-scroll)*.055));transition:opacity .1s linear,transform .1s linear}.hud-visual:before{content:"";position:absolute;width:min(84%,530px);aspect-ratio:1;border-radius:50%;top:8%;left:50%;transform:translateX(-50%);background:radial-gradient(circle,rgba(95,233,198,.18),transparent 66%);filter:blur(12px);z-index:-2}
-.hud-portrait{position:relative;width:min(100%,500px);height:650px;overflow:hidden;mask-image:linear-gradient(to bottom,#000 0 80%,transparent 100%);z-index:1}.hud-portrait video,.hud-portrait .video-poster{width:100%;height:100%;object-fit:cover;object-position:center 47%;filter:contrast(1.08) saturate(.88) brightness(.86);mix-blend-mode:screen}.hud-portrait .video-poster{display:none;position:absolute;inset:0}.hud-portrait:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,8,5,.66),transparent 25%,transparent 76%,rgba(2,8,5,.55)),repeating-linear-gradient(0deg,rgba(95,233,198,.11) 0 1px,transparent 1px 5px);pointer-events:none}
-.hud-ring{position:absolute;left:50%;top:37%;width:min(94%,510px);aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:2}.hud-ring.outer{border:1px solid rgba(95,233,198,.48);box-shadow:0 0 34px rgba(95,233,198,.18),inset 0 0 30px rgba(95,233,198,.08);border-right-color:transparent;border-bottom-color:rgba(95,233,198,.85);animation:hudSpin 22s linear infinite}.hud-ring.inner{width:min(75%,400px);border:2px dashed rgba(95,233,198,.42);border-top-color:#c8ffcf;border-left-color:transparent;animation:hudSpinReverse 16s linear infinite}.hud-ring.scan{width:min(105%,570px);background:conic-gradient(from 20deg,transparent 0 78%,rgba(95,233,198,.22) 82%,transparent 89%);mask-image:radial-gradient(transparent 61%,#000 63% 65%,transparent 67%);animation:hudSpin 8s linear infinite}.hud-ring:before,.hud-ring:after{content:"";position:absolute;width:12px;height:12px;border:2px solid var(--signal);box-shadow:0 0 12px var(--signal)}.hud-ring:before{top:12%;left:12%;border-right:0;border-bottom:0}.hud-ring:after{bottom:12%;right:12%;border-left:0;border-top:0}@keyframes hudSpin{to{transform:translate(-50%,-50%) rotate(360deg)}}@keyframes hudSpinReverse{to{transform:translate(-50%,-50%) rotate(-360deg)}}
-.hud-panel{position:relative;border:1px solid rgba(95,233,198,.28);background:rgba(4,13,8,.68);padding:18px;box-shadow:inset 0 0 24px rgba(95,233,198,.035),0 0 24px rgba(95,233,198,.04);clip-path:polygon(0 0,93% 0,100% 10%,100% 90%,93% 100%,0 100%)}.hud-panel+.hud-panel{margin-top:20px}.hud-panel h2{font-family:var(--fm);font-size:11px;font-weight:600;letter-spacing:.14em;color:var(--signal);margin:0 0 14px}.hud-module{display:grid;grid-template-columns:30px 1fr;gap:10px;padding:12px 0;border-top:1px solid rgba(255,255,255,.07)}.hud-module i{width:28px;height:28px;border:1px solid var(--signal-d);display:grid;place-items:center;color:var(--signal);font-style:normal;font-family:var(--fm);font-size:11px}.hud-module b{display:block;font-family:var(--fm);font-size:10.5px;letter-spacing:.06em;color:var(--ice)}.hud-module span,.hud-mission p{display:block;margin-top:3px;color:var(--mist);font-size:12px;line-height:1.55}.hud-mission p{margin:0}.hud-status{margin-top:14px;padding:9px;border:1px solid var(--signal-d);font-family:var(--fm);font-size:10px;letter-spacing:.07em;color:var(--signal);display:flex;justify-content:space-between;align-items:center}.hud-status i{width:7px;height:7px;border-radius:50%;background:var(--signal);box-shadow:0 0 10px var(--signal)}
-.hero-hud .scrollcue{position:absolute;z-index:4;bottom:28px;left:50%;margin:0;transform:translateX(-50%)}
-@media(max-width:1040px){.hud-layout{grid-template-columns:minmax(230px,.85fr) minmax(310px,1.1fr);min-height:680px}.hud-side{display:none}.hud-portrait{height:610px}}
-@media(max-width:720px){.hero.hero-hud{padding-top:30px;align-items:flex-start}.hud-layout{display:flex;flex-direction:column;min-height:auto;gap:10px;padding-top:25px;padding-bottom:86px}.hud-copy{text-align:center}.hud-copy .lead{margin-inline:auto}.hud-actions{justify-content:center}.hud-visual{width:100%;min-height:440px;height:56svh;max-height:560px;order:2}.hud-portrait{height:100%;width:min(100%,390px)}.hud-ring{top:43%;width:min(92%,400px)}.hud-ring.inner{width:min(72%,315px)}.hud-ring.scan{width:min(102%,430px)}.hud-copy h1{font-size:clamp(42px,13vw,62px)}.hud-role{font-size:10px}.hero-hud .scrollcue{bottom:22px}.hud-available{margin-top:18px}}
-@media(prefers-reduced-motion:reduce){.hud-ring{animation:none}.hud-visual{transition:none}.hud-portrait:after{background:linear-gradient(90deg,rgba(2,8,5,.66),transparent 25%,transparent 76%,rgba(2,8,5,.55))}}
-
-/* ---------- HERO HUD V2: CINEMATIC SPLIT CONSOLE ---------- */
-.hero.hero-hud{padding:18px 0 12px}.hero-hud:before{background:radial-gradient(circle at 69% 50%,rgba(95,233,198,.15),transparent 29%),linear-gradient(90deg,rgba(2,8,5,.97) 0%,rgba(2,8,5,.91) 40%,rgba(2,8,5,.22) 73%,rgba(2,8,5,.68) 100%)}
-.hud-layout{grid-template-columns:minmax(290px,.78fr) minmax(470px,1.22fr);gap:clamp(28px,5vw,88px);min-height:720px}.hud-copy{align-self:center;padding:26px 0 46px}.hud-kicker{font-size:10.5px;margin-bottom:16px;color:var(--dim)}.hud-kicker:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:9px;background:var(--signal);box-shadow:0 0 10px var(--signal)}.hud-copy h1{max-width:500px;font-family:var(--fd);font-size:clamp(50px,5.4vw,78px);line-height:.91;letter-spacing:-.065em;text-transform:none}.hud-role{margin:17px 0 20px;font-size:11px;letter-spacing:.14em}.hud-copy .lead{max-width:43ch;font-size:clamp(15px,1.3vw,17px);line-height:1.75;color:var(--mist)}.hud-actions{margin-top:26px}.hud-actions .btn{padding:13px 20px}.hud-available{margin-top:22px}.hud-stack{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:20px 0 0;list-style:none}.hud-stack li{font-family:var(--fm);font-size:10px;letter-spacing:.03em;color:var(--mist);border:1px solid var(--line);padding:6px 9px;background:rgba(255,255,255,.018)}.hud-stack li:first-child{color:var(--signal);border-color:var(--signal-d);background:var(--signal-d)}
-.hud-visual{min-height:690px;height:calc(100svh - 94px);max-height:780px;align-self:center;align-items:center;justify-content:center}.hud-visual:before{width:min(96%,690px);top:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(95,233,198,.24),transparent 65%);filter:blur(18px)}.hud-portrait{width:min(100%,650px);height:100%;max-height:760px;mask-image:linear-gradient(to bottom,transparent 0,#000 5%,#000 86%,transparent 100%);border-left:1px solid rgba(95,233,198,.12);border-right:1px solid rgba(95,233,198,.12)}.hud-portrait video,.hud-portrait .video-poster{object-position:center 48%;filter:contrast(1.06) saturate(.86) brightness(.91)}.hud-portrait:after{background:linear-gradient(90deg,rgba(2,8,5,.56),transparent 18%,transparent 82%,rgba(2,8,5,.36)),linear-gradient(to bottom,rgba(2,8,5,.15),transparent 20%,transparent 80%,rgba(2,8,5,.55)),repeating-linear-gradient(0deg,rgba(95,233,198,.07) 0 1px,transparent 1px 6px)}.hero-vmeta{position:absolute;z-index:3;left:clamp(10px,2vw,24px);right:clamp(10px,2vw,24px);bottom:32px;display:flex;justify-content:space-between;gap:10px;font-family:var(--fm);font-size:9.5px;letter-spacing:.12em;color:var(--signal);pointer-events:none}.hero-vmeta span{padding:7px 9px;border:1px solid rgba(95,233,198,.27);background:rgba(2,8,5,.7)}.hero-vmeta span:last-child{color:var(--mist)}
-.hud-role{margin:17px 0 7px}.hud-specialization{margin:0 0 20px;font-family:var(--fm);font-size:10px;letter-spacing:.08em;color:var(--mist)}
-@media(max-width:860px){.hud-layout{grid-template-columns:minmax(270px,.85fr) minmax(390px,1.15fr);gap:20px}.hud-copy h1{font-size:clamp(48px,6.2vw,65px)}.hud-visual{min-height:610px}.hud-portrait{height:670px}}
-@media(max-width:720px){.hero.hero-hud{padding-top:0}.hud-layout{display:flex;flex-direction:column;gap:0;padding:0 0 84px}.hud-visual{order:1;width:100%;min-height:490px;height:57svh;max-height:610px}.hud-copy{order:2;width:100%;text-align:left;padding:16px 0 0}.hud-copy .lead{margin:0}.hud-actions{justify-content:flex-start}.hud-portrait{width:min(100%,450px);height:100%;mask-image:linear-gradient(to bottom,transparent 0,#000 6%,#000 86%,transparent 100%)}.hero-vmeta{bottom:20px}.hero-hud .scrollcue{bottom:20px}}
+/* ---------- HERO: TYPOGRAPHY + CAPABILITIES ---------- */
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(280px,1fr);gap:clamp(28px,5vw,64px);align-items:center}
+.hero-kicker{display:flex;align-items:center;gap:12px;font-family:var(--fm);font-size:11px;letter-spacing:.16em;color:var(--mist);width:100%;max-width:36rem}
+.hero-kicker:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--signal);box-shadow:0 0 10px var(--signal);flex:none}
+.hero-rule{display:block;height:1px;flex:1;min-width:28px;max-width:92px;background:linear-gradient(90deg,var(--crimson),transparent);opacity:.9}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero-actions .btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:13px 20px}
+.hero-actions .btn svg{width:15px;height:15px}
+.hero-actions .btn:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+.btn.ghost{background:transparent;color:var(--ice);border-color:var(--line-2)}
+.btn.ghost:hover{border-color:var(--signal);color:var(--signal);background:rgba(95,233,198,.06)}
+.hero-orbit{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.hero-orbit svg{width:100%;height:100%;max-width:none;display:block}
+.hero-orbit .wash{position:absolute;left:6%;right:-8%;bottom:-28%;height:62%;background:radial-gradient(ellipse at 58% 70%,rgba(95,233,198,.2),transparent 64%);filter:blur(2px)}
+.orbit-drift{transform-origin:70% 50%;animation:orbitDrift 18s ease-in-out infinite alternate}
+@keyframes orbitDrift{from{transform:translate3d(0,10px,0)}to{transform:translate3d(-16px,-12px,0)}}
+.hero-orbit-space{min-height:460px}
+.tech-band{position:relative;z-index:2;margin-top:clamp(48px,7vw,72px);padding-top:22px;border-top:1px solid var(--line);overflow:hidden}
+.tech-label{display:flex;align-items:center;gap:10px;font-family:var(--fm);font-size:10.5px;letter-spacing:.18em;color:var(--mist);margin-bottom:16px}
+.tech-label:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--signal);box-shadow:0 0 10px var(--signal)}
+.tech-viewport{overflow:hidden;width:100%;max-width:100%;border:1px solid var(--line);border-radius:999px;background:#080a0e;padding:8px 0;-webkit-mask-image:linear-gradient(90deg,transparent, #000 5%, #000 95%, transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.tech-track{display:flex;width:max-content;animation:techMarquee 40s linear infinite}
+@media(hover:hover) and (pointer:fine){.tech-track:hover{animation-play-state:paused}}
+.tech-set{display:flex;align-items:center;gap:10px;padding-right:10px;flex:none}
+.tech-chip{display:inline-flex;align-items:center;gap:10px;white-space:nowrap;border:0;background:transparent;border-radius:999px;padding:8px 14px;font-family:var(--fm);font-size:12.5px;color:var(--ice)}
+.tech-chip img,.tech-chip svg{width:16px;height:16px;flex:none}
+@keyframes techMarquee{to{transform:translateX(-50%)}}
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:36px}
+  .hero-orbit-space{display:none}
+  .hero-orbit{-webkit-mask-image:linear-gradient(90deg,transparent 0 62%,#000 86%);mask-image:linear-gradient(90deg,transparent 0 62%,#000 86%)}
+}
+@media(max-width:560px){
+  .hero-actions .btn{flex:1;justify-content:center;min-height:44px}
+  .hero h1{max-width:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .tech-track{animation:none!important;flex-wrap:wrap;width:100%;justify-content:flex-start;gap:6px}
+  .tech-set{flex-wrap:wrap;padding-right:0}
+  .tech-set[aria-hidden="true"]{display:none}
+  .tech-viewport{border-radius:18px;-webkit-mask-image:none;mask-image:none}
+  .orbit-drift{animation:none}
+}
 
 /* ---------- REACTOR ---------- */
 .reactor{display:grid;grid-template-columns:1fr;gap:26px}
@@ -309,6 +334,8 @@ main section{scroll-margin-top:84px}
 .flow-leg i:before{content:"";width:9px;height:9px;border-radius:2px;background:var(--c,var(--signal))}
 .flow-leg i.opt{opacity:.78}
 .flow-note{margin-top:16px;max-width:78ch;color:var(--mist);font-size:13px;line-height:1.65}
+.flow-leg i.opt{opacity:.78}
+.flow-note{margin-top:16px;max-width:78ch;color:var(--mist);font-size:13px;line-height:1.65}
 
 /* ---------- AI-ASSISTED ENGINEERING WORKFLOW ---------- */
 .workflow{border:1px solid var(--line);border-radius:var(--r-lg);background:linear-gradient(135deg,rgba(106,166,255,.08),transparent 46%),var(--void-2);padding:clamp(22px,4vw,34px)}
@@ -338,6 +365,7 @@ main section{scroll-margin-top:84px}
 .wf-pipe[data-stage="verify"] .wf-link[data-from="accelerate"] i,
 .wf-pipe[data-stage="own"] .wf-link[data-from="verify"] i{opacity:1;animation:wfSignal 1.6s linear infinite}
 .wf-ctrl{margin-top:14px;display:flex;align-items:center;gap:10px;border:1px dashed rgba(106,166,255,.28);border-radius:10px;padding:11px 13px;font-family:var(--fm);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);transition:.25s var(--ease)}
+.wf-ctrl .led.plasma{background:var(--plasma);box-shadow:0 0 10px var(--plasma);flex:0 0 auto}
 .wf-ctrl .led.plasma{background:var(--plasma);box-shadow:0 0 10px var(--plasma);flex:0 0 auto}
 .wf-pipe[data-stage="own"] .wf-ctrl{border-color:rgba(106,166,255,.55);color:var(--ice);background:rgba(106,166,255,.06);box-shadow:0 0 18px rgba(106,166,255,.08)}
 @keyframes wfSignal{0%{left:-10px}100%{left:calc(100% + 4px)}}
@@ -670,25 +698,79 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
 
 <main>
   <!-- HERO -->
-  <section class="hero hero-hud" id="hero" aria-labelledby="heroTitle"><div class="wrap hud-layout">
-    <div class="hud-copy">
-      <p class="hud-kicker reveal">OPERATOR CONSOLE // JAMEL DUARTE</p>
-      <h1 class="reveal" id="heroTitle">JAMEL</h1>
-      <p class="hud-role reveal">FULL-STACK DEVELOPER</p>
-      <p class="hud-specialization reveal">Web Apps • APIs • AI-Powered Products</p>
-      <p class="lead reveal">I build modern web and mobile applications, APIs, and AI-powered features — from frontend interfaces and backend systems to databases, integrations, and deployment.</p>
-      <div class="hud-actions reveal"><a class="btn primary" href="#archive-sec">▸ View My Work</a></div>
-      <span class="hud-available reveal"><i></i> OPEN TO REMOTE ROLES</span>
-      <ul class="hud-stack reveal" aria-label="Primary technologies"><li>Next.js + FastAPI</li><li>Flutter</li><li>TypeScript + Python</li><li>AI + APIs</li></ul>
+  <section class="hero" id="hero" aria-labelledby="heroTitle">
+    <div class="hero-orbit" aria-hidden="true">
+      <div class="wash"></div>
+      <svg class="orbit-drift" viewBox="0 0 1440 720" preserveAspectRatio="xMaxYMid slice" fill="none">
+        <defs>
+          <linearGradient id="arcTeal" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0" stop-color="#5fe9c6" stop-opacity="0"/>
+            <stop offset=".46" stop-color="#d8fff4" stop-opacity="1"/>
+            <stop offset=".7" stop-color="#5fe9c6" stop-opacity=".7"/>
+            <stop offset="1" stop-color="#5fe9c6" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="arcTealSoft" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0" stop-color="#5fe9c6" stop-opacity="0"/>
+            <stop offset=".5" stop-color="#5fe9c6" stop-opacity=".55"/>
+            <stop offset="1" stop-color="#5fe9c6" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="arcRed" x1="0" y1="0" x2=".2" y2="1">
+            <stop offset="0" stop-color="#E23B48" stop-opacity="0"/>
+            <stop offset=".46" stop-color="#ff6b76" stop-opacity=".95"/>
+            <stop offset="1" stop-color="#E23B48" stop-opacity="0"/>
+          </linearGradient>
+          <filter id="arcGlow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="4" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <path d="M620 700C920 500 1140 240 1540 -20" stroke="#5fe9c6" stroke-opacity=".16" stroke-width="1.25"/>
+        <path d="M700 650C980 470 1180 250 1540 50" stroke="url(#arcTealSoft)" stroke-width="1.7"/>
+        <path d="M640 560C930 390 1120 190 1500 20" stroke="url(#arcTeal)" stroke-width="2.6" filter="url(#arcGlow)"/>
+        <path d="M1140 10C1260 150 1340 310 1270 640" stroke="url(#arcRed)" stroke-width="2.3" filter="url(#arcGlow)"/>
+        <circle cx="1160" cy="300" r="3.2" fill="#f4fffb"/>
+        <circle cx="1210" cy="78" r="2.2" fill="#b8ffe8"/>
+        <circle cx="1284" cy="236" r="3" fill="#ffd5d8"/>
+        <circle cx="1296" cy="430" r="2" fill="#ff8d96" fill-opacity=".75"/>
+      </svg>
     </div>
-    <div class="hud-visual" aria-label="Jamel Duarte in a green futuristic engineering operator portrait">
-      <div class="hud-portrait">
-        <video autoplay muted loop playsinline preload="metadata" aria-label="Cinematic green futuristic developer armor portrait of Jamel Duarte"><source src="videos/jamel-operator-powerup.mp4?v=20260901" type="video/mp4"></video>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="hero-kicker reveal">FULL-STACK DEVELOPER // AI-POWERED SOLUTIONS <i class="hero-rule" aria-hidden="true"></i></p>
+        <h1 class="reveal" id="heroTitle">I build software<br class="hero-br"> that turns <span class="hl">ideas</span><br class="hero-br"> into <span class="hl-red">real</span><br class="hero-br"> <span class="hl">solutions.</span></h1>
+        <p class="lead reveal">I'm Jamel Duarte, a Full-Stack Developer focused on modern web applications, backend systems, and AI-powered features. I help turn ideas into working products—from planning and development to deployment and real-world use.</p>
+        <div class="hero-actions reveal">
+          <a class="btn primary" href="#archive-sec">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            View My Projects
+          </a>
+          <a class="btn ghost" href="#uplink-sec">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg>
+            Let's Work Together
+          </a>
+        </div>
       </div>
-      <div class="hero-vmeta" aria-hidden="true"><span>OPERATOR FEED // ACTIVE</span><span>BUILD · VALIDATE · SHIP</span></div>
+      <div class="hero-orbit-space" aria-hidden="true"></div>
     </div>
-    <div class="scrollcue" aria-hidden="true"></div>
-  </div></section>
+    <div class="wrap tech-band">
+      <p class="tech-label">Technologies I work with</p>
+      <div class="tech-viewport" aria-label="Technologies used across this portfolio">
+        <div class="tech-track">
+          <div class="tech-set">
+            <span class="tech-chip"><img src="https://cdn.simpleicons.org/nextdotjs/EEF1F6" alt="" width="16" height="16">Next.js</span>
+            <span class="tech-chip"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="" width="16" height="16">React</span>
+            <span class="tech-chip"><img src="https://cdn.simpleicons.org/typescript/3178C6" alt="" width="16" height="16">TypeScript</span>
+            <span class="tech-chip"><img src="https://cdn.simpleicons.org/nodedotjs/339933" alt="" width="16" height="16">Node.js</span>
+            <span class="tech-chip"><img src="https://cdn.simpleicons.org/python/3776AB" alt="" width="16" height="16">Python</span>
+            <span class="tech-chip"><img src="https://cdn.simpleicons.org/supabase/3ECF8E" alt="" width="16" height="16">Supabase</span>
+            <span class="tech-chip"><img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="" width="16" height="16">PostgreSQL</span>
+            <span class="tech-chip"><img src="https://cdn.simpleicons.org/firebase/FFCA28" alt="" width="16" height="16">Firebase</span>
+            <span class="tech-chip"><img src="https://cdn.simpleicons.org/git/F05032" alt="" width="16" height="16">Git</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- CORE SYSTEMS -->
   <section class="modspace wrap" id="core-sec">
@@ -1488,6 +1570,13 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
       ensureAudio();if(ac&&ac.state==="suspended")ac.resume();thwip();
     },true);
   }
+  function setupTechMarquee(){
+    const track=$(".tech-track"),set=track&&track.querySelector(".tech-set");
+    if(!track||!set||reduce)return;
+    const clone=set.cloneNode(true);
+    clone.setAttribute("aria-hidden","true");
+    track.appendChild(clone);
+  }
   /* ===== HERO HUD SCROLL TRANSITION ===== */
   function heroHudTransition(){
     const hero=$(".hero-hud");if(!hero||reduce)return;
@@ -1498,7 +1587,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
   }
   /* ===== VIDEO PLAYBACK: ONE VISIBLE OPERATOR FEED AT A TIME ===== */
   function manageOperatorVideos(){
-    const videos=$$(".hud-portrait video,.op-video");if(!videos.length||reduce)return;
+    const videos=$$(".op-video");if(!videos.length||reduce)return;
     const start=video=>{const play=video.play();if(play&&typeof play.catch==="function")play.catch(()=>{});};
     const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)start(entry.target);else entry.target.pause();}),{threshold:.35});
     videos.forEach(video=>observer.observe(video));
@@ -1543,7 +1632,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
   /* ===== LOOP + INIT ===== */
   function loop(t){drawNetwork(t);fps(t);requestAnimationFrame(loop);}
   function init(){
-    buildNodes();layout();setActive(0);buildOps();buildFlow();buildMetrics();buildCurrentOps();railSpy();mobileNav();dossierSetup();setupSound();heroHudTransition();manageOperatorVideos();bindWorkflow();
+    buildNodes();layout();setActive(0);buildOps();buildFlow();buildMetrics();buildCurrentOps();railSpy();mobileNav();dossierSetup();setupSound();heroHudTransition();manageOperatorVideos();bindWorkflow();setupTechMarquee();
     addEventListener("resize",layout);requestAnimationFrame(loop);
     /* BOOT PRELOADER DISABLED — reveal directly. To re-enable, swap finishBoot() back to runBoot(): */
     finishBoot(); /* was: runBoot(); */
