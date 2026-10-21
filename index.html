@@ -564,6 +564,19 @@ body.ocmode{--accent:var(--amber);--signal:var(--amber)}
 .dact.ghost:hover{border-color:var(--signal);color:var(--signal)}
 .dact.disabled{opacity:.38;pointer-events:none;background:transparent;color:var(--dim);border:1px solid var(--line)}
 body.modal-open{overflow:hidden}
+.access-modal{z-index:140}
+.access-card{width:min(560px,100%)}
+.access-card .modal-body h3{margin-top:2px}
+button.mx{font:inherit;letter-spacing:inherit;background:transparent;color:var(--mist)}
+.access-contacts{display:grid;gap:12px;margin:8px 0 2px}
+.access-contacts div{display:flex;flex-direction:column;align-items:flex-start;gap:6px;border:1px solid var(--line);border-radius:9px;padding:12px 14px;background:var(--panel)}
+.access-status{min-height:1.4em;margin:14px 0 0;font-family:var(--fm);font-size:12px;letter-spacing:.03em;color:var(--mist)}
+.access-status.ok{color:var(--signal)}
+.access-status.bad{color:var(--amber)}
+@media(max-width:560px){
+  .access-card .dossier-actions{flex-direction:column}
+  .access-card .dossier-actions .dact{justify-content:center}
+}
 
 /* ---------- UPLINK COMMS CONSOLE ---------- */
 .uplink-console{max-height:0;opacity:0;overflow:hidden;text-align:left;
@@ -982,6 +995,25 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
 </main>
 
 <div class="modal" id="modal"><div class="modal-card" id="modalCard"></div></div>
+<div class="modal access-modal" id="accessModal" role="dialog" aria-modal="true" aria-labelledby="accessTitle" aria-describedby="accessCopy" aria-hidden="true" inert>
+  <div class="modal-card access-card">
+    <div class="modal-head"><span>REASONUP AI · PRIVATE REPOSITORY</span><button type="button" class="mx" id="accessClose">CLOSE [ESC]</button></div>
+    <div class="modal-body">
+      <h3 id="accessTitle">Request Source Access</h3>
+      <p class="dossier-desc" id="accessCopy">The Android source code is maintained in a private GitHub repository. It remains private while ownership, licensing, and security considerations are reviewed.</p>
+      <p class="dossier-desc">You can request access by email. Include your GitHub username and the purpose of the request. Access is reviewed manually and is not automatic or guaranteed.</p>
+      <div class="access-contacts">
+        <div><span class="ch-label">Primary contact</span><span class="ch-val">jamelduarte93@gmail.com</span></div>
+        <div><span class="ch-label">Alternative contact</span><span class="ch-val">reasonup632@gmail.com</span></div>
+      </div>
+      <div class="dossier-actions">
+        <a class="dact primary" id="accessEmail" href="mailto:reasonup632@gmail.com,jamelduarte93@gmail.com?subject=ReasonUp%20Source%20Code%20Access%20Request&amp;body=Hello%2C%0A%0AI%20would%20like%20to%20request%20access%20to%20the%20ReasonUp%20Android%20source%20code.%0A%0AGitHub%20username%3A%0APurpose%20of%20the%20request%3A%0A%0AThank%20you.">Email Jamel</a>
+        <button type="button" class="dact ghost" id="accessCopyBtn">Copy Email Address</button>
+      </div>
+      <p class="access-status" id="accessStatus" role="status" aria-live="polite"></p>
+    </div>
+  </div>
+</div>
 
 <div class="diag" id="diag">
   <div class="dh"><span>◢ DIAGNOSTICS</span><span id="diag-x" style="cursor:none">[ESC]</span></div>
@@ -1021,7 +1053,7 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
      pw:["Food & Nutrition Platform","Vercel frontend","Railway API + MySQL"]},
     {name:"OpenAI + Gemini",layer:"ai",sub:"AI PRODUCT INTEGRATION",sig:92,x:.83,y:.31,
      desc:"Integrate AI capabilities into product workflows with prompt handling, validation, evaluation, and user-focused implementation.",
-     pw:["ReasonUp AI","VoxFil AI","EstateWise AI"]},
+     pw:["VoxFil AI","EstateWise AI"]},
     {name:"FastAPI + Python",layer:"backend",sub:"API / SERVICE LAYER",sig:92,x:.18,y:.51,
      desc:"Develop testable Python API services with clear REST boundaries, documentation, and maintainable existing-codebase contributions.",
      pw:["Orban Backend Challenge","REST APIs","Pytest"]},
@@ -1065,12 +1097,12 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
      links:[{label:"Live Demo",href:"https://food-product-search-web.vercel.app",primary:true},{label:"View Code",href:"https://github.com/melLsCode/food-product-search"}]},
 
     {no:"MSN-004",name:"ReasonUp AI",status:"OPERATIONAL",state:"signal",platform:"MOBILE APP",
-     tag:"AI EDUCATION",engine:"OpenAI + Gemini",surface:"Flutter · Mobile",media:"phone",video:"videos/reasonup-demo.mp4",poster:"images/reasonup-homepage.png",
-     objective:"AI-powered mobile app that builds students' argumentation and critical-thinking skills through rubric-based AI evaluation, real-time feedback and gamified learning.",
-     impact:"Dual-engine evaluation on OpenAI + Gemini grades reasoning against rubrics in real time, with anti-cheat answer protection and a leaderboard that keeps students progressing.",
-     stack:["Flutter","Firebase","OpenAI API","Gemini API"],
+     tag:"AI EDUCATION",engine:"OpenAI",surface:"Flutter · Mobile",media:"phone",video:"videos/reasonup-demo.mp4",poster:"images/reasonup-homepage.png",
+     objective:"AI-powered mobile app that builds students' argumentation and critical-thinking skills through rubric-based AI evaluation, real-time feedback and gamified learning. The Android source is held in a private GitHub repository, and access is reviewed manually.",
+     impact:"OpenAI grades reasoning against rubrics in real time, with anti-cheat answer protection and a leaderboard that keeps students progressing.",
+     stack:["Flutter","Firebase (demo config)","OpenAI API"],
      feat:["AI-based rubric evaluation","Real-time feedback & suggestions","Anti-cheat timer & answer protection","Leaderboard & progress tracking"],
-     links:[{label:"Install App",href:"https://drive.google.com/file/d/1Me-kjHiP5dgrvhUpR3r-NR_GsOtyzsbK/view?usp=sharing",primary:true},{label:"View Code",href:"#"}]},
+     links:[{label:"Install App",href:"https://drive.google.com/file/d/1Me-kjHiP5dgrvhUpR3r-NR_GsOtyzsbK/view?usp=sharing",primary:true},{label:"Request Source Access",access:true}]},
 
     {no:"MSN-005",name:"EstateWise AI",status:"DEPLOYED",state:"signal",platform:"MOBILE APP",
      tag:"AI REAL-ESTATE",engine:"OpenAI GPT-3.5",surface:"React Native · Capacitor",media:"phone",video:"videos/estatewise-demo.mp4",poster:"images/estatewise-preview.png",
@@ -1322,7 +1354,11 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
     const real=b.href&&b.href!=="#";
     const lc=b.label.toLowerCase();
     const g=lc.includes("install")?"⬇":lc.includes("code")?"&lt;/&gt;":"↗";
-    if(real) return `<a class="dact ${b.primary?'primary':'ghost'}" href="${b.href}" target="_blank" rel="noopener">${g} ${b.label}</a>`;
+    if(b.access)return `<button type="button" class="dact ghost" data-open-access="reasonup">↗ ${b.label}</button>`;
+    if(real){
+      const mail=b.href.startsWith("mailto:");
+      return `<a class="dact ${b.primary?'primary':'ghost'}" href="${b.href}"${mail?"":' target="_blank" rel="noopener"'}>${g} ${b.label}</a>`;
+    }
     return `<span class="dact disabled">${g} ${lc.includes("code")?"Repo Private":b.label}</span>`;
   }
 
@@ -1353,13 +1389,76 @@ a.ch-val{transition:.2s}a.ch-val:hover{color:var(--signal)}
     const mx=$("#mx");if(mx)mx.addEventListener("click",closeDossier);
   }
   function closeDossier(){
+    closeAccess({silent:true});
     const m=$("#modal");m.classList.remove("open");document.body.classList.remove("modal-open");
     const v=m.querySelector("video");if(v){try{v.pause();}catch(e){}}
   }
+  const ACCESS_EMAIL="jamelduarte93@gmail.com";
+  const ACCESS_MAILTO="mailto:reasonup632@gmail.com,jamelduarte93@gmail.com?subject=ReasonUp%20Source%20Code%20Access%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20access%20to%20the%20ReasonUp%20Android%20source%20code.%0A%0AGitHub%20username%3A%0APurpose%20of%20the%20request%3A%0A%0AThank%20you.";
+  function openAccess(){
+    const m=$("#accessModal");if(!m)return;
+    const status=$("#accessStatus");
+    if(status){status.textContent="";status.className="access-status";}
+    m.inert=false;
+    m.setAttribute("aria-hidden","false");
+    m.classList.add("open");
+    const close=$("#accessClose");if(close)close.focus();
+  }
+  function closeAccess(opts){
+    const m=$("#accessModal");if(!m||!m.classList.contains("open"))return;
+    m.classList.remove("open");
+    m.setAttribute("aria-hidden","true");
+    m.inert=true;
+    if(opts&&opts.silent)return;
+    const trigger=document.querySelector("[data-open-access]");
+    if(trigger)trigger.focus();
+  }
+  function accessNote(ok,text){
+    const status=$("#accessStatus");if(!status)return;
+    status.textContent=text;
+    status.className="access-status "+(ok?"ok":"bad");
+  }
+  async function copyAccessEmail(){
+    try{
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        await navigator.clipboard.writeText(ACCESS_EMAIL);
+        accessNote(true,"Copied "+ACCESS_EMAIL);
+        return;
+      }
+      throw new Error("clipboard unavailable");
+    }catch(e){
+      try{
+        const ta=document.createElement("textarea");
+        ta.value=ACCESS_EMAIL;ta.setAttribute("readonly","");
+        ta.style.position="fixed";ta.style.left="-9999px";
+        document.body.appendChild(ta);ta.select();
+        const ok=document.execCommand("copy");
+        ta.remove();
+        if(!ok)throw new Error("copy failed");
+        accessNote(true,"Copied "+ACCESS_EMAIL);
+      }catch(err){
+        accessNote(false,"Could not copy the address. Select jamelduarte93@gmail.com and copy it manually.");
+      }
+    }
+  }
   function dossierSetup(){
     const m=$("#modal");if(!m)return;
-    m.addEventListener("click",e=>{if(e.target===m)closeDossier();});
-    addEventListener("keydown",e=>{if(e.key==="Escape")closeDossier();});
+    m.addEventListener("click",e=>{
+      if(e.target.closest("[data-open-access]")){e.preventDefault();openAccess();return;}
+      if(e.target===m)closeDossier();
+    });
+    const access=$("#accessModal");
+    if(access){
+      access.addEventListener("click",e=>{if(e.target===access)closeAccess();});
+      const close=$("#accessClose");if(close)close.addEventListener("click",()=>closeAccess());
+      const copy=$("#accessCopyBtn");if(copy)copy.addEventListener("click",copyAccessEmail);
+      const mail=$("#accessEmail");if(mail)mail.setAttribute("href",ACCESS_MAILTO);
+    }
+    addEventListener("keydown",e=>{
+      if(e.key!=="Escape")return;
+      if(access&&access.classList.contains("open")){e.preventDefault();closeAccess();return;}
+      closeDossier();
+    });
   }
 
   /* ===== MISSION ARCHIVE BOARD ===== */
